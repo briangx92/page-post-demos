@@ -10,6 +10,7 @@
   Service area  : York & Central PA
   Email         : none — call/text only
   Photos        : 2 generic yard photos (no people, no signage)
+  Watermark     : tiled studio overlay + fixed banner + footer block
   ═══════════════════════════════════════════════════════════════
 -->
 <html lang="en">
@@ -212,6 +213,20 @@ footer a:hover{color:var(--gold)}
   .callbar{display:flex}
   body{padding-bottom:76px}
 }
+
+/* ===== 717 Digital Studio sample watermark (page-post pattern) ===== */
+.studio-banner{position:fixed;top:0;left:0;right:0;z-index:80;background:#0d1d13;color:var(--cream);
+  font-size:.78rem;font-weight:600;letter-spacing:.08em;text-align:center;padding:8px 12px;line-height:1.35}
+.studio-banner a{color:var(--gold);text-decoration:none}
+.studio-banner a:hover{text-decoration:underline}
+.topbar{top:33px}
+body::after{content:"";position:fixed;inset:-60px;z-index:40;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27560%27%20height%3D%27360%27%3E%3Cg%20transform%3D%27rotate%28-26%20280%20180%29%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-weight%3D%27700%27%20letter-spacing%3D%273%27%3E%3Ctext%20x%3D%27-60%27%20y%3D%2790%27%20font-size%3D%2725%27%20fill%3D%27%2312271a%27%20fill-opacity%3D%270.62%27%3E717%20DIGITAL%20STUDIO%20%26%23183%3B%20717DIGITALSTUDIO.COM%3C%2Ftext%3E%3Ctext%20x%3D%2760%27%20y%3D%27270%27%20font-size%3D%2725%27%20fill%3D%27%2312271a%27%20fill-opacity%3D%270.62%27%3E717%20DIGITAL%20STUDIO%20%26%23183%3B%20717DIGITALSTUDIO.COM%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;opacity:.13}
+.studio-block{margin-top:34px;padding:22px 0 4px;border-top:1px solid rgba(255,255,255,.12);
+  text-align:center;font-size:.92rem;color:rgba(247,243,232,.75)}
+.studio-block b{font-family:'Fraunces',serif;font-size:1.12rem;color:#fff;letter-spacing:.02em}
+.studio-block a{color:var(--gold);font-weight:600}
+@media(max-width:860px){.topbar{top:49px}}
 @media(prefers-reduced-motion:reduce){
   .hero-bg,.marquee-track{animation:none}
   .reveal{opacity:1;transform:none;transition:none}
@@ -220,6 +235,7 @@ footer a:hover{color:var(--gold)}
 </head>
 <body>
 
+<div class="studio-banner">Demo website by 717 Digital Studio &mdash; <a href="https://717digitalstudio.com" target="_blank" rel="noopener">717digitalstudio.com</a></div>
 <header class="topbar" id="topbar">
   <a class="brand" href="#top">Keystone Lawn Care<small>York &middot; Pennsylvania</small></a>
   <a class="top-call" href="tel:+17175550147">&#128222; (717) 555-0147</a>
@@ -414,6 +430,7 @@ footer a:hover{color:var(--gold)}
         <div style="margin-top:6px"><a href="#estimate">Free estimate</a></div>
       </div>
     </div>
+    <div class="studio-block">Demo website built by <b>717 Digital Studio</b> &middot; <a href="https://717digitalstudio.com" target="_blank" rel="noopener">717digitalstudio.com</a><br>Want a site like this for your business? Message us on Facebook.</div>
     <p class="foot-note">&copy; 2026 Keystone Lawn Care &middot; York, PA &middot; Fully insured &middot; Free estimates</p>
   </div>
 </footer>
