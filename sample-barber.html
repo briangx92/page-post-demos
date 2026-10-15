@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Main Street Barber Co. — Barber Shop — Harrisburg, PA (Sample)</title>
+<meta name="description" content="Main Street Barber Co. — a sample barber shop website by 717 Digital Studio. Fictional business; the design is real.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f7f2e5; --paper2:#efe7d3; --ink:#191510; --ink2:#4c463a;
+  --red:#b3352b; --red-d:#93302a; --line:#d8cfb8; --card:#fffdf6;
+  --slab:'Zilla Slab',Georgia,'Times New Roman',serif;
+  --sans:'Archivo',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html.lean{scroll-behavior:auto}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:var(--red-d)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--slab);line-height:1.08;font-weight:700}
+.kicker{font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red-d)}
+.halftone{background-image:radial-gradient(rgba(25,21,16,.16) 1px,transparent 1.4px);background-size:9px 9px}
+/* ---------- curtain entry ---------- */
+#curtain{position:fixed;inset:0;z-index:200;display:flex;pointer-events:none}
+#curtain .panel{flex:1;background:var(--ink);transform:translateY(0)}
+#curtain .panel.p2{background:var(--red-d)}
+body.lifted #curtain .panel{transform:translateY(-101%);transition:transform .9s cubic-bezier(.76,0,.24,1)}
+body.lifted #curtain .panel.p2{transition-delay:.12s}
+#curtain .word{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--paper);font-family:var(--slab);font-weight:700;font-size:clamp(1.3rem,4.5vw,2.2rem);letter-spacing:.04em;text-align:center;padding:0 16px}
+body.lifted #curtain .word{opacity:0;transition:opacity .3s ease}
+/* ---------- header ---------- */
+header.site{position:sticky;top:0;z-index:60;background:rgba(247,242,229,.96);backdrop-filter:blur(6px);border-bottom:3px double var(--ink)}
+.hd-in{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0}
+.brand{font-family:var(--slab);font-weight:700;font-size:1.18rem;line-height:1.05;color:var(--ink);text-decoration:none}
+.brand small{display:block;font-family:var(--sans);font-weight:600;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--red-d);margin-top:3px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:.95rem;text-decoration:none;border:2px solid var(--ink);padding:11px 20px;border-radius:3px;cursor:pointer;transition:transform .15s ease,background .15s ease,color .15s ease;background:transparent;color:var(--ink)}
+.btn:active{transform:scale(.98)}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn.solid:hover{background:var(--red-d);border-color:var(--red-d)}
+.btn.red{background:var(--red);border-color:var(--red);color:#fff}
+.btn.red:hover{background:var(--red-d);border-color:var(--red-d)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.hd-call{padding:9px 16px;font-size:.9rem}
+/* ---------- reveal ---------- */
+.rv{opacity:1}
+body.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.8,.3,1)}
+body.js .rv.in{opacity:1;transform:none}
+/* ---------- hero ---------- */
+.hero{border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:0;align-items:stretch}
+.hero-type{padding:64px 44px 56px 0;display:flex;flex-direction:column;justify-content:center}
+.hero-type .kicker{margin-bottom:16px}
+.hero-type h1{font-size:clamp(2.5rem,5.4vw,4.1rem);letter-spacing:-.01em}
+.hero-type h1 em{font-style:normal;color:var(--red);background:linear-gradient(transparent 64%,rgba(179,53,43,.20) 64%,rgba(179,53,43,.20) 94%,transparent 94%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .04em}
+.hero-sub{margin:20px 0 28px;color:var(--ink2);font-size:1.08rem;max-width:34rem}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero-note{margin-top:18px;font-size:.9rem;color:var(--ink2)}
+.collage{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1.35fr 1fr;gap:6px;padding:6px 0 6px 6px;min-height:420px}
+.collage figure{overflow:hidden;border-radius:3px;position:relative;background:var(--paper2)}
+.collage img{width:100%;height:100%;object-fit:cover}
+.collage .big{grid-column:1/3}
+.collage figure.pos-top img{object-position:center 18%}
+.collage figcaption{position:absolute;left:0;right:0;bottom:0;background:rgba(25,21,16,.82);color:var(--paper);font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px}
+/* ---------- trust strip ---------- */
+.trust{border-bottom:3px double var(--ink);background:var(--paper)}
+.trust-in{display:flex;flex-wrap:wrap;gap:10px 0;padding:16px 0}
+.trust span{flex:1 1 200px;text-align:center;font-weight:600;font-size:.95rem;padding:2px 12px}
+.trust span+span{border-left:1px solid var(--line)}
+.trust b{font-family:var(--slab);font-size:1.05rem}
+/* ---------- sections ---------- */
+section{padding:64px 0}
+.sec-head{max-width:44rem;margin-bottom:34px}
+.sec-head h2{font-size:clamp(1.8rem,3.6vw,2.5rem);margin:10px 0 8px}
+.sec-head p{color:var(--ink2)}
+.rule{border:none;border-top:1px solid var(--line)}
+/* ---------- carousel ---------- */
+.carousel{max-width:760px;margin:0 auto}
+.car-frame{border:2px solid var(--ink);border-radius:4px;background:var(--ink);padding:10px 10px 0;box-shadow:8px 8px 0 rgba(25,21,16,.12)}
+.car-view{overflow:hidden;border-radius:2px}
+.car-track{display:flex;transition:transform .55s cubic-bezier(.22,.8,.3,1)}
+.car-slide{flex:0 0 100%;background:var(--ink)}
+.car-slide img{width:100%;height:min(62vh,520px);object-fit:cover}
+.car-cap{background:var(--paper);border-top:2px solid var(--ink);padding:12px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.car-cap .cap-text{font-weight:600;font-size:.95rem}
+.car-cap .cap-count{font-family:var(--slab);font-weight:700;color:var(--red-d);white-space:nowrap}
+.car-nav{display:flex;align-items:center;justify-content:space-between;margin-top:16px}
+.car-btn{width:48px;height:48px;border-radius:50%;border:2px solid var(--ink);background:var(--paper);color:var(--ink);font-size:1.35rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,color .15s}
+.car-btn:hover{background:var(--ink);color:var(--paper)}
+.car-dots{display:flex;gap:9px}
+.car-dot{width:11px;height:11px;border-radius:50%;border:2px solid var(--ink);background:transparent;cursor:pointer;padding:0}
+.car-dot.on{background:var(--red);border-color:var(--red);transform:scale(1.25)}
+/* ---------- services ---------- */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.svc{background:var(--card);border:1.5px solid var(--ink);border-radius:4px;padding:22px 22px 20px;position:relative;box-shadow:5px 5px 0 rgba(25,21,16,.10)}
+.svc h3{font-size:1.28rem;margin-bottom:6px;padding-right:44px}
+.svc p{color:var(--ink2);font-size:.98rem}
+.svc .n{position:absolute;top:16px;right:18px;font-family:var(--slab);font-weight:700;color:var(--red);font-size:1rem;border:1.5px solid var(--red);border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center}
+.svc-foot{margin-top:20px;color:var(--ink2);font-size:.95rem}
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.about-grid h2{font-size:clamp(1.8rem,3.6vw,2.5rem);margin:10px 0 14px}
+.about-grid p{color:var(--ink2);margin-bottom:14px}
+.about-quote{font-family:var(--slab);font-size:1.35rem;font-weight:600;line-height:1.35;border-left:4px solid var(--red);padding:6px 0 6px 20px;color:var(--ink)}
+.about-quote small{display:block;margin-top:10px;font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+.about-img{border:2px solid var(--ink);border-radius:4px;overflow:hidden;box-shadow:8px 8px 0 rgba(25,21,16,.12)}
+.about-img img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3.4}
+/* ---------- form ---------- */
+.form-band{background:var(--ink);color:var(--paper);border-top:3px double var(--paper)}
+.form-band .kicker{color:#e8a49e}
+.form-band h2{color:var(--paper)}
+.form-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
+.form-side p{color:#cfc7b2;margin:12px 0 20px}
+.form-side .alt{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.form-side .btn{border-color:var(--paper);color:var(--paper)}
+.form-side .btn.solid{background:var(--red);border-color:var(--red)}
+.form-side .btn:hover{background:var(--paper);color:var(--ink)}
+form.appt{background:var(--paper);color:var(--ink);border-radius:4px;padding:26px;box-shadow:8px 8px 0 rgba(0,0,0,.35)}
+form.appt label{display:block;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;margin:0 0 6px}
+form.appt .fld{margin-bottom:16px}
+form.appt input,form.appt select,form.appt textarea{width:100%;font:inherit;font-size:1rem;padding:11px 12px;border:1.5px solid var(--ink2);border-radius:3px;background:#fff;color:var(--ink)}
+form.appt input:focus,form.appt select:focus,form.appt textarea:focus{outline:3px solid rgba(179,53,43,.35);border-color:var(--red)}
+form.appt .err{display:none;color:var(--red-d);font-size:.85rem;font-weight:600;margin-top:5px}
+form.appt .fld.bad input,form.appt .fld.bad select{border-color:var(--red)}
+form.appt .fld.bad .err{display:block}
+form.appt .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form.appt button[type=submit]{width:100%}
+.form-ok{display:none;background:#eef3e2;border:1.5px solid #5c7031;border-radius:4px;padding:22px;color:var(--ink)}
+.form-ok h3{margin-bottom:6px}
+.form-fine{margin-top:14px;font-size:.85rem;color:var(--ink2)}
+/* ---------- visit ---------- */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+.hours{width:100%;border-collapse:collapse;font-size:1rem}
+.hours td{padding:9px 4px;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-weight:600}
+.hours tr.today td{color:var(--red-d);font-weight:700}
+.hours .closed{color:var(--red-d);font-weight:700}
+.visit-facts{margin-bottom:22px}
+.visit-facts p{margin-bottom:8px;color:var(--ink2)}
+.visit-facts b{color:var(--ink)}
+.mapbox{border:2px solid var(--ink);border-radius:4px;overflow:hidden;box-shadow:8px 8px 0 rgba(25,21,16,.12);background:var(--paper2)}
+.mapbox iframe{width:100%;height:340px;border:0;display:block}
+/* ---------- footer ---------- */
+footer.site{background:var(--ink);color:var(--paper);padding:52px 0 60px}
+.ft-grid{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-start}
+footer.site .brand{color:var(--paper)}
+footer.site .brand small{color:#e8a49e}
+.ft-meta{color:#cfc7b2;font-size:.95rem;line-height:1.7}
+.ft-meta a{color:var(--paper)}
+.ft-social{font-size:.95rem}
+.ft-social a{color:var(--paper);font-weight:700}
+.ft-fine{margin-top:30px;padding-top:18px;border-top:1px solid #3a352b;font-size:.85rem;color:#a89e86}
+/* ---------- sticky call bar ---------- */
+.callbar{display:none}
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-type{padding:44px 0 30px}
+  .collage{padding:0 0 6px;min-height:0}
+  .about-grid,.form-grid,.visit-grid{grid-template-columns:1fr;gap:30px}
+  .svc-grid{grid-template-columns:1fr}
+  section{padding:48px 0}
+}
+@media (max-width:720px){
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:90;background:var(--ink);border-top:2px solid var(--red);padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:10px}
+  /* call-bar text centering (measured on the rendered page, 2026-10-15): flex centering keeps each label centered when the sibling button wraps to two lines at narrow widths (block layout pinned the one-line label to the top of the stretched button, ~13px high); top padding trimmed 0.5px because Archivo's glyphs ride ~0.6px low in their em box at this size */
+  .callbar a{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:11.5px 8px 12.5px;border-radius:3px;font-weight:700;text-decoration:none;font-size:.98rem}
+  .callbar .cb-call{background:var(--red);color:#fff}
+  .callbar .cb-book{background:var(--paper);color:var(--ink)}
+  footer.site{padding-bottom:calc(128px + env(safe-area-inset-bottom))}
+  .hd-call{display:none}
+  .trust span{flex:1 1 45%}
+  .trust span+span{border-left:none}
+  .car-slide img{height:52vh}
+  form.appt .row2{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+  html{scroll-behavior:auto}
+  #curtain{display:none}
+  body.js .rv{opacity:1;transform:none}
+}
+
+/* ===== sample photo-panel replacements (no real business photos) ===== */
+.ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;
+  background-color:var(--paper2);background-image:radial-gradient(rgba(25,21,16,.18) 1px,transparent 1.5px);background-size:9px 9px;
+  font-family:var(--slab);font-weight:700;color:var(--ink);letter-spacing:.06em;line-height:1.2;padding:18px;font-size:1.15rem}
+.ph span{border:2px solid var(--ink);background:var(--paper);padding:.45em .8em;box-shadow:5px 5px 0 rgba(25,21,16,.12)}
+.collage .big .ph{font-size:1.5rem}
+.car-slide .ph{height:min(62vh,520px);font-size:clamp(1.6rem,5vw,2.6rem)}
+.about-img .ph{aspect-ratio:4/3.4;height:auto;font-size:1.6rem}
+@media (max-width:720px){.car-slide .ph{height:52vh}}
+
+/* ===== 717 Digital Studio sample watermark (page-post pattern) ===== */
+.studio-banner{position:fixed;top:0;left:0;right:0;z-index:120;background:var(--ink);color:var(--paper);
+  font-size:.78rem;font-weight:600;letter-spacing:.08em;text-align:center;padding:8px 12px;line-height:1.35}
+.studio-banner a{color:#e0a458;text-decoration:none}
+.studio-banner a:hover{text-decoration:underline}
+header.site{top:34px}
+body{padding-top:34px}
+body::after{content:"";position:fixed;inset:-60px;z-index:40;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27560%27%20height%3D%27360%27%3E%3Cg%20transform%3D%27rotate%28-26%20280%20180%29%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-weight%3D%27700%27%20letter-spacing%3D%273%27%3E%3Ctext%20x%3D%27-60%27%20y%3D%2790%27%20font-size%3D%2725%27%20fill%3D%27%23191510%27%20fill-opacity%3D%270.62%27%3E717%20DIGITAL%20STUDIO%20%26%23183%3B%20717DIGITALSTUDIO.COM%3C%2Ftext%3E%3Ctext%20x%3D%2760%27%20y%3D%27270%27%20font-size%3D%2725%27%20fill%3D%27%23191510%27%20fill-opacity%3D%270.62%27%3E717%20DIGITAL%20STUDIO%20%26%23183%3B%20717DIGITALSTUDIO.COM%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;opacity:.13}
+.studio-block{margin-top:34px;padding:22px 0 4px;border-top:1px solid rgba(247,242,229,.14);
+  text-align:center;font-size:.92rem;color:#cfc7b2}
+.studio-block b{font-family:var(--slab);font-size:1.12rem;color:var(--paper);letter-spacing:.02em}
+.studio-block a{color:#e0a458;font-weight:600}
+@media(max-width:860px){header.site{top:50px} body{padding-top:50px}}
+</style>
+</head>
+<body>
+<div class="studio-banner">Demo website by 717 Digital Studio &mdash; <a href="https://717digitalstudio.com" target="_blank" rel="noopener">717digitalstudio.com</a></div>
+<div id="curtain" aria-hidden="true"><div class="panel"></div><div class="panel p2"></div><div class="word">Main Street<br>Barber Co.</div></div>
+
+<header class="site">
+  <div class="wrap hd-in">
+    <a class="brand" href="#top">Main Street Barber Co.<small>Barber Shop · Harrisburg, PA</small></a>
+    <a class="btn solid hd-call" href="tel:+17175550142">Call (717) 555-0142</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-type">
+        <p class="kicker">Downtown · Market Street</p>
+        <h1>Pull up a chair. <em>All are welcome.</em></h1>
+        <p class="hero-sub">A locally owned barber shop in Harrisburg — unisex and family hair services in a relaxed room where everybody belongs.</p>
+        <div class="hero-ctas">
+          <a class="btn red" href="tel:+17175550142">Call the shop</a>
+          <a class="btn ghost" href="#book">Request an appointment</a>
+        </div>
+        <p class="hero-note">Walk-ins welcome — or request a time with the form below and the shop will confirm.</p>
+      </div>
+      <div class="collage" aria-label="Sample style panels">
+        <figure class="big"><div class="ph" role="img" aria-label="Sample panel"><span>WALK-INS<br>WELCOME</span></div><figcaption>Walk-ins welcome</figcaption></figure>
+        <figure><div class="ph" role="img" aria-label="Sample panel"><span>FADES &amp;<br>TAPERS</span></div><figcaption>Fades &amp; tapers</figcaption></figure>
+        <figure class="pos-top"><div class="ph" role="img" aria-label="Sample panel"><span>BEARD<br>TRIMS</span></div><figcaption>Beard trims</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUST STRIP -->
+  <div class="trust">
+    <div class="wrap trust-in">
+      <span><b>Fades</b> &amp; classic cuts</span>
+      <span><b>Walk-ins</b> welcome</span>
+      <span><b>Book ahead</b> with the form</span>
+      <span><b>Locally owned</b> &amp; family run</span>
+    </div>
+  </div>
+
+  <!-- GALLERY / CAROUSEL -->
+  <section id="gallery">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="kicker">The Shop</p>
+        <h2>The Main Street look</h2>
+        <p>A sample gallery — the styles a neighborhood chair turns out every week.</p>
+      </div>
+      <div class="carousel rv">
+        <div class="car-frame">
+          <div class="car-view">
+            <div class="car-track" id="carTrack">
+              <div class="car-slide"><div class="ph" role="img" aria-label="Sample panel"><span>WALK-INS<br>WELCOME</span></div></div>
+              <div class="car-slide"><div class="ph" role="img" aria-label="Sample panel"><span>FADES &amp;<br>TAPERS</span></div></div>
+              <div class="car-slide"><div class="ph" role="img" aria-label="Sample panel"><span>BEARD<br>TRIMS</span></div></div>
+            </div>
+          </div>
+          <div class="car-cap"><span class="cap-text" id="carCap">Walk-ins welcome — pull up a chair</span><span class="cap-count" id="carCount">1 / 3</span></div>
+        </div>
+        <div class="car-nav">
+          <button class="car-btn" id="carPrev" type="button" aria-label="Previous photo">‹</button>
+          <div class="car-dots" id="carDots" role="tablist" aria-label="Choose photo"></div>
+          <button class="car-btn" id="carNext" type="button" aria-label="Next photo">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="kicker">Services</p>
+        <h2>Cuts for the whole family</h2>
+        <p>Men, women, and kids — one chair, one neighborhood shop.</p>
+      </div>
+      <div class="svc-grid">
+        <article class="svc rv"><span class="n">1</span><h3>Hair cuts</h3><p>A full-service cut, shaped to your hair and your style.</p></article>
+        <article class="svc rv"><span class="n">2</span><h3>Men's cuts</h3><p>Classic and modern cuts for men, finished clean.</p></article>
+        <article class="svc rv"><span class="n">3</span><h3>Women's cuts</h3><p>Cuts and shaping for women, long or short.</p></article>
+        <article class="svc rv"><span class="n">4</span><h3>Children's cuts</h3><p>Patient cuts for kids in a calm, family shop.</p></article>
+        <article class="svc rv"><span class="n">5</span><h3>Fades</h3><p>Blended down smooth on the sides, sharp at the edges.</p></article>
+        <article class="svc rv"><span class="n">6</span><h3>Tapers</h3><p>A gradual blend that keeps the neckline and edges neat.</p></article>
+        <article class="svc rv"><span class="n">7</span><h3>Beard trims</h3><p>Shaping and clean-up that keeps your beard in line.</p></article>
+      </div>
+      <p class="svc-foot rv">Call <a href="tel:+17175550142">(717) 555-0142</a> for today's chair times — or just walk in.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="rv">
+        <p class="kicker">About</p>
+        <h2>A family chair in Midtown</h2>
+        <p>Main Street Barber Co. is a locally owned barber shop in Harrisburg offering unisex and family hair services — cuts for men, women, and children under one roof.</p>
+        <blockquote class="about-quote">“A calm chair, an honest cut, and a shop where the whole neighborhood is welcome.”<small>The Main Street way</small></blockquote>
+      </div>
+      <div class="about-img rv"><div class="ph" role="img" aria-label="Sample panel"><span>THE<br>CHAIR</span></div></div>
+    </div>
+  </section>
+
+  <!-- APPOINTMENT REQUEST -->
+  <section class="form-band" id="book">
+    <div class="wrap form-grid">
+      <div class="form-side rv">
+        <p class="kicker">Appointments</p>
+        <h2>Request an appointment</h2>
+        <p>Tell the shop what you need and when suits you. Use the form to request a time — or just walk in during open hours.</p>
+        <div class="alt">
+          <a class="btn" href="tel:+17175550142">Call (717) 555-0142</a>
+        </div>
+      </div>
+      <div class="rv">
+        <form class="appt" id="apptForm" novalidate>
+          <div class="fld" data-req>
+            <label for="fName">Your name</label>
+            <input id="fName" name="name" type="text" autocomplete="name" placeholder="e.g. Jordan Smith">
+            <p class="err">Please add your name.</p>
+          </div>
+          <div class="fld" data-req>
+            <label for="fPhone">Phone</label>
+            <input id="fPhone" name="phone" type="tel" autocomplete="tel" placeholder="e.g. (717) 555-0134">
+            <p class="err">Please add a phone number so the shop can confirm.</p>
+          </div>
+          <div class="fld" data-req>
+            <label for="fService">Service</label>
+            <select id="fService" name="service">
+              <option value="">Choose a service…</option>
+              <option>Hair cut</option>
+              <option>Men's cut</option>
+              <option>Women's cut</option>
+              <option>Children's cut</option>
+              <option>Fade</option>
+              <option>Taper</option>
+              <option>Beard trim</option>
+            </select>
+            <p class="err">Please choose a service.</p>
+          </div>
+          <div class="row2">
+            <div class="fld" data-req>
+              <label for="fDay">Preferred day</label>
+              <select id="fDay" name="day">
+                <option value="">Choose a day…</option>
+                <option>First available</option>
+                <option>Monday</option>
+                <option>Wednesday</option>
+                <option>Thursday</option>
+                <option>Friday</option>
+                <option>Saturday</option>
+              </select>
+              <p class="err">Please pick a day.</p>
+            </div>
+            <div class="fld" data-req>
+              <label for="fTime">Preferred time</label>
+              <select id="fTime" name="time">
+                <option value="">Choose a time…</option>
+                <option>Morning</option>
+                <option>Midday</option>
+                <option>Afternoon</option>
+                <option>Evening</option>
+              </select>
+              <p class="err">Please pick a time.</p>
+            </div>
+          </div>
+          <div class="fld">
+            <label for="fNote">Anything the shop should know? <span style="font-weight:500;text-transform:none;letter-spacing:0">(optional)</span></label>
+            <textarea id="fNote" name="note" rows="3" placeholder="e.g. First visit — usually get a low fade"></textarea>
+          </div>
+          <button class="btn red" type="submit">Send request</button>
+          <p class="form-fine">Sample form — on a live site, requests go straight to the shop, which confirms by phone.</p>
+        </form>
+        <div class="form-ok" id="formOk" tabindex="-1">
+          <h3>Request noted — thank you.</h3>
+          <p id="formOkText">The shop will confirm your time. Need it sooner? Call <a href="tel:+17175550142">(717) 555-0142</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="kicker">Visit</p>
+        <h2>Find the shop</h2>
+      </div>
+      <div class="visit-grid">
+        <div class="rv">
+          <div class="visit-facts">
+            <p><b>Address:</b> 456 Market St, Harrisburg, PA 17101</p>
+            <p><b>Phone:</b> <a href="tel:+17175550142">(717) 555-0142</a></p>
+            <p><b>Appointments:</b> request below · walk-ins welcome</p>
+          </div>
+          <table class="hours" id="hoursTable" aria-label="Opening hours">
+            <tr data-day="1"><td>Monday</td><td>8:00 AM – 7:00 PM</td></tr>
+            <tr data-day="2"><td>Tuesday</td><td class="closed">Closed</td></tr>
+            <tr data-day="3"><td>Wednesday</td><td>8:00 AM – 7:00 PM</td></tr>
+            <tr data-day="4"><td>Thursday</td><td>8:00 AM – 7:00 PM</td></tr>
+            <tr data-day="5"><td>Friday</td><td>7:30 AM – 7:00 PM</td></tr>
+            <tr data-day="6"><td>Saturday</td><td>7:30 AM – 7:00 PM</td></tr>
+            <tr data-day="0"><td>Sunday</td><td class="closed">Closed</td></tr>
+          </table>
+        </div>
+        <div class="mapbox rv">
+          <iframe title="Map of Harrisburg, PA" src="https://maps.google.com/maps?q=Harrisburg%2C%20PA&t=&z=12&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <span class="brand">Main Street Barber Co.<small>Barber Shop · Harrisburg, PA</small></span>
+        <p class="ft-meta" style="margin-top:14px">456 Market St, Harrisburg, PA 17101<br><a href="tel:+17175550142">(717) 555-0142</a></p>
+      </div>
+      <div class="ft-meta">
+        Open Mon, Wed &amp; Thu 8–7 · Fri &amp; Sat 7:30–7<br>Closed Tuesday &amp; Sunday
+      </div>
+      <div class="ft-social">
+        A sample by <a href="https://717digitalstudio.com" target="_blank" rel="noopener">717 Digital Studio</a>
+      </div>
+    </div>
+    <div class="studio-block">Demo website built by <b>717 Digital Studio</b> &middot; <a href="https://717digitalstudio.com" target="_blank" rel="noopener">717digitalstudio.com</a><br>Want a site like this for your business? Message us on Facebook.</div>
+    <p class="ft-fine">Main Street Barber Co. · 456 Market St, Harrisburg, PA 17101 · Walk-ins welcome</p>
+  </div>
+</footer>
+
+<nav class="callbar" aria-label="Quick contact">
+  <a class="cb-call" href="tel:+17175550142">Call the shop</a>
+  <a class="cb-book" href="#book">Request appointment</a>
+</nav>
+
+<script>
+(function(){
+  "use strict";
+  document.body.classList.add('js');
+  /* adaptive performance: lean mode on slow / data-saver connections */
+  var lean=false;
+  try{
+    var c=navigator.connection;
+    if(c && (c.saveData || /(^|-)2g$/.test(c.effectiveType||''))){ lean=true; }
+  }catch(e){}
+  if(lean){ document.documentElement.classList.add('lean'); }
+
+  /* curtain-lift entry */
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced || lean){
+    var cur=document.getElementById('curtain'); if(cur){ cur.style.display='none'; }
+  }else{
+    requestAnimationFrame(function(){ setTimeout(function(){ document.body.classList.add('lifted'); }, 500); });
+    setTimeout(function(){ var c2=document.getElementById('curtain'); if(c2){ c2.style.display='none'; } }, 2400);
+  }
+
+  /* reveals: fade/slide in AND out */
+  var rvEls=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window && !reduced){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); } else { en.target.classList.remove('in'); } });
+    },{threshold:0.12});
+    rvEls.forEach(function(el){ io.observe(el); });
+  }else{
+    rvEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* carousel — same pattern as 717digitalstudio.com: track slides, round buttons, dots, swipe, 5s autoplay */
+  var caps=[
+    'Walk-ins welcome — pull up a chair',
+    'Fades, tapers and classic cuts',
+    'Beard trims — shaped and cleaned up'
+  ];
+  var track=document.getElementById('carTrack');
+  var slides=track.children.length, idx=0, timer=null;
+  var capEl=document.getElementById('carCap'), cntEl=document.getElementById('carCount');
+  var dotsWrap=document.getElementById('carDots'), dots=[];
+  for(var i=0;i<slides;i++){
+    var d=document.createElement('button'); d.type='button'; d.className='car-dot';
+    d.setAttribute('aria-label','Photo '+(i+1)); d.dataset.i=i;
+    d.addEventListener('click',function(){ go(parseInt(this.dataset.i,10)); restart(); });
+    dotsWrap.appendChild(d); dots.push(d);
+  }
+  function render(){
+    track.style.transform='translateX('+(-idx*100)+'%)';
+    capEl.textContent=caps[idx]; cntEl.textContent=(idx+1)+' / '+slides;
+    dots.forEach(function(dt,j){ dt.classList.toggle('on', j===idx); });
+  }
+  function go(n){ idx=(n+slides)%slides; render(); }
+  function next(){ go(idx+1); } function prev(){ go(idx-1); }
+  document.getElementById('carNext').addEventListener('click',function(){ next(); restart(); });
+  document.getElementById('carPrev').addEventListener('click',function(){ prev(); restart(); });
+  var tx=null;
+  track.addEventListener('touchstart',function(e){ tx=e.touches[0].clientX; },{passive:true});
+  track.addEventListener('touchend',function(e){
+    if(tx===null) return; var dx=e.changedTouches[0].clientX-tx;
+    if(Math.abs(dx)>40){ if(dx<0){ next(); } else { prev(); } restart(); }
+    tx=null;
+  },{passive:true});
+  function start(){ if(reduced || lean || timer) return; timer=setInterval(next,5000); }
+  function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+  function restart(){ stop(); start(); }
+  var carEl=document.querySelector('.carousel');
+  carEl.addEventListener('mouseenter',stop); carEl.addEventListener('mouseleave',start);
+  render(); start();
+
+  /* appointment form: in-page validation + confirmation, transmits nothing */
+  var form=document.getElementById('apptForm');
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var ok=true;
+    form.querySelectorAll('.fld[data-req]').forEach(function(fld){
+      var inp=fld.querySelector('input,select,textarea');
+      var bad=!inp.value || !inp.value.trim();
+      if(inp.id==='fPhone' && !bad && inp.value.replace(/\D/g,'').length<7){ bad=true; }
+      fld.classList.toggle('bad',bad); if(bad){ ok=false; }
+    });
+    if(!ok){ var first=form.querySelector('.fld.bad input,.fld.bad select'); if(first){ first.focus(); } return; }
+    var name=document.getElementById('fName').value.trim();
+    var svc=document.getElementById('fService').value;
+    var day=document.getElementById('fDay').value;
+    var time=document.getElementById('fTime').value.toLowerCase();
+    var okBox=document.getElementById('formOk');
+    document.getElementById('formOkText').innerHTML='Thanks, '+name.replace(/</g,'&lt;')+' — your request for a '+svc.replace(/</g,'&lt;')+' on '+day.replace(/</g,'&lt;')+' ('+time+') is noted. The shop confirms appointments by phone — or call <a href="tel:+17175550142">(717) 555-0142</a>.';
+    form.style.display='none'; okBox.style.display='block'; okBox.focus();
+    okBox.scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block:'center'});
+  });
+  form.querySelectorAll('.fld[data-req] input,.fld[data-req] select').forEach(function(inp){
+    inp.addEventListener('input',function(){ inp.closest('.fld').classList.remove('bad'); });
+  });
+
+  /* highlight today's hours row */
+  var today=new Date().getDay();
+  var row=document.querySelector('#hoursTable tr[data-day="'+today+'"]');
+  if(row){ row.classList.add('today'); }
+})();
+</script>
+</body>
+</html>
