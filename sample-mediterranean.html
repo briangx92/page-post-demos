@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!--
+  ===============================================================
+  SAMPLE SITE - Mediterranean Restaurant
+  Scrubbed generic sample. Every business detail below is
+  fictional - swap in a real prospect's details to reuse.
+  ---------------------------------------------------------------
+  Business name : Cedar & Saffron Mediterranean Kitchen
+  Phone         : (717) 555-0164   ->   tel:+17175550164
+  Address       : 118 Walnut St, Harrisburg, PA 17101 (fictional)
+  Photos        : none - sample panels only (no real business photos)
+  Watermark     : tiled studio overlay + fixed banner + footer block
+  ===============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Cedar &amp; Saffron Mediterranean Kitchen — Harrisburg, PA (Sample)</title>
+<meta name="description" content="Cedar &amp; Saffron Mediterranean Kitchen — a sample Mediterranean restaurant website by 717 Digital Studio. Fictional business; the design is real.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6ED; --paper:#FFFDF7; --ink:#26221E; --ink-soft:#575046;
+    --mahogany:#7C2128; --mahogany-deep:#5E181F; --olive:#5A6448; --saffron:#C08A2D;
+    --line:#E4D8C2; --card:#FFFFFF;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif}
+  a{color:var(--mahogany)}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 1.5rem}
+
+  /* header */
+  .site-head{position:sticky;top:0;z-index:60;background:rgba(250,246,237,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .head-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 0}
+  .brand{text-decoration:none;color:var(--ink);line-height:1.05}
+  .brand .b-name{font-family:'Fraunces',serif;font-weight:700;font-size:1.45rem;letter-spacing:.01em}
+  .brand .b-sub{display:block;font-size:.62rem;font-weight:700;letter-spacing:.34em;color:var(--mahogany);text-transform:uppercase;margin-top:.15rem}
+  .site-nav{display:flex;align-items:center;gap:1.4rem}
+  .site-nav a.nl{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
+  .site-nav a.nl:hover{color:var(--mahogany)}
+  .call-pill{display:inline-flex;align-items:center;gap:.45rem;background:var(--mahogany);color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;padding:.55rem 1.05rem;border-radius:999px;white-space:nowrap}
+  .call-pill:hover{background:var(--mahogany-deep)}
+  @media(max-width:640px){ .site-nav a.nl{display:none} .brand .b-name{font-size:1.25rem} }
+
+  /* hero */
+  .hero{position:relative;color:#FFF7EA;overflow:hidden;background:#2A1214}
+  .hero-media{position:absolute;inset:0}
+  .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 38%;animation:kenburns 26s ease-in-out infinite alternate}
+  @keyframes kenburns{from{transform:scale(1) translateY(0)}to{transform:scale(1.09) translateY(-1.5%)}}
+  .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(38,10,12,.58) 0%,rgba(38,10,12,.42) 42%,rgba(30,8,10,.82) 100%)}
+  .hero-in{position:relative;padding:6.2rem 0 5.2rem;max-width:1060px;margin:0 auto;padding-left:1.5rem;padding-right:1.5rem}
+  .kicker{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#F2C879;border:1px solid rgba(242,200,121,.55);padding:.4rem .8rem;border-radius:999px;background:rgba(30,8,10,.35)}
+  .hero h1{font-size:clamp(2.6rem,6.2vw,4.3rem);line-height:1.04;font-weight:600;margin:1.3rem 0 1rem;max-width:13.5em}
+  .hero h1 em{font-style:italic;color:#F2C879}
+  .hero-sub{font-size:1.13rem;max-width:36em;color:#F6EAD3;margin:0 0 1.6rem}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:1.9rem}
+  .chip{display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,253,247,.13);border:1px solid rgba(255,247,234,.35);color:#FFF7EA;padding:.42rem .85rem;border-radius:999px;font-size:.9rem;font-weight:600;backdrop-filter:blur(3px)}
+  .chip .star{color:#F2C879}
+  .dot{width:.5rem;height:.5rem;border-radius:50%;background:#8FD07A;display:inline-block}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;padding:.85rem 1.6rem;border-radius:.45rem;font-size:1rem}
+  .btn-solid{background:var(--mahogany);color:#fff;border:1px solid var(--mahogany)}
+  .btn-solid:hover{background:var(--mahogany-deep)}
+  .btn-ghost{background:rgba(255,253,247,.1);color:#FFF7EA;border:1px solid rgba(255,247,234,.6)}
+  .btn-ghost:hover{background:rgba(255,253,247,.22)}
+  .rise{opacity:0;transform:translateY(18px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .d1{animation-delay:.08s}.d2{animation-delay:.2s}.d3{animation-delay:.34s}.d4{animation-delay:.48s}.d5{animation-delay:.62s}
+
+  /* marquee */
+  .marquee{background:var(--mahogany);color:#F8E9CE;overflow:hidden;padding:.65rem 0;border-block:3px double rgba(248,233,206,.35)}
+  .marquee-track{display:flex;gap:2.6rem;white-space:nowrap;width:max-content;animation:mq 36s linear infinite;font-family:'Fraunces',serif;font-size:1.02rem;letter-spacing:.04em}
+  .marquee-track span::after{content:"✦";margin-left:2.6rem;color:#E9B558;font-size:.8em}
+  @keyframes mq{to{transform:translateX(-50%)}}
+
+  /* sections */
+  .section{padding:4.2rem 0}
+  .sec-head{max-width:44em;margin-bottom:2.2rem}
+  .sec-kicker{font-size:.75rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--mahogany);margin:0 0 .6rem}
+  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);line-height:1.12;margin:0 0 .7rem;font-weight:600}
+  .sec-head p{color:var(--ink-soft);margin:0;font-size:1.05rem}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* menu */
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.6rem 3.4rem}
+  @media(max-width:760px){.menu-grid{grid-template-columns:1fr}}
+  .menu-group h3{font-size:1.3rem;margin:0 0 .4rem;color:var(--mahogany-deep);font-weight:600}
+  .menu-group .g-note{font-size:.92rem;color:var(--ink-soft);margin:0 0 .8rem}
+  .dish-list{list-style:none;margin:0;padding:0}
+  .dish-list li{display:flex;align-items:baseline;gap:.6rem;padding:.5rem 0;border-bottom:1px dotted var(--line)}
+  .dish-list .dish{font-weight:600}
+  .dish-list .leader{flex:1;border-bottom:2px dotted #D8C8A6;transform:translateY(-3px)}
+  .dish-list .desc{font-size:.9rem;color:var(--ink-soft);font-weight:400}
+  .menu-foot{margin-top:2.4rem;background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--saffron);border-radius:.5rem;padding:1.1rem 1.3rem;font-size:.98rem;color:var(--ink-soft)}
+  .menu-foot strong{color:var(--ink)}
+
+  /* story */
+  .story{background:var(--mahogany-deep);color:#F6EAD3}
+  .story .sec-kicker{color:#E9B558}
+  .story-grid{display:grid;grid-template-columns:5fr 6fr;gap:3rem;align-items:center}
+  @media(max-width:820px){.story-grid{grid-template-columns:1fr}}
+  .story-photo{border-radius:.6rem;overflow:hidden;box-shadow:0 24px 48px rgba(0,0,0,.35);transform:rotate(-1.1deg)}
+  .story-photo img{width:100%;height:100%;object-fit:cover}
+  .story h2{color:#FFF7EA}
+  .story p{color:#EBD9BC}
+  .feature-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.8rem}
+  @media(max-width:640px){.feature-row{grid-template-columns:1fr}}
+  .feature{border-top:3px solid var(--saffron);padding-top:.6rem;font-weight:700;color:#FFF7EA;font-size:.98rem}
+  .feature small{display:block;font-weight:500;color:#D9C29A;margin-top:.2rem}
+
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:2.6rem;align-items:start}
+  @media(max-width:820px){.visit-grid{grid-template-columns:1fr}}
+  .hours-card{background:var(--card);border:1px solid var(--line);border-radius:.6rem;padding:1.4rem 1.5rem}
+  .hours-card h3{margin:0 0 .3rem;font-size:1.25rem}
+  .addr{color:var(--ink-soft);margin:.1rem 0 1rem}
+  .hours-table{width:100%;border-collapse:collapse;font-size:.98rem}
+  .hours-table td{padding:.48rem 0;border-bottom:1px solid #EFE6D2}
+  .hours-table tr:last-child td{border-bottom:none}
+  .hours-table td:last-child{text-align:right;font-weight:600}
+  .hours-table tr.today td{color:var(--mahogany);font-weight:700}
+  .hours-table tr.today td:first-child::after{content:" · today";font-size:.8rem;color:var(--saffron);font-weight:700}
+  .open-line{display:flex;align-items:center;gap:.5rem;font-weight:700;margin:.4rem 0 1rem;color:var(--olive)}
+  .open-line.closed{color:var(--mahogany)}
+  .visit-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.2rem}
+  .btn-olive{background:var(--olive);color:#fff;text-decoration:none;font-weight:700;padding:.8rem 1.4rem;border-radius:.45rem;display:inline-block}
+  .btn-olive:hover{filter:brightness(.92)}
+  .btn-line{border:1.5px solid var(--mahogany);color:var(--mahogany);text-decoration:none;font-weight:700;padding:.8rem 1.4rem;border-radius:.45rem;display:inline-block;background:transparent}
+  .btn-line:hover{background:rgba(124,33,40,.06)}
+  .map-frame{border-radius:.6rem;overflow:hidden;border:1px solid var(--line);min-height:340px;background:#EDE4D0}
+  .map-frame iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
+  .big-call{margin-top:2.6rem;text-align:center;background:var(--paper);border:1px solid var(--line);border-radius:.6rem;padding:2rem 1.5rem}
+  .big-call .bc-q{font-family:'Fraunces',serif;font-size:1.5rem;margin:0 0 .4rem}
+  .big-call p{color:var(--ink-soft);margin:0 0 1.2rem}
+
+
+  /* gallery */
+  .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+  @media(max-width:760px){.gal-grid{grid-template-columns:1fr}}
+  .gal-item{border-radius:.6rem;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+  .gal-item img{width:100%;height:300px;object-fit:cover}
+  .gal-item figcaption{padding:.7rem 1rem;font-size:.92rem;font-weight:600;color:var(--ink-soft)}
+  .story-photo{margin:0}
+  .story-photo figcaption{padding:.8rem .4rem 0;font-size:.9rem;color:#D9C29A;font-style:italic}
+
+  /* footer */
+  .site-foot{background:#221A15;color:#CBBEA9;padding:2.6rem 0 6.4rem;margin-top:0}
+  .foot-grid{display:flex;flex-wrap:wrap;gap:1.6rem 3rem;justify-content:space-between;align-items:flex-start}
+  .site-foot .f-name{font-family:'Fraunces',serif;color:#FFF7EA;font-size:1.3rem;font-weight:700}
+  .site-foot a{color:#E9B558;text-decoration:none}
+  .site-foot a:hover{text-decoration:underline}
+  .foot-small{font-size:.88rem;margin-top:1.4rem;color:#9A8B74}
+
+  /* mobile call bar */
+  .call-bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--mahogany-deep);box-shadow:0 -6px 18px rgba(0,0,0,.25)}
+  .call-bar a{flex:1;text-align:center;color:#FFF7EA;text-decoration:none;font-weight:700;padding:.95rem .5rem;font-size:1rem}
+  .call-bar a + a{border-left:1px solid rgba(255,247,234,.25)}
+  @media(max-width:720px){ .call-bar{display:flex} }
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none !important;transition:none !important}
+    .rise,.reveal{opacity:1 !important;transform:none !important}
+    html{scroll-behavior:auto}
+  }
+
+  /* ===== sample photo-panel replacements (no real business photos) ===== */
+  .ph{width:100%;height:100%;min-height:220px;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#7C2128,#5E181F 55%,#5A6448);color:#FAF6ED;font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:1.5rem;letter-spacing:.06em;padding:24px}
+  .hero-media .ph{position:absolute;inset:0;min-height:0;font-size:clamp(1.8rem,5vw,3rem)}
+  .gal-item .ph,.story-photo .ph{aspect-ratio:4/3;height:auto}
+  /* ===== 717 Digital Studio sample watermark (page-post pattern) ===== */
+  .studio-banner{position:fixed;top:0;left:0;right:0;z-index:120;background:#26221E;color:#FAF6ED;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-align:center;padding:8px 12px;line-height:1.35}
+  .studio-banner a{color:#C08A2D;text-decoration:none}
+  .studio-banner a:hover{text-decoration:underline}
+  .site-head{top:34px} body{padding-top:34px}
+  body::after{content:"";position:fixed;inset:-60px;z-index:90;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27560%27%20height%3D%27360%27%3E%3Cg%20transform%3D%27rotate%28-26%20280%20180%29%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-weight%3D%27700%27%20letter-spacing%3D%273%27%3E%3Ctext%20x%3D%27-60%27%20y%3D%2790%27%20font-size%3D%2725%27%20fill%3D%27%2326221E%27%20fill-opacity%3D%270.62%27%3E717%20DIGITAL%20STUDIO%20%26%23183%3B%20717DIGITALSTUDIO.COM%3C%2Ftext%3E%3Ctext%20x%3D%2760%27%20y%3D%27270%27%20font-size%3D%2725%27%20fill%3D%27%2326221E%27%20fill-opacity%3D%270.62%27%3E717%20DIGITAL%20STUDIO%20%26%23183%3B%20717DIGITALSTUDIO.COM%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;opacity:.13}
+  .studio-block{margin-top:34px;padding:22px 0 4px;border-top:1px solid rgba(250,246,237,.16);text-align:center;font-size:.92rem;color:rgba(250,246,237,.78)}
+  .studio-block b{font-family:'Fraunces',serif;font-size:1.12rem;color:#FAF6ED;letter-spacing:.02em}
+  .studio-block a{color:#C08A2D;font-weight:600}
+  @media(max-width:860px){.site-head{top:50px} body{padding-top:50px}}
+</style>
+</head>
+<body>
+<div class="studio-banner">Demo website by 717 Digital Studio &mdash; <a href="https://717digitalstudio.com" target="_blank" rel="noopener">717digitalstudio.com</a></div>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="#top"><span class="b-name">Cedar &amp; Saffron</span><span class="b-sub">Mediterranean Kitchen</span></a>
+    <nav class="site-nav">
+      <a class="nl" href="#menu">Menu</a>
+      <a class="nl" href="#story">Our Story</a>
+      <a class="nl" href="#gallery">Gallery</a>
+      <a class="nl" href="#visit">Visit</a>
+      <a class="call-pill" href="tel:+17175550164">☎ (717) 555-0164</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-media"><div class="ph" role="img" aria-label="Sample panel"><span>WOOD-FIRE<br>OVEN</span></div></div>
+  <div class="hero-shade"></div>
+  <div class="hero-in">
+    <span class="kicker rise d1">Downtown · Harrisburg, PA</span>
+    <h1 class="rise d2">From a family kitchen, <em>by way of the wood-fire oven.</em></h1>
+    <p class="hero-sub rise d3">Cedar &amp; Saffron Mediterranean Kitchen is a fictional sample restaurant serving Mediterranean dishes on Walnut Street &mdash; dine in for lunch or dinner, Monday through Saturday.</p>
+    <div class="hero-meta rise d4">
+      <span class="chip">Walk-ins welcome</span>
+      <span class="chip"><span class="dot" id="openDot"></span><span id="openText">Open today · 11:00 AM &ndash; 9:00 PM</span></span>
+    </div>
+    <div class="hero-cta rise d5">
+      <a class="btn btn-solid" href="tel:+17175550164">Call (717) 555-0164</a>
+      <a class="btn btn-ghost" href="#menu">See the Menu</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="menu">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="sec-kicker">The Menu</p>
+      <h2>Cooked the way it&rsquo;s cooked at home</h2>
+      <p>Mediterranean dishes, with fresh items coming out of the wood-fire oven all day. This is a sample menu &mdash; items are shown to display the design, with no prices.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-group reveal">
+        <h3>From the Wood-Fire Oven</h3>
+        <p class="g-note">Baked fresh in-house through the day.</p>
+        <ul class="dish-list">
+          <li><span class="dish">Flatbread with za&rsquo;atar</span><span class="leader"></span></li>
+          <li><span class="dish">Seasoned beef flatbread</span><span class="leader"></span></li>
+          <li><span class="dish">Wood-fire oven items</span><span class="leader"></span><span class="desc">baked through the day</span></li>
+        </ul>
+      </div>
+      <div class="menu-group reveal">
+        <h3>Small Plates</h3>
+        <p class="g-note">For the middle of the table.</p>
+        <ul class="dish-list">
+          <li><span class="dish">Hummus</span><span class="leader"></span><span class="desc">with homemade pita</span></li>
+          <li><span class="dish">Stuffed grape leaves</span><span class="leader"></span><span class="desc">with rice &amp; herbs</span></li>
+          <li><span class="dish">Grilled halloumi</span><span class="leader"></span></li>
+          <li><span class="dish">Falafel plate</span><span class="leader"></span></li>
+          <li><span class="dish">Marinated olives</span><span class="leader"></span></li>
+        </ul>
+      </div>
+      <div class="menu-group reveal">
+        <h3>From the Kitchen</h3>
+        <p class="g-note">Lunch and dinner, dine-in or to go.</p>
+        <ul class="dish-list">
+          <li><span class="dish">Chicken shawarma plate</span><span class="leader"></span><span class="desc">with rice &amp; salad</span></li>
+          <li><span class="dish">Lamb kebab plate</span><span class="leader"></span></li>
+        </ul>
+      </div>
+      <div class="menu-group reveal">
+        <h3>Sweets &amp; Sips</h3>
+        <p class="g-note">Save a little room.</p>
+        <ul class="dish-list">
+          <li><span class="dish">Baklava</span><span class="leader"></span></li>
+          <li><span class="dish">Mint lemonade</span><span class="leader"></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="menu-foot reveal">
+      <strong>Sample menu:</strong> on a live site, the complete menu and prices would appear here. Call <a href="tel:+17175550164">(717) 555-0164</a> to hear what&rsquo;s cooking, ask about catering, or order ahead.
+    </div>
+  </div>
+</section>
+
+<section class="section story" id="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <figure class="story-photo reveal"><div class="ph" role="img" aria-label="Sample panel"><span>THE<br>DINING ROOM</span></div><figcaption>A sample dining room panel</figcaption></figure>
+      <div class="reveal">
+        <p class="sec-kicker">Our Story</p>
+        <h2 class="serif" style="font-size:clamp(1.9rem,3.6vw,2.6rem);line-height:1.12;margin:0 0 1rem;font-weight:600">A family table, opened to the neighborhood</h2>
+        <p>Cedar &amp; Saffron is a fictional sample restaurant &mdash; a family-run kitchen written to show how a real restaurant&rsquo;s story would read on a live site.</p>
+        <p>The sample menu centers on Mediterranean dishes cooked fresh &mdash; much of it in the wood-fire oven you can see from the dining room.</p>
+        <div class="feature-row">
+          <div class="feature">Family-owned<small>A sample family kitchen</small></div>
+          <div class="feature">Wood-fire oven<small>Fresh items baked in-house</small></div>
+          <div class="feature">Downtown Harrisburg<small>118 Walnut St (fictional)</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="gallery" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="sec-kicker">Gallery</p>
+      <h2>From the dining room</h2>
+      <p>Sample panels in place of photos &mdash; on a live site, these frames hold the restaurant&rsquo;s own photos.</p>
+    </div>
+    <div class="gal-grid">
+      <figure class="gal-item reveal" style="margin:0"><div class="ph" role="img" aria-label="Sample panel"><span>DINING<br>ROOM</span></div><figcaption>Dinner in the dining room</figcaption></figure>
+      <figure class="gal-item reveal" style="margin:0"><div class="ph" role="img" aria-label="Sample panel"><span>WOOD-FIRE<br>OVEN</span></div><figcaption>The wood-fire oven, at the back of the room</figcaption></figure>
+      <figure class="gal-item reveal" style="margin:0"><div class="ph" role="img" aria-label="Sample panel"><span>FRONT<br>WINDOW</span></div><figcaption>Evenings by the front window</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="visit">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="sec-kicker">Visit</p>
+      <h2>Find us on Walnut Street</h2>
+      <p>Walk-ins are welcome, or call ahead at <a href="tel:+17175550164">(717) 555-0164</a>. Catering is available &mdash; call to ask.</p>
+    </div>
+    <div class="visit-grid">
+      <div class="hours-card reveal">
+        <h3 class="serif">Cedar &amp; Saffron Mediterranean Kitchen</h3>
+        <p class="addr">118 Walnut St, Harrisburg, PA 17101</p>
+        <p class="open-line" id="openLine"><span class="dot"></span><span id="openLineText">Open today · 11:00 AM &ndash; 9:00 PM</span></p>
+        <table class="hours-table" id="hoursTable">
+          <tr data-day="1"><td>Monday</td><td>11:00 AM &ndash; 9:00 PM</td></tr>
+          <tr data-day="2"><td>Tuesday</td><td>11:00 AM &ndash; 9:00 PM</td></tr>
+          <tr data-day="3"><td>Wednesday</td><td>11:00 AM &ndash; 9:00 PM</td></tr>
+          <tr data-day="4"><td>Thursday</td><td>11:00 AM &ndash; 9:00 PM</td></tr>
+          <tr data-day="5"><td>Friday</td><td>11:00 AM &ndash; 9:00 PM</td></tr>
+          <tr data-day="6"><td>Saturday</td><td>11:00 AM &ndash; 9:00 PM</td></tr>
+          <tr data-day="0"><td>Sunday</td><td>Closed</td></tr>
+        </table>
+        <div class="visit-actions">
+          <a class="btn-olive" href="tel:+17175550164">Call to order ahead</a>
+          <a class="btn-line" href="https://717digitalstudio.com" target="_blank" rel="noopener">Sample by 717 Digital Studio</a>
+        </div>
+      </div>
+      <div class="map-frame reveal">
+        <iframe src="https://maps.google.com/maps?q=Harrisburg%2C%20PA" loading="lazy" title="Map - Harrisburg, PA (sample)" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+    <div class="big-call reveal">
+      <p class="bc-q">Hungry, or planning something bigger?</p>
+      <p>Call for today&rsquo;s dishes, takeout, or catering.</p>
+      <a class="btn btn-solid" href="tel:+17175550164">Call (717) 555-0164</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="f-name">Cedar &amp; Saffron Mediterranean Kitchen</div>
+        <div>118 Walnut St, Harrisburg, PA 17101</div>
+        <div><a href="tel:+17175550164">(717) 555-0164</a></div>
+      </div>
+      <div>
+        <div>Monday &ndash; Saturday · 11:00 AM &ndash; 9:00 PM</div>
+        <div>Closed Sunday</div>
+        <div><a href="https://717digitalstudio.com" target="_blank" rel="noopener">A sample by 717 Digital Studio</a></div>
+      </div>
+    </div>
+    <p class="foot-small">© <span id="yr">2026</span> Cedar &amp; Saffron Mediterranean Kitchen · Downtown Harrisburg, PA (fictional sample)</p>
+    <div class="studio-block">Demo website built by <b>717 Digital Studio</b> &middot; <a href="https://717digitalstudio.com" target="_blank" rel="noopener">717digitalstudio.com</a><br>Want a site like this for your business? Message us on Facebook.</div>
+  </div>
+</footer>
+
+<div class="call-bar">
+  <a href="tel:+17175550164">☎ Call</a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Harrisburg+PA" target="_blank" rel="noopener">Directions</a>
+</div>
+
+<script>
+(function(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // sample: no marquee (removed in scrub)
+
+  // sample hours: Mon-Sat 11:00-21:00 ET, Sun closed (JS day: 0=Sun..6=Sat)
+  var HOURS = {0:null, 1:[11,21], 2:[11,21], 3:[11,21], 4:[11,21], 5:[11,21], 6:[11,21]};
+  var DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  function fmt(h){ var ap = h>=12?'PM':'AM'; var hh = h%12; if(hh===0) hh=12; return hh+':00 '+ap; }
+  var now = new Date(new Date().toLocaleString('en-US',{timeZone:'America/New_York'}));
+  var day = now.getDay(), hr = now.getHours() + now.getMinutes()/60;
+  var today = HOURS[day];
+  var msg, open;
+  if(today && hr >= today[0] && hr < today[1]){ open = true; msg = 'Open now · until '+fmt(today[1]); }
+  else if(today && hr < today[0]){ open = false; msg = 'Opens today at '+fmt(today[0]); }
+  else {
+    open = false;
+    for(var i=1;i<=7;i++){ var nd = (day+i)%7; if(HOURS[nd]){ msg = 'Closed · opens '+DAYS[nd]+' at '+fmt(HOURS[nd][0]); break; } }
+  }
+  var t = document.getElementById('openText'); if(t) t.textContent = msg;
+  var lt = document.getElementById('openLineText'); if(lt) lt.textContent = msg;
+  var line = document.getElementById('openLine'); if(line && !open) line.classList.add('closed');
+  var dot = document.getElementById('openDot'); if(dot && !open) dot.style.background = '#E0A458';
+  var rows = document.querySelectorAll('#hoursTable tr');
+  rows.forEach(function(r){ if(parseInt(r.getAttribute('data-day'),10) === day) r.classList.add('today'); });
+
+  // scroll reveals
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
