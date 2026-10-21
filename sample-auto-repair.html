@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<!--
+  SAMPLE SITE - Auto Repair
+  Scrubbed generic sample (recycled 2026-10-21 from a retired prospect demo).
+  Every business detail below is fictional - swap in a real client's details to reuse.
+  Business name : Keystone Auto Repair
+  Phone         : (717) 555-0151
+  Service area  : Harrisburg & Central PA
+  Photos        : none - CSS-only hero, no real business photos
+  Watermark     : tiled studio overlay + fixed banner + footer block
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keystone Auto Repair — Harrisburg &amp; Central PA | Brakes, Inspection, Tires (Sample)</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Keystone Auto Repair — a sample auto repair website by 717 Digital Studio. Fictional business; the design is real. Brakes, exhaust, suspension, diagnostics, PA inspection, tires & alignments. Call (717) 555-0151.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{overflow-x:hidden;overflow-x:clip}
+
+:root{
+  --ink:#16171B; --ink2:#23252B; --paper:#F5F0E6; --cream:#FBF8F1;
+  --red:#B3271E; --red-d:#8E1B14; --steel:#5C6169; --line:rgba(22,23,27,.14);
+  --ease:cubic-bezier(.22,.7,.25,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:var(--red)}
+.serif{font-family:'Fraunces',Georgia,serif}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+/* ---------- header ---------- */
+.site-head{position:sticky;top:0;z-index:60;background:rgba(251,248,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+.site-head.scrolled{box-shadow:0 6px 24px rgba(22,23,27,.12)}
+.head-in{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:11px;padding-bottom:11px}
+.brand{line-height:1.05;color:var(--ink);text-decoration:none}
+.brand .b-name{font-family:'Fraunces',serif;font-weight:900;font-size:1.28rem;letter-spacing:.01em;white-space:nowrap}
+.brand .b-sub{font-size:.6rem;font-weight:700;letter-spacing:.32em;color:var(--red);text-transform:uppercase}
+.site-nav{display:flex;align-items:center;gap:22px}
+.site-nav a.nl{color:var(--ink);text-decoration:none;font-weight:600;font-size:.9rem}
+.site-nav a.nl:hover{color:var(--red)}
+.call-btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:.92rem;padding:10px 18px;border-radius:999px;white-space:nowrap;transition:background .25s,transform .25s}
+.call-btn:hover{background:var(--red-d);transform:translateY(-1px)}
+.call-btn svg{flex:none}
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:var(--ink);color:var(--cream)}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:118%;object-fit:cover;object-position:center 38%}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(100deg,rgba(14,14,17,.88) 30%,rgba(14,14,17,.55) 62%,rgba(14,14,17,.28));}
+.hero-in{position:relative;padding-top:84px;padding-bottom:64px;max-width:720px}
+.kicker{font-size:.68rem;font-weight:800;letter-spacing:.34em;text-transform:uppercase;color:#F0B8B2}
+.hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.7rem,6.4vw,4.6rem);line-height:1.02;letter-spacing:.005em;margin:16px 0 18px}
+.hero h1 em{font-style:italic;color:#F3C14B}
+.hero-sub{font-size:1.06rem;color:rgba(251,248,241,.88);max-width:560px}
+.hero-chips{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 26px}
+.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(251,248,241,.35);background:rgba(20,20,24,.45);color:var(--cream);font-size:.8rem;font-weight:600;padding:6px 12px;border-radius:999px}
+.chip .dot{width:8px;height:8px;border-radius:50%;background:#7BC47F;flex:none}
+.chip.closed .dot{background:#E2574C}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(251,248,241,.75);color:var(--cream);text-decoration:none;font-weight:700;font-size:.92rem;padding:11px 20px;border-radius:999px;transition:background .25s,color .25s}
+.btn-ghost:hover{background:var(--cream);color:var(--ink)}
+.hero-trust{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:34px;padding-top:20px;border-top:1px solid rgba(251,248,241,.22);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,248,241,.75)}
+/* entry choreography */
+.curtain{position:absolute;inset:0;background:var(--ink);z-index:5;pointer-events:none;opacity:1}
+html.anim .curtain{transition:transform 1s var(--ease) .05s,opacity .5s ease .6s;transform-origin:top}
+html.anim .hero.go .curtain{transform:scaleY(0);opacity:.98}
+html.anim .boot{opacity:0;transform:translateY(26px)}
+html.anim .hero.go .boot{opacity:1;transform:none;transition:opacity .85s var(--ease),transform .85s var(--ease);transition-delay:var(--d,0s)}
+html.anim .hero-bg img{animation:kenburns 16s ease-out forwards}
+@keyframes kenburns{from{transform:scale(1.12)}to{transform:scale(1)}}
+/* ---------- scroll reveals (in AND out) ---------- */
+html.anim [data-rv]{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+html.anim [data-rv="left"]{transform:translateX(-30px)}
+html.anim [data-rv="right"]{transform:translateX(30px)}
+html.anim [data-rv="zoom"]{transform:scale(.94)}
+html.anim [data-rv].in{opacity:1;transform:none}
+/* ---------- sections ---------- */
+.section{padding:56px 0}
+.sec-head{max-width:640px;margin-bottom:28px}
+.sec-head .kick{font-size:.66rem;font-weight:800;letter-spacing:.32em;text-transform:uppercase;color:var(--red)}
+.sec-head h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(1.8rem,3.6vw,2.5rem);line-height:1.08;margin-top:8px}
+.sec-head p{color:var(--steel);margin-top:8px;font-size:.98rem}
+/* services accordion cards */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.svc{background:var(--cream);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:box-shadow .3s,border-color .3s}
+.svc.open{border-color:rgba(179,39,30,.45);box-shadow:0 14px 34px rgba(22,23,27,.10)}
+.svc-head{width:100%;display:flex;align-items:center;gap:14px;background:none;border:0;cursor:pointer;text-align:left;padding:18px 20px;font-family:inherit;color:var(--ink)}
+.svc-num{font-family:'Fraunces',serif;font-weight:900;font-size:1.05rem;color:#fff;background:var(--ink);width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex:none;transition:background .3s}
+.svc.open .svc-num{background:var(--red)}
+.svc-name{font-weight:800;font-size:1.02rem;flex:1;line-height:1.25}
+.svc-name small{display:block;font-weight:500;font-size:.8rem;color:var(--steel);margin-top:2px}
+.svc-chev{flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;transition:transform .4s var(--ease),background .3s,border-color .3s}
+.svc.open .svc-chev{transform:rotate(180deg);background:var(--red);border-color:var(--red)}
+.svc.open .svc-chev svg path{stroke:#fff}
+.svc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.svc.open .svc-panel{grid-template-rows:1fr}
+.svc-panel-in{overflow:hidden}
+.svc-body{padding:2px 20px 20px 74px}
+.svc-body ul{list-style:none;display:grid;gap:6px}
+.svc-body li{font-size:.92rem;color:var(--ink2);padding-left:18px;position:relative}
+.svc-body li::before{content:"";position:absolute;left:0;top:.52em;width:8px;height:8px;border-radius:2px;background:var(--red);opacity:.75}
+.svc-req{display:inline-block;margin-top:13px;font-weight:700;font-size:.88rem;color:var(--red);text-decoration:none;border-bottom:2px solid rgba(179,39,30,.3);padding-bottom:1px}
+.svc-req:hover{border-color:var(--red)}
+/* photo strip */
+.strip{background:var(--ink);color:var(--cream);padding:52px 0}
+.strip-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:22px}
+.strip-head h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(1.6rem,3vw,2.2rem)}
+.strip-head p{color:rgba(251,248,241,.65);font-size:.92rem;max-width:460px}
+.strip-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.shot{border-radius:14px;overflow:hidden;position:relative}
+.shot img{width:100%;height:190px;object-fit:cover;transition:transform .8s var(--ease)}
+.shot:hover img{transform:scale(1.06)}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;font-size:.74rem;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(10,10,12,.78))}
+/* request form */
+.req-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:start}
+.req-steps{display:grid;gap:14px;margin-top:20px}
+.step{display:flex;gap:13px;align-items:flex-start}
+.step .n{font-family:'Fraunces',serif;font-weight:900;background:var(--red);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;font-size:.9rem}
+.step p{font-size:.93rem;color:var(--ink2)}
+.step p b{color:var(--ink)}
+.call-card{margin-top:24px;background:var(--ink);color:var(--cream);border-radius:16px;padding:20px 22px}
+.call-card .cc-k{font-size:.64rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:#F0B8B2}
+.call-card .cc-n{font-family:'Fraunces',serif;font-weight:900;font-size:1.7rem;margin:6px 0 2px}
+.call-card a{color:#fff;text-decoration:none}
+.call-card p{font-size:.86rem;color:rgba(251,248,241,.7)}
+form.req{background:var(--cream);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 18px 40px rgba(22,23,27,.07)}
+form.req.flash{animation:flash 1s var(--ease)}
+@keyframes flash{0%{box-shadow:0 0 0 0 rgba(179,39,30,.45)}100%{box-shadow:0 0 0 22px rgba(179,39,30,0)}}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f-field{margin-bottom:14px;position:relative}
+.f-field label{display:block;font-size:.78rem;font-weight:700;letter-spacing:.04em;margin-bottom:6px}
+.f-field label i{font-style:normal;color:var(--red)}
+.f-field input,.f-field select,.f-field textarea{width:100%;font:inherit;font-size:.95rem;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;transition:border-color .25s,box-shadow .25s;appearance:none}
+.f-field textarea{resize:vertical;min-height:86px}
+.f-field input:focus,.f-field select:focus,.f-field textarea:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 4px rgba(179,39,30,.13)}
+.f-field.err input,.f-field.err select,.f-field.err textarea{border-color:var(--red);background:#FDF3F2}
+.f-err{display:none;font-size:.78rem;color:var(--red);font-weight:600;margin-top:5px}
+.f-field.err .f-err{display:block}
+.f-sel{position:relative}
+.f-sel::after{content:"";position:absolute;right:15px;top:50%;width:9px;height:9px;border-right:2px solid var(--steel);border-bottom:2px solid var(--steel);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.quick{display:flex;flex-wrap:wrap;gap:7px;margin:2px 0 16px}
+.quick span{font-size:.76rem;font-weight:700;color:var(--steel);align-self:center}
+.qchip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;font-size:.8rem;font-weight:600;cursor:pointer;font-family:inherit;color:var(--ink);transition:all .25s}
+.qchip:hover{border-color:var(--red);color:var(--red)}
+.qchip.on{background:var(--red);border-color:var(--red);color:#fff}
+.f-submit{width:100%;background:var(--red);color:#fff;border:0;border-radius:12px;padding:14px;font:inherit;font-weight:800;font-size:1rem;cursor:pointer;transition:background .25s,transform .2s}
+.f-submit:hover{background:var(--red-d)}
+.f-submit:active{transform:scale(.99)}
+.f-note{font-size:.78rem;color:var(--steel);text-align:center;margin-top:11px}
+.form-done{display:none;background:var(--cream);border:1px solid rgba(38,120,52,.4);border-radius:18px;padding:28px 24px;box-shadow:0 18px 40px rgba(22,23,27,.07)}
+.form-done.show{display:block}
+.form-done h3{font-family:'Fraunces',serif;font-weight:900;font-size:1.45rem;margin-bottom:6px}
+.form-done p{font-size:.93rem;color:var(--ink2)}
+.form-done dl{margin:16px 0;display:grid;gap:7px}
+.form-done dl div{display:flex;gap:10px;font-size:.9rem;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.form-done dt{font-weight:700;min-width:86px;color:var(--steel)}
+.form-done .row{display:flex;flex-wrap:wrap;gap:11px;margin-top:6px}
+.btn-ink{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;padding:11px 19px;border-radius:999px}
+.link-btn{background:none;border:0;font:inherit;font-weight:700;color:var(--red);cursor:pointer;font-size:.9rem;text-decoration:underline;text-underline-offset:3px}
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:14px;align-items:stretch}
+.hours-card,.info-card{background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:22px}
+.hours-card h3,.info-card h3{font-family:'Fraunces',serif;font-weight:900;font-size:1.15rem;margin-bottom:12px}
+.hours-table{width:100%;border-collapse:collapse;font-size:.92rem}
+.hours-table td{padding:6.5px 2px;border-bottom:1px dashed var(--line)}
+.hours-table tr:last-child td{border-bottom:0}
+.hours-table td:last-child{text-align:right;font-weight:600}
+.hours-table tr.today td{color:var(--red);font-weight:800}
+.hours-table tr.today td:last-child::after{content:" · today";font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+.open-line{margin-top:13px;font-size:.86rem;font-weight:700;display:flex;align-items:center;gap:8px}
+.open-line .dot{width:9px;height:9px;border-radius:50%;background:#2E7D32;flex:none}
+.open-line.closed .dot{background:#C62828}
+.info-card p{font-size:.95rem;margin-bottom:7px}
+.info-card .addr{font-size:1.05rem;font-weight:700}
+.info-card .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}
+.btn-red{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;padding:11px 19px;border-radius:999px}
+.btn-red:hover{background:var(--red-d)}
+.btn-line{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:700;font-size:.9rem;padding:10px 18px;border-radius:999px}
+.btn-line:hover{background:var(--ink);color:#fff}
+.map-frame{margin-top:14px;border-radius:16px;overflow:hidden;border:1px solid var(--line);line-height:0}
+.map-frame iframe{width:100%;height:300px;border:0}
+/* footer + call bar */
+.site-foot{background:var(--ink);color:rgba(251,248,241,.75);padding:30px 0 96px;font-size:.86rem}
+.foot-in{display:flex;flex-wrap:wrap;gap:8px 34px;justify-content:space-between;align-items:center}
+.site-foot b{color:#fff;font-family:'Fraunces',serif;font-size:1.02rem}
+.site-foot a{color:#F0B8B2;text-decoration:none;font-weight:600}
+.call-bar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;background:rgba(22,23,27,.97);backdrop-filter:blur(8px);padding:9px 10px calc(9px + env(safe-area-inset-bottom));gap:9px}
+.call-bar a{flex:1;text-align:center;text-decoration:none;font-weight:800;font-size:.9rem;padding:12px 6px;border-radius:11px;color:#fff;background:var(--ink2);border:1px solid rgba(251,248,241,.2)}
+.call-bar a.cb-call{background:var(--red);border-color:var(--red)}
+@media(max-width:900px){
+  .svc-grid,.req-grid,.visit-grid{grid-template-columns:1fr}
+  .strip-grid{grid-template-columns:repeat(2,1fr)}
+  .shot img{height:160px}
+  .site-nav a.nl{display:none}
+  .hero-in{padding-top:58px;padding-bottom:48px}
+  .call-bar{display:flex}
+  .site-foot{padding-bottom:96px}
+  .svc-body{padding-left:20px}
+}
+@media(max-width:430px){
+  .brand .b-name{font-size:1.08rem}
+  .call-btn{font-size:.84rem;padding:9px 13px}
+  .f-row{grid-template-columns:1fr}
+  .hero h1{font-size:2.55rem}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001s !important;transition-duration:.001s !important}
+}
+
+/* ===== 717 Digital Studio sample watermark (page-post pattern) ===== */
+.studio-banner{position:fixed;top:0;left:0;right:0;z-index:120;background:#16171B;color:#FBF8F1;
+  font-size:.78rem;font-weight:600;letter-spacing:.08em;text-align:center;padding:8px 12px;line-height:1.35}
+.studio-banner a{color:#F3C14B;text-decoration:none}
+.studio-banner a:hover{text-decoration:underline}
+.site-head{top:34px}
+body{padding-top:34px}
+body::after{content:"";position:fixed;inset:-60px;z-index:40;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27560%27%20height%3D%27360%27%3E%3Cg%20transform%3D%27rotate%28-26%20280%20180%29%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-weight%3D%27700%27%20letter-spacing%3D%273%27%3E%3Ctext%20x%3D%27-60%27%20y%3D%2790%27%20font-size%3D%2725%27%20fill%3D%27%2316171B%27%20fill-opacity%3D%270.62%27%3E717%20DIGITAL%20STUDIO%20%26%23183%3B%20717DIGITALSTUDIO.COM%3C%2Ftext%3E%3Ctext%20x%3D%2760%27%20y%3D%27270%27%20font-size%3D%2725%27%20fill%3D%27%2316171B%27%20fill-opacity%3D%270.62%27%3E717%20DIGITAL%20STUDIO%20%26%23183%3B%20717DIGITALSTUDIO.COM%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;opacity:.13}
+.studio-block{flex-basis:100%;margin-top:20px;padding:22px 0 4px;border-top:1px solid rgba(251,248,241,.16);
+  text-align:center;font-size:.92rem;color:rgba(251,248,241,.75)}
+.studio-block b{font-family:'Fraunces',serif;font-size:1.12rem;color:#FBF8F1;letter-spacing:.02em}
+.studio-block a{color:#F3C14B;font-weight:600}
+@media(max-width:860px){.site-head{top:50px} body{padding-top:50px}}
+</style>
+</head>
+<body>
+<div class="studio-banner">Demo website by 717 Digital Studio &mdash; <a href="https://717digitalstudio.com" target="_blank" rel="noopener">717digitalstudio.com</a></div>
+<header class="site-head" id="head">
+  <div class="wrap head-in">
+    <a class="brand" href="#top">
+      <span class="b-name">Keystone Auto Repair</span><br>
+      <span class="b-sub">Auto Repair &middot; Harrisburg, PA</span>
+    </a>
+    <nav class="site-nav">
+      <a class="nl" href="#services">Services</a>
+      
+      <a class="nl" href="#visit">Hours &amp; Directions</a>
+      <a class="call-btn" href="tel:+17175550151"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z" fill="#fff"/></svg>(717) 555-0151</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg" style="background:linear-gradient(120deg,#23252B 0%,#16171B 55%,#3a1512 100%)"></div>
+  <div class="hero-shade"></div>
+  <div class="wrap hero-in">
+    <p class="kicker">Harrisburg, PA &middot; Auto Repair &mdash; Sample Site</p>
+    <h1>Your car,<br>fixed <em>right</em>.</h1>
+    <p class="hero-sub">A neighborhood auto repair shop in Harrisburg, working on domestic and foreign cars, SUVs and light trucks. Diagnosed first, then fixed &mdash; no surprises.</p>
+    <div class="hero-chips" style="--d:.62s">
+      <span class="chip">Sample business &middot; Fictional details</span>
+      <span class="chip" id="openChip"><span class="dot"></span><span id="openChipTxt">Hours: Mon&ndash;Fri 8&ndash;5 &middot; Sat 9&ndash;2</span></span>
+    </div>
+    <div class="hero-ctas" style="--d:.76s">
+      <a class="call-btn" href="tel:+17175550151"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z" fill="#fff"/></svg>Call (717) 555-0151</a>
+      <a class="btn-ghost" href="#request">Request service</a>
+    </div>
+    <div class="hero-trust" style="--d:.92s">
+      <span>Experienced Technicians</span>
+      <span>All Makes &amp; Models</span>
+      <span>Domestic &amp; Foreign</span>
+      <span>PA Inspection</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services" style="padding-bottom:40px">
+  <div class="wrap">
+    <div class="sec-head" data-rv>
+      <p class="kick">What we do</p>
+      <h2>Services, straight up.</h2>
+      <p>Eight things this shop does every week. Tap any card to see exactly what&rsquo;s included &mdash; and if it&rsquo;s what your car needs, the request form is one more tap.</p>
+    </div>
+    <div class="svc-grid" id="svcGrid">
+      <article class="svc" data-rv>
+        <button class="svc-head" aria-expanded="false">
+          <span class="svc-num">01</span>
+          <span class="svc-name">General Auto Repair<small>Domestic &amp; foreign cars, SUVs &amp; light trucks</small></span>
+          <span class="svc-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#16171B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="svc-panel"><div class="svc-panel-in"><div class="svc-body">
+          <ul>
+            <li>Mechanical repair for cars, SUVs &amp; light trucks</li>
+            <li>Domestic and foreign makes</li>
+            <li>Diagnosed first &mdash; then fixed</li>
+          </ul>
+          <a class="svc-req" href="#request" data-service="General auto repair">Request this service &rarr;</a>
+        </div></div></div>
+      </article>
+      <article class="svc" data-rv>
+        <button class="svc-head" aria-expanded="false">
+          <span class="svc-num">02</span>
+          <span class="svc-name">Brake Repair<small>Pads, rotors &amp; everything that stops you</small></span>
+          <span class="svc-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#16171B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="svc-panel"><div class="svc-panel-in"><div class="svc-body">
+          <ul>
+            <li>Brake pads &amp; rotors</li>
+            <li>Calipers, brake lines &amp; hoses</li>
+            <li>Brake fluid service</li>
+            <li>Squeaks, grinding &amp; pedal feel checked</li>
+          </ul>
+          <a class="svc-req" href="#request" data-service="Brake repair">Request this service &rarr;</a>
+        </div></div></div>
+      </article>
+      <article class="svc" data-rv>
+        <button class="svc-head" aria-expanded="false">
+          <span class="svc-num">03</span>
+          <span class="svc-name">Exhaust System Replacement<small>From manifold to tailpipe</small></span>
+          <span class="svc-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#16171B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="svc-panel"><div class="svc-panel-in"><div class="svc-body">
+          <ul>
+            <li>Mufflers &amp; tailpipes</li>
+            <li>Exhaust pipes &amp; manifolds</li>
+            <li>Catalytic converters</li>
+            <li>Leaks &amp; rattles tracked down</li>
+          </ul>
+          <a class="svc-req" href="#request" data-service="Exhaust system replacement">Request this service &rarr;</a>
+        </div></div></div>
+      </article>
+      <article class="svc" data-rv>
+        <button class="svc-head" aria-expanded="false">
+          <span class="svc-num">04</span>
+          <span class="svc-name">Suspension Work<small>Shocks, struts &amp; steering</small></span>
+          <span class="svc-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#16171B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="svc-panel"><div class="svc-panel-in"><div class="svc-body">
+          <ul>
+            <li>Shocks &amp; struts</li>
+            <li>Ball joints &amp; tie rods</li>
+            <li>Control arms &amp; bushings</li>
+            <li>Bounces, clunks &amp; wandering steering</li>
+          </ul>
+          <a class="svc-req" href="#request" data-service="Suspension work">Request this service &rarr;</a>
+        </div></div></div>
+      </article>
+      <article class="svc" data-rv>
+        <button class="svc-head" aria-expanded="false">
+          <span class="svc-num">05</span>
+          <span class="svc-name">Computer Diagnostics<small>Check-engine lights, decoded</small></span>
+          <span class="svc-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#16171B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="svc-panel"><div class="svc-panel-in"><div class="svc-body">
+          <ul>
+            <li>Check-engine light diagnosis</li>
+            <li>Computer scan &amp; code reading</li>
+            <li>Sensor &amp; warning-light testing</li>
+            <li>Find the cause &mdash; not just the code</li>
+          </ul>
+          <a class="svc-req" href="#request" data-service="Computer diagnostics">Request this service &rarr;</a>
+        </div></div></div>
+      </article>
+      <article class="svc" data-rv>
+        <button class="svc-head" aria-expanded="false">
+          <span class="svc-num">06</span>
+          <span class="svc-name">PA Safety Inspection<small>Your annual sticker, done here</small></span>
+          <span class="svc-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#16171B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="svc-panel"><div class="svc-panel-in"><div class="svc-body">
+          <ul>
+            <li>Official PA safety inspection</li>
+            <li>Brakes, tires, lights &amp; steering checked</li>
+            <li>Suspension &amp; exhaust inspected</li>
+            <li>Sticker issued when it passes</li>
+          </ul>
+          <a class="svc-req" href="#request" data-service="PA safety inspection">Request this service &rarr;</a>
+        </div></div></div>
+      </article>
+      <article class="svc" data-rv>
+        <button class="svc-head" aria-expanded="false">
+          <span class="svc-num">07</span>
+          <span class="svc-name">Tires<small>Major brands, mounted &amp; balanced</small></span>
+          <span class="svc-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#16171B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="svc-panel"><div class="svc-panel-in"><div class="svc-body">
+          <ul>
+            <li>Major tire brands</li>
+            <li>Mounting &amp; balancing in-house</li>
+            <li>Flat repair &amp; rotations</li>
+          </ul>
+          <a class="svc-req" href="#request" data-service="Tires">Request this service &rarr;</a>
+        </div></div></div>
+      </article>
+      <article class="svc" data-rv>
+        <button class="svc-head" aria-expanded="false">
+          <span class="svc-num">08</span>
+          <span class="svc-name">Wheel Alignments<small>Computerized, measured &amp; set</small></span>
+          <span class="svc-chev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#16171B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="svc-panel"><div class="svc-panel-in"><div class="svc-body">
+          <ul>
+            <li>Computerized wheel alignment</li>
+            <li>Pulling, drifting &amp; uneven tire wear</li>
+            <li>Pairs with tire &amp; suspension work</li>
+          </ul>
+          <a class="svc-req" href="#request" data-service="Wheel alignment">Request this service &rarr;</a>
+        </div></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="request">
+  <div class="wrap">
+    <div class="req-grid">
+      <div data-rv="left">
+        <div class="sec-head" style="margin-bottom:0">
+          <p class="kick">Request service</p>
+          <h2>Tell us what it&rsquo;s doing.</h2>
+          <p>Noise, light on the dash, due for inspection &mdash; describe it and ask for a time. Prefer to just talk it through? The phone is faster.</p>
+        </div>
+        <div class="req-steps">
+          <div class="step"><span class="n">1</span><p><b>Send the request.</b> Pick the service, tell us the vehicle and what it&rsquo;s doing.</p></div>
+          <div class="step"><span class="n">2</span><p><b>The shop calls you back</b> to talk it over and set a time that works.</p></div>
+          <div class="step"><span class="n">3</span><p><b>Drop it off at the shop.</b> Diagnosed first, then fixed &mdash; no surprises.</p></div>
+        </div>
+        <div class="call-card">
+          <p class="cc-k">Fastest route</p>
+          <p class="cc-n"><a href="tel:+17175550151">(717) 555-0151</a></p>
+          <p>Mon&ndash;Fri 8:00 AM&ndash;5:00 PM &middot; Sat 9:00 AM&ndash;2:00 PM</p>
+        </div>
+      </div>
+      <div data-rv="right">
+        <form class="req" id="reqForm" novalidate>
+          <div class="f-row">
+            <div class="f-field" id="fw-name">
+              <label for="fName">Your name <i>*</i></label>
+              <input id="fName" name="name" type="text" autocomplete="name" placeholder="Jane Miller">
+              <p class="f-err">Please add your name.</p>
+            </div>
+            <div class="f-field" id="fw-phone">
+              <label for="fPhone">Phone <i>*</i></label>
+              <input id="fPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(717) 555-0123">
+              <p class="f-err">Add a 10-digit phone number so the shop can call back.</p>
+            </div>
+          </div>
+          <div class="f-field" id="fw-vehicle">
+            <label for="fVehicle">Vehicle <i>*</i></label>
+            <input id="fVehicle" name="vehicle" type="text" placeholder="2019 Honda CR-V">
+            <p class="f-err">What do you drive? Year, make &amp; model is plenty.</p>
+          </div>
+          <div class="f-field" id="fw-service">
+            <label for="fService">What does it need? <i>*</i></label>
+            <div class="f-sel">
+              <select id="fService" name="service">
+                <option value="">Choose a service&hellip;</option>
+                <option>General auto repair</option>
+                <option>Brake repair</option>
+                <option>Exhaust system replacement</option>
+                <option>Suspension work</option>
+                <option>Computer diagnostics</option>
+                <option>PA safety inspection</option>
+                <option>Tires</option>
+                <option>Wheel alignment</option>
+                <option>Not sure &mdash; help me figure it out</option>
+              </select>
+            </div>
+            <p class="f-err">Pick the closest service &mdash; &ldquo;not sure&rdquo; is a fine answer.</p>
+          </div>
+          <div class="quick" id="quickPick">
+            <span>Common:</span>
+            <button type="button" class="qchip" data-service="Brake repair">Brakes</button>
+            <button type="button" class="qchip" data-service="PA safety inspection">Inspection</button>
+            <button type="button" class="qchip" data-service="Computer diagnostics">Check-engine light</button>
+            <button type="button" class="qchip" data-service="Tires">Tires</button>
+          </div>
+          <div class="f-field">
+            <label for="fWhen">Preferred day <span style="color:var(--steel); font-weight:500">(optional)</span></label>
+            <input id="fWhen" name="when" type="date">
+          </div>
+          <div class="f-field">
+            <label for="fMsg">What&rsquo;s it doing? <span style="color:var(--steel); font-weight:500">(optional)</span></label>
+            <textarea id="fMsg" name="message" placeholder="Grinding noise when I brake, started last week&hellip;"></textarea>
+          </div>
+          <button class="f-submit" type="submit">Send service request</button>
+          <p class="f-note">No spam, no lists &mdash; the request goes to the shop, and the shop calls you back.</p>
+        </form>
+        <div class="form-done" id="formDone" role="status">
+          <h3>Request received.</h3>
+          <p>Here&rsquo;s what&rsquo;s headed to the shop. If it&rsquo;s urgent, skip the wait and call <a href="tel:+17175550151"><b>(717) 555-0151</b></a>.</p>
+          <dl id="doneSummary"></dl>
+          <div class="row">
+            <a class="btn-ink" href="tel:+17175550151">Call the shop instead</a>
+            <button class="link-btn" id="doneReset" type="button">Send another request</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="visit" style="padding-top:8px">
+  <div class="wrap">
+    <div class="sec-head" data-rv>
+      <p class="kick">Visit</p>
+      <h2>On Market St, in Harrisburg.</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="hours-card" data-rv="left">
+        <h3>Hours</h3>
+        <table class="hours-table" id="hoursTable">
+          <tr data-day="1"><td>Monday</td><td>8:00 AM &ndash; 5:00 PM</td></tr>
+          <tr data-day="2"><td>Tuesday</td><td>8:00 AM &ndash; 5:00 PM</td></tr>
+          <tr data-day="3"><td>Wednesday</td><td>8:00 AM &ndash; 5:00 PM</td></tr>
+          <tr data-day="4"><td>Thursday</td><td>8:00 AM &ndash; 5:00 PM</td></tr>
+          <tr data-day="5"><td>Friday</td><td>8:00 AM &ndash; 5:00 PM</td></tr>
+          <tr data-day="6"><td>Saturday</td><td>9:00 AM &ndash; 2:00 PM</td></tr>
+          <tr data-day="0"><td>Sunday</td><td>Closed</td></tr>
+        </table>
+        <p class="open-line" id="openLine"><span class="dot"></span><span id="openLineTxt"></span></p>
+      </div>
+      <div class="info-card" data-rv="right">
+        <h3>Find the shop</h3>
+        <p class="addr">1234 Market St<br>Harrisburg, PA 17101</p>
+        <p>Phone: <a href="tel:+17175550151"><b>(717) 555-0151</b></a></p>
+        <div class="btns">
+          <a class="btn-red" href="https://www.google.com/maps/dir/?api=1&amp;destination=1234+Market+St+Harrisburg+PA+17101" target="_blank" rel="noopener">Get directions</a>
+          <a class="btn-line" href="tel:+17175550151">Call the shop</a>
+        </div>
+      </div>
+    </div>
+    <div class="map-frame" data-rv="zoom">
+      <iframe src="https://maps.google.com/maps?q=Harrisburg%2C%20PA&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=&amp;output=embed" loading="lazy" title="Map to Keystone Auto Repair, Harrisburg, PA"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap foot-in">
+    <span><b>Keystone Auto Repair</b> &middot; 1234 Market St, Harrisburg, PA 17101</span>
+    <span>Mon&ndash;Fri 8&ndash;5 &middot; Sat 9&ndash;2 &middot; <a href="tel:+17175550151">(717) 555-0151</a></span>
+    <div class="studio-block">Demo website built by <b>717 Digital Studio</b> &middot; <a href="https://717digitalstudio.com" target="_blank" rel="noopener">717digitalstudio.com</a><br>Want a site like this for your business? Message us on Facebook.</div>
+  </div>
+</footer>
+
+<div class="call-bar">
+  <a class="cb-call" href="tel:+17175550151">Call</a>
+  <a href="#request">Request</a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=1234+Market+St+Harrisburg+PA+17101" target="_blank" rel="noopener">Directions</a>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* --- scroll reveals: fade/slide IN and back OUT --- */
+  var rvEls = document.querySelectorAll('[data-rv]');
+  if (!reduce && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('anim');
+    rvEls.forEach(function(el){
+      var sib = Array.prototype.indexOf.call(el.parentNode.children, el);
+      el.style.setProperty('--d', Math.min(sib,4)*0.08 + 's');
+    });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ e.target.classList.toggle('in', e.isIntersecting); });
+    }, {threshold: 0.12, rootMargin: '0px 0px -6% 0px'});
+    rvEls.forEach(function(el){ io.observe(el); });
+  }
+  /* --- hero parallax (light, rAF) --- */
+  var heroImg = document.getElementById('heroImg'), ticking = false;
+  if (heroImg && !reduce) {
+    window.addEventListener('scroll', function(){
+      if (!ticking) { ticking = true; requestAnimationFrame(function(){
+        var y = window.scrollY;
+        if (y < window.innerHeight) heroImg.style.transform = 'translateY(' + (y*0.22) + 'px)';
+        ticking = false;
+      });}
+    }, {passive:true});
+  }
+  /* --- sticky header shadow --- */
+  var head = document.getElementById('head');
+  window.addEventListener('scroll', function(){ head.classList.toggle('scrolled', window.scrollY > 16); }, {passive:true});
+  /* --- services accordion (one open at a time) --- */
+  var cards = document.querySelectorAll('.svc');
+  cards.forEach(function(card){
+    var btn = card.querySelector('.svc-head');
+    btn.addEventListener('click', function(){
+      var willOpen = !card.classList.contains('open');
+      cards.forEach(function(c){ c.classList.remove('open'); c.querySelector('.svc-head').setAttribute('aria-expanded','false'); });
+      if (willOpen) { card.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    });
+  });
+  /* --- open-now computation --- */
+  var HOURS = {0:null, 1:[8,17], 2:[8,17], 3:[8,17], 4:[8,17], 5:[8,17], 6:[9,14]};
+  var NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  function fmt(h){ var hr = Math.floor(h), m = (h-hr)*60, ap = hr >= 12 ? 'PM' : 'AM', h12 = hr % 12; if (h12 === 0) h12 = 12; return h12 + (m ? ':' + ('0'+m).slice(-2) : ':00') + ' ' + ap; }
+  function status(){
+    var now = new Date(), d = now.getDay(), t = now.getHours() + now.getMinutes()/60, today = HOURS[d];
+    if (today && t >= today[0] && t < today[1]) return {open:true, msg:'Open now · until ' + fmt(today[1])};
+    if (today && t < today[0]) return {open:false, msg:'Closed · opens today at ' + fmt(today[0])};
+    for (var i = 1; i <= 7; i++){ var nd = (d+i)%7, nh = HOURS[nd];
+      if (nh) return {open:false, msg:'Closed · opens ' + (i === 1 ? 'tomorrow' : NAMES[nd]) + ' at ' + fmt(nh[0])}; }
+    return {open:false, msg:''};
+  }
+  var st = status();
+  var chip = document.getElementById('openChip'), chipTxt = document.getElementById('openChipTxt');
+  if (chip && st.msg) { chipTxt.textContent = st.msg; chip.classList.toggle('closed', !st.open); }
+  var line = document.getElementById('openLine'), lineTxt = document.getElementById('openLineTxt');
+  if (line && st.msg) { lineTxt.textContent = st.msg; line.classList.toggle('closed', !st.open); }
+  var todayRow = document.querySelector('#hoursTable tr[data-day="' + new Date().getDay() + '"]');
+  if (todayRow) todayRow.classList.add('today');
+  /* --- service pre-selection (cards + quick chips) --- */
+  var form = document.getElementById('reqForm'), sel = document.getElementById('fService');
+  function pickService(name, scroll){
+    sel.value = name;
+    document.querySelectorAll('.qchip').forEach(function(c){ c.classList.toggle('on', c.getAttribute('data-service') === name); });
+    clearErr('fw-service');
+    if (scroll) {
+      document.getElementById('request').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+      form.classList.remove('flash'); void form.offsetWidth; form.classList.add('flash');
+    }
+  }
+  document.querySelectorAll('.svc-req').forEach(function(a){
+    a.addEventListener('click', function(ev){ ev.preventDefault(); pickService(a.getAttribute('data-service'), true); });
+  });
+  document.querySelectorAll('.qchip').forEach(function(c){
+    c.addEventListener('click', function(){ pickService(c.getAttribute('data-service'), false); });
+  });
+  sel.addEventListener('change', function(){
+    document.querySelectorAll('.qchip').forEach(function(c){ c.classList.toggle('on', c.getAttribute('data-service') === sel.value); });
+    clearErr('fw-service');
+  });
+  /* --- form validation + demo submit --- */
+  function setErr(id, bad){ document.getElementById(id).classList.toggle('err', bad); return !bad; }
+  function clearErr(id){ document.getElementById(id).classList.remove('err'); }
+  ['fName','fPhone','fVehicle'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', function(){ clearErr('fw-' + id.slice(1).toLowerCase()); });
+  });
+  document.getElementById('fPhone').addEventListener('blur', function(){
+    var v = this.value.replace(/\D/g,'');
+    if (v) setErr('fw-phone', !(v.length === 10 || (v.length === 11 && v[0] === '1')));
+  });
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var name = document.getElementById('fName').value.trim();
+    var phoneRaw = document.getElementById('fPhone').value.replace(/\D/g,'');
+    var vehicle = document.getElementById('fVehicle').value.trim();
+    var ok = true;
+    ok = setErr('fw-name', !name) && ok;
+    ok = setErr('fw-phone', !(phoneRaw.length === 10 || (phoneRaw.length === 11 && phoneRaw[0] === '1'))) && ok;
+    ok = setErr('fw-vehicle', !vehicle) && ok;
+    ok = setErr('fw-service', !sel.value) && ok;
+    if (!ok) {
+      var firstErr = form.querySelector('.f-field.err input, .f-field.err select');
+      if (firstErr) firstErr.focus();
+      return;
+    }
+    var digits = phoneRaw.length === 11 ? phoneRaw.slice(1) : phoneRaw;
+    var phoneFmt = '(' + digits.slice(0,3) + ') ' + digits.slice(3,6) + '-' + digits.slice(6);
+    var when = document.getElementById('fWhen').value;
+    var msg = document.getElementById('fMsg').value.trim();
+    var rows = [['Name', name], ['Phone', phoneFmt], ['Vehicle', vehicle], ['Service', sel.value]];
+    if (when) rows.push(['Preferred day', when]);
+    if (msg) rows.push(['Notes', msg]);
+    document.getElementById('doneSummary').innerHTML = rows.map(function(r){
+      return '<div><dt>' + r[0] + '</dt><dd></dd></div>';
+    }).join('');
+    var dds = document.querySelectorAll('#doneSummary dd');
+    rows.forEach(function(r, i){ dds[i].textContent = r[1]; });
+    form.style.display = 'none';
+    var done = document.getElementById('formDone');
+    done.classList.add('show');
+    done.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
+  });
+  document.getElementById('doneReset').addEventListener('click', function(){
+    form.reset();
+    document.querySelectorAll('.qchip').forEach(function(c){ c.classList.remove('on'); });
+    form.style.display = '';
+    document.getElementById('formDone').classList.remove('show');
+    document.getElementById('request').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+  });
+})();
+</script>
+</body>
+</html>
