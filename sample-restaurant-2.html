@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<!--
+  ===============================================================
+  SAMPLE SITE — Restaurant / Bar & Grill (editorial layout)
+  Scrubbed generic sample (recycled 2026-10-22 from a retired
+  prospect demo). Every business detail below is fictional —
+  swap in a real prospect's details to reuse.
+  ---------------------------------------------------------------
+  Business name : Keystone Bar & Grill
+  Phone         : (717) 555-0127   →   tel:+17175550127
+  Service area  : Harrisburg & Central PA
+  Photos        : none — real prospect photos stripped; hero and
+                  gallery rebuilt as CSS panels
+  Watermark     : tiled studio overlay + fixed banner + footer block
+  ===============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Keystone Bar &amp; Grill — Bar &amp; Grill — Harrisburg, PA (Sample)</title>
+<meta name="description" content="Keystone Bar & Grill — a sample bar and grill website by 717 Digital Studio. Fictional business; the design is real. Burgers, wings, sandwiches and house plates in Harrisburg, PA. Call (717) 555-0127.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6f1e7; --paper2:#efe7d7; --ink:#1d1a16; --ink2:#4a443b;
+  --red:#b3312a; --red-d:#93302a; --line:#d8cdb6; --card:#fffdf8;
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+  --sans:"Archivo",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600}
+.rule{height:1px;background:var(--line);border:0}
+section{padding:64px 0}
+.sec-head{margin-bottom:30px}
+.sec-head h2{font-family:var(--serif);font-weight:800;font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1.05;margin-top:10px}
+.sec-head p{color:var(--ink2);max-width:56ch;margin-top:10px}
+
+/* reveal: sections fade/slide in AND out */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+
+/* masthead */
+.mast{position:sticky;top:34px;z-index:60;background:rgba(246,241,231,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.mast-in{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0}
+.brand{font-family:var(--serif);font-weight:800;font-size:1.28rem;letter-spacing:.01em;text-decoration:none;white-space:nowrap}
+.brand span{color:var(--red)}
+.mast nav{display:flex;gap:22px;font-size:.86rem;font-weight:600}
+.mast nav a{text-decoration:none;color:var(--ink2)}
+.mast nav a:hover{color:var(--red)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:.92rem;padding:12px 22px;border-radius:999px;border:1px solid var(--red);transition:background .2s,transform .2s;white-space:nowrap}
+.btn:hover{background:var(--red-d)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.mast .btn{padding:9px 18px;font-size:.85rem}
+@media(max-width:640px){.mast nav{display:none}.mast{top:50px}}
+
+/* hero — split editorial panel */
+.hero{padding:0;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;min-height:560px}
+.hero-type{display:flex;flex-direction:column;justify-content:center;padding:56px 48px 56px 0}
+.hero-type h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.9rem,6.4vw,4.6rem);line-height:.98;margin:16px 0 18px}
+.hero-type h1 em{font-style:italic;color:var(--red)}
+.hero-type .lede{font-size:1.13rem;color:var(--ink2);max-width:44ch}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-facts{display:flex;gap:0;margin-top:36px;border-top:1px solid var(--line);padding-top:18px;flex-wrap:wrap}
+.hero-facts div{padding-right:22px;margin-right:22px;border-right:1px solid var(--line)}
+.hero-facts div:last-child{border-right:0;margin-right:0;padding-right:0}
+.hero-facts b{display:block;font-family:var(--serif);font-size:1.25rem}
+.hero-facts span{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2)}
+.hero-photo{position:relative;min-height:340px;background:linear-gradient(150deg,#3a2c1c 0%,#241a10 55%,#171008 100%);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-photo .panel-mark{font-family:var(--serif);font-weight:800;font-size:clamp(2rem,4.5vw,3.2rem);color:var(--paper);text-align:center;line-height:1.05;padding:24px}
+.hero-photo .panel-mark em{font-style:italic;color:#d9a441}
+.hero-photo figcaption{position:absolute;left:0;right:0;bottom:0;background:rgba(29,26,22,.82);color:var(--paper);font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;padding:10px 16px}
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr;min-height:0}
+  .hero-type{padding:44px 0 36px}
+  .hero-photo{min-height:300px;position:relative;height:300px}
+}
+
+/* good-to-know strip */
+.strip{background:var(--ink);color:var(--paper)}
+.strip-in{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.strip .cell{padding:22px 20px;border-left:1px solid rgba(246,241,231,.18)}
+.strip .cell:first-child{border-left:0}
+.strip b{display:block;font-family:var(--serif);font-size:1.06rem;margin-bottom:3px}
+.strip span{font-size:.84rem;color:#cfc6b2}
+@media(max-width:860px){.strip-in{grid-template-columns:1fr 1fr}.strip .cell{border-left:0;border-top:1px solid rgba(246,241,231,.14)}.strip .cell:nth-child(-n+2){border-top:0}}
+
+/* menu dropdown cards */
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.menu-grid{grid-template-columns:1fr}}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.mcard>button{width:100%;background:none;border:0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:20px 22px;text-align:left;font-family:inherit}
+.mcard>button h3{font-family:var(--serif);font-size:1.28rem;font-weight:800}
+.mcard>button .from{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);display:block;margin-top:2px}
+.mcard .chev{flex:none;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:1rem;color:var(--red);transition:transform .35s}
+.mcard.open .chev{transform:rotate(45deg)}
+.mpanel{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.mpanel-in{padding:2px 22px 20px}
+.dish{display:flex;align-items:baseline;gap:10px;padding:11px 0;border-top:1px solid var(--line)}
+.dish:first-child{border-top:0}
+.dish .nm{font-weight:600}
+.dish .dots{flex:1;border-bottom:1px dotted #b7ab90;transform:translateY(-3px)}
+.dish .pr{font-family:var(--serif);font-weight:800;color:var(--red);font-size:1.06rem}
+.mnote{font-size:.82rem;color:var(--ink2);margin-top:16px}
+.mpanel p{color:var(--ink2);padding:4px 0 6px}
+
+/* carousel */
+.car{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card)}
+.car-view{overflow:hidden}
+.car-track{display:flex;transition:transform .6s ease}
+.car-slide{flex:0 0 100%;min-width:0}
+.car-slide .panel{height:min(58vw,520px);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:800;font-size:clamp(1.7rem,4vw,2.8rem);color:var(--paper);text-align:center;padding:24px;line-height:1.1}
+.car-slide .panel em{font-style:italic;color:#f2c66d}
+.p1{background:linear-gradient(140deg,#4a2e1b,#241a10)}
+.p2{background:linear-gradient(140deg,#5c2018,#2a100c)}
+.p3{background:linear-gradient(140deg,#33402a,#171f12)}
+.p4{background:linear-gradient(140deg,#2c3550,#12182a)}
+.car-cap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 18px;border-top:1px solid var(--line)}
+.car-cap .t{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.car-cap .n{font-family:var(--mono);font-size:.72rem;color:var(--ink2)}
+.car-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px 16px}
+.car-btns{display:flex;gap:8px}
+.car-btn{width:42px;height:42px;border-radius:50%;border:1px solid var(--ink);background:transparent;color:var(--ink);font-size:1.15rem;cursor:pointer;display:grid;place-items:center;transition:background .2s,color .2s;font-family:inherit}
+.car-btn:hover{background:var(--red);border-color:var(--red);color:#fff}
+.car-dots{display:flex;gap:7px}
+.car-dots button{width:9px;height:9px;border-radius:50%;border:0;background:#c9bda0;cursor:pointer;padding:0;transition:transform .2s,background .2s}
+.car-dots button.on{background:var(--red);transform:scale(1.35)}
+
+/* about / info card */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+.about-grid p{color:var(--ink2);margin-bottom:14px;max-width:58ch}
+.about-grid p b{color:var(--ink)}
+.nights{background:var(--ink);color:var(--paper);border-radius:16px;padding:28px}
+.nights h3{font-family:var(--serif);font-size:1.5rem;margin-bottom:12px}
+.nights ul{list-style:none}
+.nights li{padding:11px 0;border-top:1px solid rgba(246,241,231,.16);display:flex;justify-content:space-between;gap:12px;font-size:.95rem}
+.nights li:first-child{border-top:0}
+.nights li span{color:#cfc6b2;font-size:.85rem;text-align:right}
+
+/* marquee */
+.marquee{background:var(--red);color:#fff;overflow:hidden;padding:13px 0;border-block:1px solid var(--red-d)}
+.mq-track{display:flex;gap:0;width:max-content;animation:mq 30s linear infinite}
+.mq-track span{font-family:var(--serif);font-weight:800;font-size:1.02rem;letter-spacing:.06em;text-transform:uppercase;padding-right:14px;white-space:nowrap}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+@media(max-width:860px){.visit-grid{grid-template-columns:1fr}}
+.hours{width:100%;border-collapse:collapse}
+.hours td{padding:9px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.hours td:last-child{text-align:right;font-weight:600;white-space:nowrap}
+.hours tr.today td{color:var(--red);font-weight:700}
+.visit-meta{display:grid;gap:16px}
+.visit-meta .row{border-top:1px solid var(--line);padding-top:14px}
+.visit-meta .row:first-child{border-top:0;padding-top:0}
+.visit-meta b{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:4px}
+.visit-meta a{font-weight:600}
+.mapbox{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:22px}
+.mapbox iframe{width:100%;height:300px;border:0;display:block}
+
+/* footer */
+footer{background:var(--ink);color:var(--paper);padding:52px 0 44px}
+.foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+footer .brand{color:var(--paper)}
+.foot-col{font-size:.9rem;color:#cfc6b2;display:grid;gap:5px;align-content:start}
+.foot-col b{color:var(--paper);font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+.foot-col a{color:#cfc6b2}
+.foot-col a:hover{color:#fff}
+.foot-fine{border-top:1px solid rgba(246,241,231,.16);margin-top:34px;padding-top:18px;font-size:.78rem;color:#a99e86;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+/* sticky mobile call bar */
+.callbar{display:none}
+@media(max-width:720px){
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--ink);padding:10px 14px calc(10px + env(safe-area-inset-bottom));gap:10px}
+  .callbar a{flex:1;text-align:center;padding:12px;border-radius:10px;font-weight:700;text-decoration:none;font-size:.95rem}
+  .callbar .c1{background:var(--red);color:#fff}
+  .callbar .c2{background:transparent;color:var(--paper);border:1px solid rgba(246,241,231,.4)}
+  footer{padding-bottom:calc(128px + env(safe-area-inset-bottom))}
+}
+.lean .mq-track{animation:none}
+.lean *{scroll-behavior:auto!important}
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  .mq-track{animation:none}
+  .car-track{transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+<style>
+/* ===== 717 Digital Studio sample watermark (page-post pattern) ===== */
+.studio-banner{position:fixed;top:0;left:0;right:0;z-index:90;background:#171008;color:#f3ead9;font-family:Archivo,system-ui,sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-align:center;padding:8px 12px;line-height:1.35}
+.studio-banner a{color:#d9a441;text-decoration:none}
+.studio-banner a:hover{text-decoration:underline}
+body::after{content:"";position:fixed;inset:-60px;z-index:40;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27560%27%20height%3D%27360%27%3E%3Cg%20transform%3D%27rotate%28-26%20280%20180%29%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-weight%3D%27700%27%20letter-spacing%3D%273%27%3E%3Ctext%20x%3D%27-60%27%20y%3D%2790%27%20font-size%3D%2725%27%20fill%3D%27%231d1a16%27%20fill-opacity%3D%270.62%27%3E717%20DIGITAL%20STUDIO%20%26%23183%3B%20717DIGITALSTUDIO.COM%3C%2Ftext%3E%3Ctext%20x%3D%2760%27%20y%3D%27270%27%20font-size%3D%2725%27%20fill%3D%27%231d1a16%27%20fill-opacity%3D%270.62%27%3E717%20DIGITAL%20STUDIO%20%26%23183%3B%20717DIGITALSTUDIO.COM%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;opacity:.10}
+.studio-block{margin-top:34px;padding:22px 0 4px;border-top:1px solid rgba(246,241,231,.18);text-align:center;font-size:.92rem;color:#cfc6b2}
+.studio-block b{font-family:"Playfair Display",Georgia,serif;font-size:1.12rem;color:#fff}
+.studio-block a{color:#f2c66d;font-weight:600}
+@media(max-width:640px){.studio-banner{font-size:.7rem}}
+</style>
+</head>
+<body>
+<div class="studio-banner">Demo website by 717 Digital Studio &mdash; <a href="https://717digitalstudio.com" target="_blank" rel="noopener">717digitalstudio.com</a></div>
+
+<header class="mast">
+  <div class="wrap mast-in">
+    <a class="brand" href="#top">Keystone <span>Bar &amp; Grill</span></a>
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn" href="tel:+17175550127">Call (717) 555-0127</a>
+  </div>
+</header>
+
+<main id="top">
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-type">
+      <p class="kicker rv">Bar &amp; Grill &middot; Harrisburg, PA</p>
+      <h1 class="rv d1">Keystone <em>Bar &amp; Grill</em></h1>
+      <p class="lede rv d2">A sample neighborhood bar and grill — burgers, wings, sandwiches and house plates, with a full bar and a kitchen that keeps it simple and does it well. (Sample site: this business is fictional.)</p>
+      <div class="hero-ctas rv d3">
+        <a class="btn" href="tel:+17175550127">Call to order</a>
+        <a class="btn ghost" href="#menu">See the menu</a>
+      </div>
+      <div class="hero-facts rv d3">
+        <div><b>7 days</b><span>Open weekly</span></div>
+        <div><b>11 PM</b><span>Fri&ndash;Sat close</span></div>
+        <div><b>Grill + bar</b><span>House menu</span></div>
+      </div>
+    </div>
+    <figure class="hero-photo rv d1">
+      <div class="panel-mark">Good food.<br><em>Good company.</em></div>
+      <figcaption>Sample site &mdash; Keystone Bar &amp; Grill</figcaption>
+    </figure>
+  </div>
+</div>
+
+<div class="strip">
+  <div class="wrap strip-in">
+    <div class="cell rv"><b>Dine-in &amp; takeaway</b><span>Pull up a seat or grab it to go.</span></div>
+    <div class="cell rv d1"><b>Call-ahead pickup</b><span>Call it in and pick it up at the counter.</span></div>
+    <div class="cell rv d2"><b>Kitchen &amp; bar</b><span>Grill favorites and a full bar, all week.</span></div>
+    <div class="cell rv d3"><b>Walk-ins welcome</b><span>No reservation needed — come as you are.</span></div>
+  </div>
+</div>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">The Menu</p>
+      <h2>Burgers, wings &amp; house plates</h2>
+      <p>A sample menu for a bar and grill like this one. Tap a card to see what&rsquo;s on it.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="mcard rv">
+        <button type="button" aria-expanded="false">
+          <span><h3>Starters</h3><span class="from">To share — or not</span></span>
+          <span class="chev">+</span>
+        </button>
+        <div class="mpanel"><div class="mpanel-in">
+          <div class="dish"><span class="nm">House Wings</span><span class="dots"></span><span class="pr">$12</span></div>
+          <div class="dish"><span class="nm">Loaded Fries</span><span class="dots"></span><span class="pr">$9</span></div>
+          <div class="dish"><span class="nm">Garden Salad</span><span class="dots"></span><span class="pr">$8</span></div>
+        </div></div>
+      </div>
+      <div class="mcard rv d1">
+        <button type="button" aria-expanded="false">
+          <span><h3>Burgers &amp; Sandwiches</h3><span class="from">Off the grill</span></span>
+          <span class="chev">+</span>
+        </button>
+        <div class="mpanel"><div class="mpanel-in">
+          <div class="dish"><span class="nm">House Burger</span><span class="dots"></span><span class="pr">$13</span></div>
+          <div class="dish"><span class="nm">Grilled Chicken Sandwich</span><span class="dots"></span><span class="pr">$12</span></div>
+          <div class="dish"><span class="nm">Classic Cheesesteak</span><span class="dots"></span><span class="pr">$13</span></div>
+        </div></div>
+      </div>
+      <div class="mcard rv d2">
+        <button type="button" aria-expanded="false">
+          <span><h3>House Plates</h3><span class="from">Plates that stick with you</span></span>
+          <span class="chev">+</span>
+        </button>
+        <div class="mpanel"><div class="mpanel-in">
+          <div class="dish"><span class="nm">Grilled Chicken Plate</span><span class="dots"></span><span class="pr">$16</span></div>
+          <div class="dish"><span class="nm">Fish &amp; Chips Plate</span><span class="dots"></span><span class="pr">$16</span></div>
+          <div class="dish"><span class="nm">Chef&rsquo;s Daily Plate</span><span class="dots"></span><span class="pr">$15</span></div>
+        </div></div>
+      </div>
+      <div class="mcard rv d3">
+        <button type="button" aria-expanded="false">
+          <span><h3>At the Bar</h3><span class="from">Poured all week</span></span>
+          <span class="chev">+</span>
+        </button>
+        <div class="mpanel"><div class="mpanel-in">
+          <p>Draft and bottled beer, wine and mixed drinks poured at the bar all week long. Call ahead for tonight&rsquo;s pours: <a href="tel:+17175550127">(717) 555-0127</a>.</p>
+        </div></div>
+      </div>
+    </div>
+    <p class="mnote rv">Sample menu — items and prices are fictional. A real site would carry the kitchen&rsquo;s current menu, or call the restaurant and order direct for pickup.</p>
+  </div>
+</section>
+
+<section id="gallery" style="padding-top:8px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">Gallery</p>
+      <h2>From the kitchen &amp; the bar</h2>
+      <p>Sample panels stand in for the restaurant&rsquo;s own photos — a real build would show the actual plates and the room.</p>
+    </div>
+    <div class="car rv" id="car">
+      <div class="car-view">
+        <div class="car-track">
+          <div class="car-slide"><div class="panel p1">Off the <em>grill</em></div><div class="car-cap"><span class="t">Burgers &amp; sandwiches</span><span class="n">1 / 4</span></div></div>
+          <div class="car-slide"><div class="panel p2">Sauced &amp; <em>tossed</em></div><div class="car-cap"><span class="t">Wings &amp; starters</span><span class="n">2 / 4</span></div></div>
+          <div class="car-slide"><div class="panel p3">House <em>plates</em></div><div class="car-cap"><span class="t">Dinner plates</span><span class="n">3 / 4</span></div></div>
+          <div class="car-slide"><div class="panel p4">At the <em>bar</em></div><div class="car-cap"><span class="t">Drinks at the bar</span><span class="n">4 / 4</span></div></div>
+        </div>
+      </div>
+      <div class="car-bar">
+        <div class="car-dots" role="tablist" aria-label="Gallery position"></div>
+        <div class="car-btns">
+          <button class="car-btn" id="carPrev" type="button" aria-label="Previous panel">&lsaquo;</button>
+          <button class="car-btn" id="carNext" type="button" aria-label="Next panel">&rsaquo;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="padding-top:8px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">About</p>
+      <h2>Your neighborhood bar &amp; grill</h2>
+    </div>
+    <div class="about-grid">
+      <div class="rv">
+        <p><b>This sample bar and grill</b> stands in for the kind of neighborhood spot this design was made for — a kitchen, a bar, and a room where regulars and first-timers both fit in.</p>
+        <p>The menu leans into the good stuff: <b>burgers, wings, sandwiches and house plates</b> — the kind of food that brings the neighborhood back.</p>
+        <p>Dine in, grab takeaway, or call ahead for pickup. No reservations, no fuss.</p>
+      </div>
+      <aside class="nights rv d1">
+        <h3>Good to know</h3>
+        <ul>
+          <li>Walk-ins <span>Welcome any time</span></li>
+          <li>Takeaway <span>Call ahead for pickup</span></li>
+          <li>Groups <span>Call for larger parties</span></li>
+          <li>Kitchen &amp; bar <span>Open 7 days</span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="mq-track">
+    <span>Burgers &middot; Wings &middot; Sandwiches &middot; House Plates &middot; Salads &middot; Takeout &middot;&nbsp;</span>
+    <span>Burgers &middot; Wings &middot; Sandwiches &middot; House Plates &middot; Salads &middot; Takeout &middot;&nbsp;</span>
+  </div>
+</div>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">Visit</p>
+      <h2>Find us on Main Street</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="rv">
+        <table class="hours" id="hoursTable">
+          <tr data-day="1"><td>Monday</td><td>11:00 AM &ndash; 10:00 PM</td></tr>
+          <tr data-day="2"><td>Tuesday</td><td>11:00 AM &ndash; 10:00 PM</td></tr>
+          <tr data-day="3"><td>Wednesday</td><td>11:00 AM &ndash; 10:00 PM</td></tr>
+          <tr data-day="4"><td>Thursday</td><td>11:00 AM &ndash; 10:00 PM</td></tr>
+          <tr data-day="5"><td>Friday</td><td>11:00 AM &ndash; 11:00 PM</td></tr>
+          <tr data-day="6"><td>Saturday</td><td>11:00 AM &ndash; 11:00 PM</td></tr>
+          <tr data-day="0"><td>Sunday</td><td>12:00 PM &ndash; 9:00 PM</td></tr>
+        </table>
+        <div class="mapbox">
+          <iframe title="Map to Keystone Bar &amp; Grill" src="https://www.google.com/maps?q=123+Main+St,+Harrisburg,+PA+17101&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="visit-meta rv d1">
+        <div class="row"><b>Address</b>123 Main St<br>Harrisburg, PA 17101<br><a href="https://www.google.com/maps?q=123+Main+St,+Harrisburg,+PA+17101" rel="noopener">Get directions &rarr;</a></div>
+        <div class="row"><b>Call</b><a href="tel:+17175550127">(717) 555-0127</a></div>
+        <div class="row"><b>Order ahead</b>Call the restaurant and order direct for pickup.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <a class="brand" href="#top">Keystone <span>Bar &amp; Grill</span></a>
+        <span>Bar &amp; grill &middot; Harrisburg, PA</span>
+        <span>Burgers &middot; wings &middot; house plates</span>
+      </div>
+      <div class="foot-col">
+        <b>Visit</b>
+        <span>123 Main St</span>
+        <span>Harrisburg, PA 17101</span>
+        <a href="tel:+17175550127">(717) 555-0127</a>
+      </div>
+      <div class="foot-col">
+        <b>Hours</b>
+        <span>Mon&ndash;Thu &middot; 11 AM &ndash; 10 PM</span>
+        <span>Fri&ndash;Sat &middot; 11 AM &ndash; 11 PM</span>
+        <span>Sun &middot; 12 PM &ndash; 9 PM</span>
+      </div>
+    </div>
+    <div class="studio-block">Demo website built by <b>717 Digital Studio</b> &middot; <a href="https://717digitalstudio.com" target="_blank" rel="noopener">717digitalstudio.com</a><br>Want a site like this for your business? Message us on Facebook.</div>
+    <div class="foot-fine">
+      <span>Keystone Bar &amp; Grill &middot; Harrisburg, PA</span>
+      <span>Sample website — fictional business, real design.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="c1" href="tel:+17175550127">Call now</a>
+  <a class="c2" href="#menu">See the menu</a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  /* Adaptive performance: lean mode on saved-data / slow connections */
+  var lean = false;
+  try {
+    var c = navigator.connection;
+    if (c && (c.saveData || /(^|-)2g$/.test(c.effectiveType || ""))) lean = true;
+  } catch(e){}
+  if (lean) document.documentElement.classList.add("lean");
+
+  /* Reveal: fade/slide in AND out */
+  var rvEls = document.querySelectorAll(".rv");
+  if ("IntersectionObserver" in window && !lean) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) en.target.classList.add("in");
+        else en.target.classList.remove("in");
+      });
+    }, {threshold: 0.12});
+    rvEls.forEach(function(el){ io.observe(el); });
+  } else {
+    rvEls.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* Menu dropdown cards */
+  document.querySelectorAll(".mcard").forEach(function(card){
+    var btn = card.querySelector("button");
+    var panel = card.querySelector(".mpanel");
+    btn.addEventListener("click", function(){
+      var open = card.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      panel.style.maxHeight = open ? panel.scrollHeight + "px" : "0px";
+    });
+  });
+
+  /* Carousel */
+  var car = document.getElementById("car");
+  var track = car.querySelector(".car-track");
+  var slides = car.querySelectorAll(".car-slide");
+  var dotsBox = car.querySelector(".car-dots");
+  var idx = 0, timer = null;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  slides.forEach(function(_, i){
+    var d = document.createElement("button");
+    d.type = "button";
+    d.setAttribute("aria-label", "Go to panel " + (i + 1));
+    d.addEventListener("click", function(){ go(i); restart(); });
+    dotsBox.appendChild(d);
+  });
+  var dots = dotsBox.querySelectorAll("button");
+
+  function go(i){
+    idx = (i + slides.length) % slides.length;
+    track.style.transform = "translateX(" + (-idx * 100) + "%)";
+    dots.forEach(function(d, j){ d.classList.toggle("on", j === idx); });
+  }
+  function next(){ go(idx + 1); }
+  function prev(){ go(idx - 1); }
+  function restart(){
+    if (timer) clearInterval(timer);
+    if (lean || reduceMotion) return;
+    timer = setInterval(next, 5000);
+  }
+  document.getElementById("carNext").addEventListener("click", function(){ next(); restart(); });
+  document.getElementById("carPrev").addEventListener("click", function(){ prev(); restart(); });
+  car.addEventListener("mouseenter", function(){ if (timer) clearInterval(timer); });
+  car.addEventListener("mouseleave", restart);
+  document.addEventListener("visibilitychange", function(){
+    if (document.hidden) { if (timer) clearInterval(timer); } else restart();
+  });
+  var tx = null;
+  car.addEventListener("touchstart", function(e){ tx = e.changedTouches[0].clientX; }, {passive:true});
+  car.addEventListener("touchend", function(e){
+    if (tx === null) return;
+    var dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 42) { dx < 0 ? next() : prev(); restart(); }
+    tx = null;
+  }, {passive:true});
+  window.addEventListener("resize", function(){ go(idx); });
+  go(0); restart();
+
+  /* Highlight today's hours */
+  var today = new Date().getDay();
+  document.querySelectorAll("#hoursTable tr").forEach(function(tr){
+    if (parseInt(tr.getAttribute("data-day"), 10) === today) tr.classList.add("today");
+  });
+})();
+</script>
+</body>
+</html>
