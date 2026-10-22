@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<!--
+  ===============================================================
+  SAMPLE SITE - Salon
+  Scrubbed generic sample (recycled 2026-10-22 from a retired
+  prospect demo). Every business detail below is fictional -
+  swap in a real prospect's details to reuse.
+  ---------------------------------------------------------------
+  Business name : Keystone Beauty Salon
+  Phone         : (717) 555-0162   ->   tel:+17175550162
+  Service area  : Harrisburg & Central PA
+  Photos        : none - type-only hero, no real business photos
+  Watermark     : tiled studio overlay + fixed banner + footer block
+  ===============================================================
+-->
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keystone Beauty Salon — Hair &amp; Beauty Salon in Harrisburg, PA (Sample)</title>
+<meta name="description" content="Keystone Beauty Salon — a sample hair and beauty salon website by 717 Digital Studio. Fictional business; the design is real. Cuts, color and styling in Harrisburg, PA. Call (717) 555-0162.">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { overflow-x: clip; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #eef4ff;
+    background: linear-gradient(160deg, #241447 0%, #3b2a6d 46%, #0f4c5c 100%);
+    background-attachment: fixed;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: #7b5cff; color: #fff; }
+  a { color: #9fe8ff; }
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 40;
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    background: rgba(24,13,52,.55); border-bottom: 1px solid rgba(255,255,255,.16);
+  }
+  .hrow { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; padding-bottom: 12px; }
+  .brand { font-weight: 300; letter-spacing: 2.5px; text-transform: uppercase; font-size: 15px; color: #fff; text-decoration: none; }
+  .brand b { font-weight: 700; }
+  .hbtns { display: flex; gap: 8px; }
+  .btn {
+    display: inline-block; text-decoration: none; cursor: pointer;
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+    padding: 10px 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,.35);
+    background: rgba(255,255,255,.10); color: #fff; transition: background .25s, transform .25s;
+  }
+  .btn:hover { background: rgba(255,255,255,.22); }
+  .btn.solid { background: #eaf6ff; color: #241447; border-color: #eaf6ff; }
+  .btn.solid:hover { background: #fff; }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 84px 0 64px; position: relative; }
+  .ghost {
+    position: absolute; top: 26px; left: 50%; transform: translateX(-50%); z-index: 0;
+    font-size: clamp(90px, 18vw, 210px); font-weight: 800; letter-spacing: 2px;
+    color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.13);
+    white-space: nowrap; pointer-events: none; user-select: none;
+  }
+  .hero-inner { position: relative; z-index: 1; text-align: center; }
+  .kicker { font-size: 11px; letter-spacing: 3.5px; text-transform: uppercase; color: #35c4b5; margin-bottom: 18px; font-weight: 700; }
+  h1 {
+    font-weight: 300; letter-spacing: 2px; line-height: 1.04;
+    font-size: clamp(44px, 8.5vw, 86px); color: #fff;
+    text-shadow: 0 0 22px rgba(120,200,255,.55);
+  }
+  h1 b { font-weight: 800; }
+  .hero-panel {
+    margin-top: 22px; margin-left: auto; margin-right: auto; text-align: center;
+    background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.25);
+    border-radius: 18px; padding: 26px 28px; max-width: 560px;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 24px 60px rgba(10,4,30,.45);
+  }
+  .hero-panel p { font-size: 16.5px; color: #dfe9ff; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; justify-content: center; }
+  .openchip {
+    display: inline-block; margin-top: 18px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(53,196,181,.6); color: #a9f2e7;
+    background: rgba(53,196,181,.12);
+  }
+  .rise { opacity: 0; transform: translateY(26px); }
+  body.loaded .rise { animation: rise .9s cubic-bezier(.2,.7,.2,1) forwards; }
+  body.loaded .rise.d1 { animation-delay: .35s; } body.loaded .rise.d2 { animation-delay: .5s; }
+  body.loaded .rise.d3 { animation-delay: .68s; } body.loaded .rise.d4 { animation-delay: .86s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+
+  /* ---------- trust strip ---------- */
+  .trust { border-top: 1px solid rgba(255,255,255,.16); border-bottom: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.05); }
+  .trust .wrap { display: flex; flex-wrap: wrap; gap: 10px 34px; padding-top: 14px; padding-bottom: 14px; }
+  .trust span { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #cfe0ff; }
+  .trust span::before { content: "◆"; color: #35c4b5; margin-right: 9px; font-size: 9px; vertical-align: 2px; }
+
+  /* ---------- sections ---------- */
+  section.block { padding: 64px 0 8px; }
+  .shead { margin-bottom: 26px; }
+  .shead .kicker { margin-bottom: 8px; }
+  h2 { font-weight: 300; letter-spacing: 1.5px; font-size: clamp(28px, 4.6vw, 40px); color: #fff; text-shadow: 0 0 14px rgba(120,200,255,.35); }
+  h2 b { font-weight: 800; }
+  .lede { color: #d3e0fb; max-width: 620px; margin-top: 10px; font-size: 15.5px; }
+
+  /* bidirectional reveals */
+  .rv { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+  .rv.vis { opacity: 1; transform: none; }
+
+  /* ---------- price-list rows ---------- */
+  .plist { border-top: 1px solid rgba(255,255,255,.2); }
+  .prow {
+    display: flex; align-items: baseline; gap: 14px; padding: 20px 4px;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+  }
+  .prow .nm { font-size: 20px; font-weight: 600; letter-spacing: .5px; color: #fff; white-space: nowrap; }
+  .prow .dots { flex: 1; border-bottom: 2px dotted rgba(255,255,255,.35); transform: translateY(-5px); min-width: 24px; }
+  .prow .nt { font-size: 13px; color: #b9cbf3; white-space: nowrap; }
+  .prow .bk { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; text-decoration: none; color: #9fe8ff; white-space: nowrap; }
+  .prow .bk:hover { color: #fff; }
+  @media (max-width: 640px) {
+    .prow { flex-wrap: wrap; gap: 4px 12px; }
+    .prow .dots { display: none; }
+    .prow .nt { width: 100%; order: 3; }
+  }
+
+  /* ---------- form ---------- */
+  .glass {
+    background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.25);
+    border-radius: 18px; padding: 28px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 24px 60px rgba(10,4,30,.4);
+  }
+  form .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { form .grid { grid-template-columns: 1fr; } }
+  label { display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #a9c2f5; margin-bottom: 7px; font-weight: 700; }
+  input, select, textarea {
+    width: 100%; font: inherit; font-size: 15px; color: #fff;
+    background: rgba(16,8,40,.45); border: 1px solid rgba(255,255,255,.3); border-radius: 10px;
+    padding: 12px 14px; outline: none; transition: border-color .2s, box-shadow .2s;
+  }
+  select option { color: #1c1038; }
+  input:focus, select:focus, textarea:focus { border-color: #35c4b5; box-shadow: 0 0 0 3px rgba(53,196,181,.25); }
+  textarea { resize: vertical; min-height: 84px; }
+  .full { grid-column: 1 / -1; }
+  form .btn { margin-top: 20px; width: 100%; text-align: center; font-size: 14px; padding: 14px; }
+  .formnote { font-size: 12.5px; color: #a9c2f5; margin-top: 12px; text-align: center; }
+  .confirm { display: none; text-align: center; padding: 18px 6px; }
+  .confirm h3 { font-weight: 300; letter-spacing: 1.5px; font-size: 24px; margin-bottom: 8px; }
+  .confirm p { color: #d3e0fb; font-size: 15px; }
+  .err { border-color: #ff7a9c !important; box-shadow: 0 0 0 3px rgba(255,122,156,.25) !important; }
+
+  /* ---------- marquee ---------- */
+  .marquee { margin-top: 64px; border-top: 1px solid rgba(255,255,255,.16); border-bottom: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.05); overflow: hidden; padding: 13px 0; }
+  .mtrack { display: flex; gap: 0; white-space: nowrap; width: max-content; animation: mq 30s linear infinite; }
+  .mtrack span { font-size: 12.5px; letter-spacing: 3px; text-transform: uppercase; color: #cfe0ff; padding-right: 14px; }
+  @keyframes mq { to { transform: translateX(-50%); } }
+
+  /* ---------- good to know ---------- */
+  .gtk { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  @media (max-width: 860px) { .gtk { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .gtk { grid-template-columns: 1fr; } }
+  .gtk .cell {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.22); border-radius: 14px;
+    padding: 18px; font-size: 14.5px; color: #e6efff;
+  }
+  .gtk .cell b { display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #35c4b5; margin-bottom: 6px; }
+
+  /* ---------- visit ---------- */
+  .visit { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
+  @media (max-width: 860px) { .visit { grid-template-columns: 1fr; } }
+  table.hours { width: 100%; border-collapse: collapse; font-size: 15px; }
+  table.hours td { padding: 9px 4px; border-bottom: 1px solid rgba(255,255,255,.14); color: #dfe9ff; }
+  table.hours td:last-child { text-align: right; color: #fff; }
+  table.hours tr.today td { color: #a9f2e7; font-weight: 700; }
+  table.hours td.closed { color: #8fa5d6; }
+  .mapbox { border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.25); line-height: 0; }
+  .mapbox iframe { width: 100%; height: 320px; border: 0; }
+  .vfacts { margin-top: 16px; font-size: 15px; color: #dfe9ff; }
+  .vfacts p { margin-bottom: 6px; }
+  .vfacts a { font-weight: 600; }
+
+  /* ---------- footer ---------- */
+  footer { margin-top: 72px; border-top: 1px solid rgba(255,255,255,.16); background: rgba(16,7,38,.5); padding: 30px 0 48px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 30px; align-items: baseline; }
+  footer .fn { font-weight: 300; letter-spacing: 2px; text-transform: uppercase; color: #fff; }
+  footer span { font-size: 13.5px; color: #b9cbf3; }
+  footer a { color: #dfe9ff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ---------- sticky call bar (mobile) ---------- */
+  .callbar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; display: none;
+    background: rgba(20,10,46,.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(255,255,255,.2); padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    gap: 10px;
+  }
+  .callbar a { flex: 1; text-align: center; }
+  /* Footer clearance must outgrow the fixed call bar: on a real phone the bar
+     gets taller by env(safe-area-inset-bottom), so the clearance adds it too. */
+  @media (max-width: 720px) { .callbar { display: flex; } footer { padding-bottom: calc(128px + env(safe-area-inset-bottom)); } }
+
+  /* ---------- lean mode (slow connection / data saver) ---------- */
+  body.lean .mtrack { animation: none; }
+  body.lean header, body.lean .hero-panel, body.lean .glass { backdrop-filter: none; -webkit-backdrop-filter: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .mtrack { animation: none; }
+    .rv { transition: none; }
+    .rv { opacity: 1; transform: none; }
+    .rise { opacity: 1; transform: none; animation: none !important; }
+  }
+</style>
+
+<style>
+/* ===== 717 Digital Studio sample watermark (page-post pattern) ===== */
+.studio-banner{position:fixed;top:0;left:0;right:0;z-index:120;background:#160b2e;color:#eef4ff;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-align:center;padding:8px 12px;line-height:1.35}
+.studio-banner a{color:#9fe8ff;text-decoration:none}
+.studio-banner a:hover{text-decoration:underline}
+header{top:34px}
+body{padding-top:34px}
+body::after{content:"";position:fixed;inset:-60px;z-index:40;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27560%27%20height%3D%27360%27%3E%3Cg%20transform%3D%27rotate%28-26%20280%20180%29%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-weight%3D%27700%27%20letter-spacing%3D%273%27%3E%3Ctext%20x%3D%27-60%27%20y%3D%2790%27%20font-size%3D%2725%27%20fill%3D%27%23ffffff%27%20fill-opacity%3D%270.62%27%3E717%20DIGITAL%20STUDIO%20%26%23183%3B%20717DIGITALSTUDIO.COM%3C%2Ftext%3E%3Ctext%20x%3D%2760%27%20y%3D%27270%27%20font-size%3D%2725%27%20fill%3D%27%23ffffff%27%20fill-opacity%3D%270.62%27%3E717%20DIGITAL%20STUDIO%20%26%23183%3B%20717DIGITALSTUDIO.COM%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;opacity:.10}
+.studio-block{margin-top:26px;padding:22px 0 4px;border-top:1px solid rgba(255,255,255,.16);text-align:center;font-size:.92rem;color:#cfe0ff;width:100%}
+.studio-block b{font-size:1.12rem;color:#fff;letter-spacing:.02em}
+.studio-block a{color:#9fe8ff;font-weight:600}
+</style>
+</head>
+<body>
+<div class="studio-banner">Demo website by 717 Digital Studio &mdash; <a href="https://717digitalstudio.com" target="_blank" rel="noopener">717digitalstudio.com</a></div>
+
+<header>
+  <div class="wrap hrow">
+    <a class="brand" href="#top"><b>Keystone</b> Beauty Empire</a>
+    <div class="hbtns">
+      <a class="btn" href="tel:+17175550162">Call</a>
+      <a class="btn solid" href="#request">Book</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  
+  <div class="hero">
+    <div class="ghost" aria-hidden="true">Keystone</div>
+    <div class="wrap hero-inner">
+      <p class="kicker rise d1">Harrisburg, PA · Hair &amp; Beauty Salon</p>
+      <h1 class="rise d2">Keystone<br><b>Beauty Empire</b></h1>
+      <div class="hero-panel rise d3">
+        <p>A hair salon and beauty salon on Main Street in Harrisburg. Pick your service, pick your time, and book your chair.</p>
+        <div class="hero-ctas">
+          <a class="btn solid" href="#request">Book an appointment</a>
+          <a class="btn" href="#request">Request an appointment</a>
+        </div>
+        <span class="openchip" id="openchip">Open Tuesday to Saturday · 9 AM to 6 PM</span>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="trust">
+    <div class="wrap">
+      <span>Book by phone or online</span>
+      <span>Hair salon · Beauty salon</span>
+      <span>Walk-ins welcome</span>
+      <span>Main Street, Harrisburg</span>
+    </div>
+  </div>
+
+  
+  <section class="block" id="services">
+    <div class="wrap">
+      <div class="shead rv">
+        <p class="kicker">Services</p>
+        <h2>The <b>menu</b></h2>
+        <p class="lede">A sample service menu for a neighborhood salon. These are the chairs a salon like this books every week — call or send the form to grab a spot.</p>
+      </div>
+      <div class="plist rv">
+        <div class="prow">
+          <span class="nm">Hair Salon</span><span class="dots"></span>
+          <span class="nt">Call for details</span>
+          <a class="bk" href="#request">Book →</a>
+        </div>
+        <div class="prow">
+          <span class="nm">Hair Stylist</span><span class="dots"></span>
+          <span class="nt">Call for details</span>
+          <a class="bk" href="#request">Book →</a>
+        </div>
+        <div class="prow">
+          <span class="nm">Beauty Salon</span><span class="dots"></span>
+          <span class="nt">Call for details</span>
+          <a class="bk" href="#request">Book →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="block" id="request">
+    <div class="wrap">
+      <div class="shead rv">
+        <p class="kicker">Appointments</p>
+        <h2>Request an <b>appointment</b></h2>
+        <p class="lede">Tell us what you need and when, and we will call or text to confirm your appointment.</p>
+      </div>
+      <div class="glass rv">
+        <form id="appt" novalidate>
+          <div class="grid">
+            <div>
+              <label for="f-name">Your name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div>
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" required>
+            </div>
+            <div>
+              <label for="f-service">Service</label>
+              <select id="f-service" name="service" required>
+                <option value="">Choose one</option>
+                <option>Hair salon appointment</option>
+                <option>Hair stylist appointment</option>
+                <option>Beauty salon appointment</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div>
+              <label for="f-day">Preferred day</label>
+              <select id="f-day" name="day" required>
+                <option value="">Choose one</option>
+                <option>First available</option>
+                <option>Tuesday</option>
+                <option>Wednesday</option>
+                <option>Thursday</option>
+                <option>Friday</option>
+                <option>Saturday</option>
+              </select>
+            </div>
+            <div>
+              <label for="f-time">Preferred time</label>
+              <select id="f-time" name="time" required>
+                <option value="">Choose one</option>
+                <option>Morning</option>
+                <option>Afternoon</option>
+                <option>Evening</option>
+              </select>
+            </div>
+            <div>
+              <label for="f-via">Best way to confirm</label>
+              <select id="f-via" name="via">
+                <option>Call me</option>
+                <option>Text me</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="f-note">Anything we should know? (optional)</label>
+              <textarea id="f-note" name="note" placeholder="The look you are going for, your hair history, anything that helps."></textarea>
+            </div>
+          </div>
+          <button class="btn solid" type="submit">Send request</button>
+          <p class="formnote">Prefer to book by phone? Call <a href="tel:+17175550162">(717) 555-0162</a>.</p>
+        </form>
+        <div class="confirm" id="confirm" role="status">
+          <h3>Request received</h3>
+          <p id="confirm-text">Thank you. We will reach out to confirm your appointment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <div class="marquee" aria-hidden="true">
+    <div class="mtrack" id="mtrack">
+      <span>Keystone Beauty Salon · Harrisburg, PA · Hair Salon · Beauty Salon · Cuts · Color · Styling · Open Tue–Sat 9 AM to 6 PM ·&nbsp;</span>
+      <span>Keystone Beauty Salon · Harrisburg, PA · Hair Salon · Beauty Salon · Cuts · Color · Styling · Open Tue–Sat 9 AM to 6 PM ·&nbsp;</span>
+    </div>
+  </div>
+
+  
+  <section class="block">
+    <div class="wrap">
+      <div class="shead rv">
+        <p class="kicker">Good to know</p>
+        <h2>Before you <b>come in</b></h2>
+      </div>
+      <div class="gtk rv">
+        <div class="cell"><b>Booking</b>Call the salon or send the appointment request form and we will confirm a time.</div>
+        <div class="cell"><b>Hours</b>Open Tuesday through Saturday, 9 AM to 6 PM. Closed Sunday and Monday.</div>
+        <div class="cell"><b>Find us</b>At the corner of 123 Main St in Harrisburg, PA 17101.</div>
+        <div class="cell"><b>Questions</b>Call the salon at (717) 555-0162 during open hours.</div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="block" id="visit">
+    <div class="wrap">
+      <div class="shead rv">
+        <p class="kicker">Visit</p>
+        <h2>Hours &amp; <b>directions</b></h2>
+      </div>
+      <div class="visit">
+        <div class="glass rv">
+          <table class="hours" id="hourstable">
+            <tr data-day="1"><td>Monday</td><td class="closed">Closed</td></tr>
+            <tr data-day="2"><td>Tuesday</td><td>9:00 AM – 6:00 PM</td></tr>
+            <tr data-day="3"><td>Wednesday</td><td>9:00 AM – 6:00 PM</td></tr>
+            <tr data-day="4"><td>Thursday</td><td>9:00 AM – 6:00 PM</td></tr>
+            <tr data-day="5"><td>Friday</td><td>9:00 AM – 6:00 PM</td></tr>
+            <tr data-day="6"><td>Saturday</td><td>9:00 AM – 6:00 PM</td></tr>
+            <tr data-day="0"><td>Sunday</td><td class="closed">Closed</td></tr>
+          </table>
+          <div class="vfacts">
+            <p><strong>Keystone Beauty Salon</strong><br>123 Main St<br>Harrisburg, PA 17101</p>
+            <p>Call: <a href="tel:+17175550162">(717) 555-0162</a></p>
+          </div>
+        </div>
+        <div class="mapbox rv">
+          <iframe title="Map: Keystone Beauty Salon, 123 Main St, Harrisburg, PA" src="https://www.google.com/maps?q=123+Main+St,+Harrisburg,+PA+17101&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="fn">Keystone Beauty Salon</span>
+    <span>123 Main St, Harrisburg, PA 17101</span>
+    <span>(717) 555-0162</span>
+    <span>Tue – Sat · 9 AM to 6 PM</span>
+    <span>Sample site — fictional business, real design</span>
+  </div>
+  <div class="wrap"><div class="studio-block">Demo website built by <b>717 Digital Studio</b> &middot; <a href="https://717digitalstudio.com" target="_blank" rel="noopener">717digitalstudio.com</a><br>Want a site like this for your business? Message us on Facebook.</div></div>
+</footer>
+
+<div class="callbar">
+  <a class="btn" href="tel:+17175550162">Call the salon</a>
+  <a class="btn solid" href="#request">Book an appointment</a>
+</div>
+
+<script>
+  // Adaptive performance (board meta-rule A): rich by default; lean on slow links or data-saver.
+  (function () {
+    var c = navigator.connection;
+    if (c && (c.saveData || /(^|-)2g$/.test(c.effectiveType || ''))) document.body.classList.add('lean');
+  })();
+
+  window.addEventListener('load', function () {
+    setTimeout(function () { document.body.classList.add('loaded'); }, 60);
+  });
+
+  // Bidirectional scroll reveals: sections fade and slide in AND out
+  (function () {
+    var els = document.querySelectorAll('.rv');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('vis'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { en.target.classList.toggle('vis', en.isIntersecting); });
+    }, { threshold: 0.12 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+
+  // Live open/closed chip + today highlight, from the sample hours (9 AM to 6 PM, closed Sun/Mon)
+  (function () {
+    var openDays = { 2: 1, 3: 1, 4: 1, 5: 1, 6: 1 };
+    var now = new Date(), day = now.getDay(), mins = now.getHours() * 60 + now.getMinutes();
+    var chip = document.getElementById('openchip');
+    if (chip) {
+      if (openDays[day] && mins >= 540 && mins < 1080) chip.textContent = 'Open now · closes 6:00 PM';
+      else if (openDays[day] && mins < 540) chip.textContent = 'Opens today at 9:00 AM';
+      else chip.textContent = 'Closed today · open 9 AM to 6 PM Tuesday to Saturday';
+    }
+    var row = document.querySelector('#hourstable tr[data-day="' + day + '"]');
+    if (row) row.classList.add('today');
+  })();
+
+  // Appointment request: validates and confirms in-page (demo transmits nothing)
+  (function () {
+    var form = document.getElementById('appt');
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var ok = true;
+      form.querySelectorAll('[required]').forEach(function (f) {
+        var bad = !f.value.trim();
+        f.classList.toggle('err', bad);
+        if (bad) ok = false;
+      });
+      if (!ok) return;
+      var name = document.getElementById('f-name').value.trim().split(' ')[0];
+      var day = document.getElementById('f-day').value;
+      var time = document.getElementById('f-time').value.toLowerCase();
+      document.getElementById('confirm-text').textContent =
+        'Thank you, ' + name + '. Your request for ' + day + ', ' + time + ' is in. We will reach out to confirm. We will reach out shortly to confirm a time.';
+      form.style.display = 'none';
+      document.getElementById('confirm').style.display = 'block';
+    });
+    form.querySelectorAll('[required]').forEach(function (f) {
+      f.addEventListener('input', function () { f.classList.remove('err'); });
+    });
+  })();
+
+</script>
+</body>
+</html>
