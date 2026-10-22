@@ -1,0 +1,679 @@
+
+<!DOCTYPE html>
+<!--
+  ===============================================================
+  SAMPLE SITE - Tattoo Studio
+  Scrubbed generic sample (recycled 2026-10-22 from a retired
+  prospect demo). Every business detail below is fictional -
+  swap in a real prospect's details to reuse.
+  ---------------------------------------------------------------
+  Business name : Keystone Tattoo Studio
+  Phone         : (717) 555-0117   ->   tel:+17175550117
+  Service area  : Harrisburg & Central PA
+  Photos        : none - the shop's real work photos were
+                  replaced with drawn flash-style SVG art
+  Watermark     : tiled studio overlay + fixed banner + footer block
+  ===============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Keystone Tattoo Studio — Tattoo Studio in Harrisburg, PA (Sample)</title>
+<meta name="description" content="Keystone Tattoo Studio — a sample tattoo studio website by 717 Digital Studio. Fictional business; the design is real. Custom tattoos, free consultations and walk-ins in Harrisburg, PA. Call (717) 555-0117.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#17181a; --bg2:#1e2023; --panel:#2b2d30; --panel2:#232527;
+  --line:#3a3d40; --amber:#e8a33d; --amber-dk:#c07f1f;
+  --paper:#e8e5dc; --mut:#a49d8d; --ink:#101112;
+  --disp:'Oswald', 'Arial Narrow', sans-serif;
+  --body:'Inter', 'Segoe UI', Arial, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+html,body{overflow-x:hidden;max-width:100%;}
+body{background:var(--bg);color:var(--paper);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;}
+img{display:block;max-width:100%;}
+a{color:var(--amber);}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px;}
+h1,h2,h3{font-family:var(--disp);text-transform:uppercase;font-weight:600;line-height:1.04;letter-spacing:.01em;}
+.kick{font-family:var(--disp);text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--amber);font-weight:500;}
+.sec-head{margin-bottom:26px;}
+.sec-head h2{font-size:clamp(30px,5vw,46px);margin-top:8px;}
+.sec-head p{color:var(--mut);max-width:56ch;margin-top:10px;}
+section{padding:64px 0;}
+.band-a{background:var(--bg);}
+.band-b{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+
+/* ---------- header ---------- */
+header.site{position:sticky;top:0;z-index:60;background:rgba(23,24,26,.96);border-bottom:1px solid var(--line);}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:12px;padding-bottom:12px;}
+.brand{font-family:var(--disp);font-size:24px;font-weight:700;letter-spacing:.04em;color:var(--paper);text-decoration:none;text-transform:uppercase;}
+.brand small{display:block;font-size:10.5px;letter-spacing:.3em;color:var(--mut);font-weight:500;}
+.hcall{display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:var(--ink);font-family:var(--disp);text-transform:uppercase;letter-spacing:.06em;font-weight:600;font-size:15px;padding:10px 18px;border-radius:4px;text-decoration:none;border:1px solid var(--amber);}
+.hcall:hover{background:var(--amber-dk);border-color:var(--amber-dk);}
+
+/* ---------- hero ---------- */
+.hero{padding:54px 0 46px;background:var(--bg);border-bottom:1px solid var(--line);position:relative;}
+.hero .grid{display:grid;grid-template-columns:1.55fr .85fr;gap:34px;align-items:center;}
+.hero h1{font-size:clamp(58px,11.5vw,124px);font-weight:700;letter-spacing:.005em;}
+.hero h1 .thin{display:block;font-size:clamp(21px,3.4vw,36px);font-weight:500;letter-spacing:.34em;color:var(--paper);margin-top:6px;}
+.hero .sub{color:var(--mut);font-size:17.5px;max-width:46ch;margin-top:20px;}
+.hero .sub strong{color:var(--paper);font-weight:600;}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--disp);text-transform:uppercase;letter-spacing:.06em;font-weight:600;font-size:16px;padding:14px 24px;border-radius:4px;text-decoration:none;border:1px solid var(--amber);cursor:pointer;}
+.btn-solid{background:var(--amber);color:var(--ink);}
+.btn-solid:hover{background:var(--amber-dk);border-color:var(--amber-dk);}
+.btn-ghost{background:transparent;color:var(--paper);border-color:var(--line);}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber);}
+.hero-photo{position:relative;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel);}
+.hero-photo .ph{overflow:hidden;aspect-ratio:1/1.08;}
+.hero-photo img{width:100%;height:100%;object-fit:cover;animation:kb 22s ease-in-out infinite alternate;will-change:transform;}
+@keyframes kb{from{transform:scale(1) translateY(0);}to{transform:scale(1.12) translateY(-1.5%);}}
+.hero-photo figcaption{background:var(--panel);color:var(--paper);font-size:13.5px;padding:10px 14px;border-top:1px solid var(--line);}
+.hero-photo figcaption span{color:var(--mut);}
+body.lean .hero-photo img{animation:none;}
+@media (max-width:820px){
+  .hero .grid{grid-template-columns:1fr;gap:26px;}
+  .hero-photo{max-width:420px;}
+}
+
+/* ---------- trust strip ---------- */
+.trust{border-bottom:1px solid var(--line);background:var(--bg2);}
+.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.trust .t{padding:18px 16px;border-left:1px solid var(--line);}
+.trust .t:first-child{border-left:none;padding-left:0;}
+.trust .big{font-family:var(--disp);font-size:21px;text-transform:uppercase;letter-spacing:.03em;}
+.trust .small{color:var(--mut);font-size:13px;margin-top:2px;}
+.trust .star{color:var(--amber);}
+@media (max-width:820px){
+  .trust .wrap{grid-template-columns:1fr 1fr;}
+  .trust .t{border-left:none;padding-left:0;}
+}
+
+/* ---------- flash book ---------- */
+.book-shell{max-width:980px;margin:0 auto;}
+#book{margin:0 auto;}
+#book .page{background:var(--panel2);color:var(--paper);overflow:hidden;}
+#book .page .pg-in{height:100%;display:flex;flex-direction:column;padding:22px;}
+#book .page img.pg-img{width:100%;flex:1;min-height:0;object-fit:cover;border:1px solid var(--line);border-radius:3px;}
+#book .pg-cap{margin-top:12px;font-size:14px;color:var(--paper);}
+#book .pg-cap span{color:var(--mut);}
+#book .pg-num{margin-top:auto;padding-top:10px;font-family:var(--disp);font-size:11px;letter-spacing:.25em;color:var(--mut);text-transform:uppercase;display:flex;justify-content:space-between;}
+#book .cover{background:#26282b;background-image:repeating-linear-gradient(93deg, rgba(255,255,255,.028) 0 2px, rgba(0,0,0,.10) 2px 4px);border:1px solid #43464a;}
+#book .cover .pg-in{align-items:flex-start;justify-content:center;}
+#book .cover .cov-kick{color:var(--amber);font-family:var(--disp);letter-spacing:.3em;font-size:12px;text-transform:uppercase;}
+#book .cover h3{font-size:clamp(38px,6vw,54px);margin:12px 0 6px;}
+#book .cover .cov-sub{color:var(--mut);font-size:15px;max-width:30ch;}
+#book .cover .cov-rule{width:56px;height:3px;background:var(--amber);margin:18px 0;}
+#book .txtpage h3{font-size:26px;margin-bottom:14px;color:var(--paper);}
+#book .txtpage p, #book .txtpage li{font-size:15px;color:var(--paper);}
+#book .txtpage p{margin-bottom:12px;}
+#book .txtpage ul{list-style:none;}
+#book .txtpage li{padding:9px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;}
+#book .txtpage li span:last-child{color:var(--mut);text-align:right;}
+#book .backcover{background:#26282b;background-image:repeating-linear-gradient(93deg, rgba(255,255,255,.028) 0 2px, rgba(0,0,0,.10) 2px 4px);border:1px solid #43464a;}
+#book .backcover .pg-in{justify-content:center;align-items:flex-start;}
+.book-ctl{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:20px;}
+.book-ctl button{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:rgba(43,45,48,.85);color:var(--paper);font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;}
+.book-ctl button:hover{border-color:var(--amber);color:var(--amber);}
+.book-ctl .pgcount{font-family:var(--disp);letter-spacing:.2em;font-size:13px;color:var(--mut);text-transform:uppercase;}
+
+/* ---------- filmstrip ---------- */
+.film{margin-top:30px;}
+.film .f-head{font-family:var(--disp);text-transform:uppercase;letter-spacing:.18em;font-size:13px;color:var(--mut);margin-bottom:12px;}
+.film-track{display:flex;gap:14px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
+.film-item{flex:0 0 218px;scroll-snap-align:start;}
+.film-item .fimg{height:218px;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--panel);}
+.film-item img{width:100%;height:100%;object-fit:cover;}
+.film-item figcaption{background:var(--panel);border:1px solid var(--line);border-top:none;border-radius:0 0 4px 4px;color:var(--paper);font-size:13px;padding:8px 11px;}
+.film-item figcaption span{color:var(--mut);display:block;font-size:12px;}
+
+/* ---------- good to know cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.card{border:1px solid var(--line);border-radius:6px;background:var(--panel);padding:22px;}
+.card .num{font-family:var(--disp);font-size:13px;letter-spacing:.2em;color:var(--amber);border:1px solid var(--amber);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.card h3{font-size:20px;margin-bottom:8px;}
+.card p{color:var(--mut);font-size:14.5px;}
+.card.lead{grid-column:span 3;background:var(--panel2);display:grid;grid-template-columns:auto 1fr;gap:8px 22px;align-items:start;padding:28px;}
+.card.lead .num{grid-row:span 2;width:46px;height:46px;font-size:16px;margin:0;}
+.card.lead h3{font-size:27px;}
+.card.lead p{font-size:16px;max-width:62ch;}
+@media (max-width:820px){ .cards{grid-template-columns:1fr;} .card.lead{grid-column:span 1;} }
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:start;}
+.about-grid p{color:var(--mut);font-size:16.5px;margin-bottom:14px;}
+.about-grid p strong{color:var(--paper);}
+.factbox{border:1px solid var(--line);border-radius:6px;background:var(--panel);padding:22px;}
+.factbox h3{font-size:18px;margin-bottom:12px;}
+.factbox li{list-style:none;padding:8px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--mut);display:flex;justify-content:space-between;gap:14px;}
+.factbox li:last-child{border-bottom:none;}
+.factbox li b{color:var(--paper);font-weight:600;text-align:right;}
+@media (max-width:820px){ .about-grid{grid-template-columns:1fr;} }
+
+/* ---------- marquee ---------- */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg);overflow:hidden;padding:14px 0;}
+.mq-track{display:flex;width:max-content;animation:mq 30s linear infinite;}
+.mq-track span{font-family:var(--disp);text-transform:uppercase;letter-spacing:.18em;font-size:15px;color:var(--paper);white-space:nowrap;padding-right:14px;}
+.mq-track span i{color:var(--amber);font-style:normal;padding-right:14px;}
+@keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+body.lean .mq-track{animation:none;}
+
+/* ---------- form ---------- */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:820px;}
+.field{display:flex;flex-direction:column;gap:6px;}
+.field.full{grid-column:1/-1;}
+.field label{font-family:var(--disp);text-transform:uppercase;letter-spacing:.14em;font-size:12.5px;color:var(--mut);}
+.field input,.field textarea,.field select{background:var(--bg);border:1px solid var(--line);border-radius:4px;color:var(--paper);font-family:var(--body);font-size:16px;padding:12px 14px;width:100%;}
+.field input:focus,.field textarea:focus,.field select:focus{outline:2px solid var(--amber);outline-offset:0;border-color:var(--amber);}
+.field .err{display:none;color:#e88;font-size:13px;}
+.field.bad input,.field.bad textarea{border-color:#c0392b;}
+.field.bad .err{display:block;}
+.form-note{color:var(--mut);font-size:14px;margin-top:16px;max-width:62ch;}
+.form-ok{display:none;border:1px solid var(--amber);border-radius:6px;background:var(--panel);padding:18px 20px;margin-top:20px;max-width:820px;}
+.form-ok.show{display:block;}
+.form-ok b{color:var(--amber);}
+@media (max-width:640px){ .form-grid{grid-template-columns:1fr;} }
+
+/* ---------- visit ---------- */
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start;}
+.hours{width:100%;border-collapse:collapse;font-size:15px;}
+.hours td{padding:9px 0;border-bottom:1px solid var(--line);color:var(--mut);}
+.hours td:last-child{text-align:right;color:var(--paper);}
+.hours tr:last-child td{border-bottom:none;}
+.visit-lines{margin-top:18px;font-size:15.5px;}
+.visit-lines p{margin-bottom:8px;color:var(--mut);}
+.visit-lines a{color:var(--paper);text-decoration:none;border-bottom:1px solid var(--amber);}
+.mapbox{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel);}
+.mapbox iframe{width:100%;height:340px;border:0;display:block;}
+.socials{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;}
+.socials a{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:4px;padding:10px 16px;color:var(--paper);text-decoration:none;font-family:var(--disp);text-transform:uppercase;letter-spacing:.08em;font-size:14px;}
+.socials a:hover{border-color:var(--amber);color:var(--amber);}
+@media (max-width:820px){ .visit-grid{grid-template-columns:1fr;} }
+
+/* ---------- footer ---------- */
+footer.site{border-top:1px solid var(--line);background:var(--bg2);padding:34px 0 40px;}
+footer.site .cols{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;}
+footer.site .f-brand{font-family:var(--disp);font-size:20px;text-transform:uppercase;letter-spacing:.05em;}
+footer.site p{color:var(--mut);font-size:14px;margin-top:6px;max-width:44ch;}
+footer.site .f-links a{color:var(--paper);text-decoration:none;border-bottom:1px solid var(--amber);}
+footer.site .fine{margin-top:22px;border-top:1px solid var(--line);padding-top:16px;color:var(--mut);font-size:12.5px;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;}
+
+/* ---------- sticky call bar ---------- */
+.callbar{display:none;}
+@media (max-width:720px){
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(23,24,26,.97);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:10px;}
+  .callbar a{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--disp);text-transform:uppercase;letter-spacing:.05em;font-weight:600;font-size:15.5px;padding:11.5px 8px 12.5px;border-radius:4px;text-decoration:none;border:1px solid var(--amber);}
+  .callbar a.call{background:var(--amber);color:var(--ink);}
+  .callbar a.book{background:transparent;color:var(--paper);border-color:var(--line);}
+  footer.site{padding-bottom:calc(118px + env(safe-area-inset-bottom));}
+  body{padding-bottom:0;}
+}
+
+/* ---------- reveals ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+.rv.in{opacity:1;transform:none;}
+body.lean .rv{opacity:1;transform:none;transition:none;}
+@media (prefers-reduced-motion: reduce){
+  .rv{opacity:1;transform:none;transition:none;}
+  .hero-photo img{animation:none;}
+  .mq-track{animation:none;}
+  html{scroll-behavior:auto;}
+}
+
+#book .pg.center img{object-fit:contain;flex:none;width:auto;max-width:82%;max-height:210px;height:auto;margin-left:auto;margin-right:auto}
+#book .pg img.badge,#book .pg img.badge2{object-fit:contain}
+.stf__block{overflow:hidden}
+</style>
+
+<style>
+/* ===== 717 Digital Studio sample watermark (page-post pattern) ===== */
+.studio-banner{position:fixed;top:0;left:0;right:0;z-index:120;background:#160b2e;color:#eef4ff;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-align:center;padding:8px 12px;line-height:1.35}
+.studio-banner a{color:#9fe8ff;text-decoration:none}
+.studio-banner a:hover{text-decoration:underline}
+header.site{top:34px}
+body{padding-top:34px}
+body::after{content:"";position:fixed;inset:-60px;z-index:40;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27560%27%20height%3D%27360%27%3E%3Cg%20transform%3D%27rotate%28-26%20280%20180%29%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-weight%3D%27700%27%20letter-spacing%3D%273%27%3E%3Ctext%20x%3D%27-60%27%20y%3D%2790%27%20font-size%3D%2725%27%20fill%3D%27%23ffffff%27%20fill-opacity%3D%270.62%27%3E717%20DIGITAL%20STUDIO%20%26%23183%3B%20717DIGITALSTUDIO.COM%3C%2Ftext%3E%3Ctext%20x%3D%2760%27%20y%3D%27270%27%20font-size%3D%2725%27%20fill%3D%27%23ffffff%27%20fill-opacity%3D%270.62%27%3E717%20DIGITAL%20STUDIO%20%26%23183%3B%20717DIGITALSTUDIO.COM%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;opacity:.10}
+.studio-block{margin-top:26px;padding:22px 0 4px;border-top:1px solid rgba(255,255,255,.16);text-align:center;font-size:.92rem;color:#cfe0ff;width:100%}
+.studio-block b{font-size:1.12rem;color:#fff;letter-spacing:.02em}
+.studio-block a{color:#9fe8ff;font-weight:600}
+</style>
+</head>
+<body>
+<div class="studio-banner">Demo website by 717 Digital Studio &mdash; <a href="https://717digitalstudio.com" target="_blank" rel="noopener">717digitalstudio.com</a></div>
+
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">Keystone<small>Tattoo Studio · Harrisburg, PA</small></a>
+    <a class="hcall" href="tel:+17175550117">Call (717) 555-0117</a>
+  </div>
+</header>
+
+
+<section class="hero" id="top">
+  <div class="wrap grid">
+    <div>
+      <p class="kick">Custom Tattoo Studio · Harrisburg, PA · Walk-ins Welcome</p>
+      <h1>Keystone<span class="thin">Tattoo Studio</span></h1>
+      <p class="sub">Custom tattoos just outside historic downtown Harrisburg. <strong>Consultations are free</strong> and don’t require an appointment — bring the idea, talk it through with an artist.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="tel:+17175550117">Call the shop</a>
+        <a class="btn btn-ghost" href="#book-sec">Flip the Flash Book</a>
+        <a class="btn btn-ghost" href="#inquiry">Booking inquiry</a>
+      </div>
+    </div>
+    <figure class="hero-photo" id="heroPhoto">
+      <div class="ph"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20900%201100%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%22g%22%20cx%3D%2250%25%22%20cy%3D%2238%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2326272b%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23131315%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22900%22%20height%3D%221100%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Crect%20x%3D%2236%22%20y%3D%2236%22%20width%3D%22828%22%20height%3D%221028%22%20fill%3D%22none%22%20stroke%3D%22%23c99635%22%20stroke-opacity%3D%22.45%22%20stroke-width%3D%223%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d8ab52%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M450%20150%20L520%20330%20L700%20300%20L560%20440%20L660%20620%20L470%20540%20L360%20720%20L330%20520%20L170%20470%20L330%20390%20Z%22%2F%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%22760%22%20r%3D%2270%22%2F%3E%3Cpath%20d%3D%22M250%20880%20H650%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Color dragon sleeve tattoo by Studio Artist at Keystone Tattoo Studio" draggable="false"></div>
+      <figcaption>Color dragon sleeve — a rework of an older tattoo. <span>By Studio Artist.</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<div class="trust">
+  <div class="wrap">
+    <div class="t"><div class="big"><span class="star">★</span> Custom</div><div class="small">Original designs, drawn in-house</div></div>
+    <div class="t"><div class="big">Free consults</div><div class="small">No appointment needed to talk</div></div>
+    <div class="t"><div class="big">Walk-ins</div><div class="small">Welcome when time allows</div></div>
+    <div class="t"><div class="big">Tattooing only</div><div class="small">No body piercing — ink is the craft</div></div>
+  </div>
+</div>
+
+
+<section class="band-a" id="book-sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kick">Portfolio</p>
+      <h2>The Flash Book</h2>
+      <p>Real work out of this shop — healed pieces, sleeves in progress, and the room itself. Flip through it like the book on the counter.</p>
+    </div>
+    <div class="book-shell rv">
+      <div id="book">
+        
+        <div data-density="hard" class="page cover"><div class="pg-in">
+          <p class="cov-kick">Keystone Tattoo Studio</p>
+          <h3>The Flash<br>Book</h3>
+          <div class="cov-rule"></div>
+          <p class="cov-sub">Work from the shop floor — Harrisburg, Pennsylvania.</p>
+          <div class="pg-num"><span>Cover</span><span>Walk-ins Welcome</span></div>
+        </div></div>
+        
+        <div data-density="hard" class="page txtpage"><div class="pg-in">
+          <h3>Inside this book</h3>
+          <p>Every photo in here is this shop’s own work or its own walls — no stock ink, ever.</p>
+          <p>Pieces are credited to the artist who made them, the way the shop posts them.</p>
+          <p>See something close to your idea? Consultations are free, and they don’t require an appointment.</p>
+          <div class="pg-num"><span>The Flash Book</span><span>Intro</span></div>
+        </div></div>
+        
+        <div data-density="hard" class="page"><div class="pg-in">
+          <img class="pg-img" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20900%201100%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%22g%22%20cx%3D%2250%25%22%20cy%3D%2238%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2326272b%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23131315%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22900%22%20height%3D%221100%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Crect%20x%3D%2236%22%20y%3D%2236%22%20width%3D%22828%22%20height%3D%221028%22%20fill%3D%22none%22%20stroke%3D%22%23c99635%22%20stroke-opacity%3D%22.45%22%20stroke-width%3D%223%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d8ab52%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M450%20150%20L520%20330%20L700%20300%20L560%20440%20L660%20620%20L470%20540%20L360%20720%20L330%20520%20L170%20470%20L330%20390%20Z%22%2F%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%22760%22%20r%3D%2270%22%2F%3E%3Cpath%20d%3D%22M250%20880%20H650%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Color dragon sleeve tattoo, rework by Studio Artist" draggable="false">
+          <p class="pg-cap">Color dragon sleeve — a rework of an older tattoo. <span>Studio Artist.</span></p>
+          <div class="pg-num"><span>The Flash Book</span><span>01</span></div>
+        </div></div>
+        
+        <div data-density="hard" class="page"><div class="pg-in">
+          <img class="pg-img" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20900%201100%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%22g%22%20cx%3D%2250%25%22%20cy%3D%2238%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2326272b%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23131315%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22900%22%20height%3D%221100%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Crect%20x%3D%2236%22%20y%3D%2236%22%20width%3D%22828%22%20height%3D%221028%22%20fill%3D%22none%22%20stroke%3D%22%23c99635%22%20stroke-opacity%3D%22.45%22%20stroke-width%3D%223%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d8ab52%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cellipse%20cx%3D%22450%22%20cy%3D%22520%22%20rx%3D%22300%22%20ry%3D%22185%22%2F%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%22520%22%20r%3D%22115%22%2F%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%22520%22%20r%3D%2248%22%20fill%3D%22%23d8ab52%22%2F%3E%3Cpath%20d%3D%22M450%20240%20V150%20M450%20890%20V800%20M170%20300%20L110%20230%20M730%20300%20L790%20230%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Biomech eyeball tattoo, four views, by Studio Artist" draggable="false">
+          <p class="pg-cap">Biomech eyeball — four views of one piece. <span>Studio Artist.</span></p>
+          <div class="pg-num"><span>The Flash Book</span><span>02</span></div>
+        </div></div>
+        
+        <div data-density="hard" class="page"><div class="pg-in">
+          <img class="pg-img" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20900%201100%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%22g%22%20cx%3D%2250%25%22%20cy%3D%2238%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2326272b%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23131315%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22900%22%20height%3D%221100%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Crect%20x%3D%2236%22%20y%3D%2236%22%20width%3D%22828%22%20height%3D%221028%22%20fill%3D%22none%22%20stroke%3D%22%23c99635%22%20stroke-opacity%3D%22.45%22%20stroke-width%3D%223%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d8ab52%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M300%20900%20C200%20650%20320%20560%20430%20620%20C540%20680%20640%20560%20600%20430%20C565%20320%20420%20300%20360%20390%20C310%20465%20390%20540%20450%20500%22%2F%3E%3Ccircle%20cx%3D%22640%22%20cy%3D%22760%22%20r%3D%2290%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Biomech sleeve tattoo in progress by Studio Artists" draggable="false">
+          <p class="pg-cap">Biomech sleeve, in progress. <span>Studio Artists.</span></p>
+          <div class="pg-num"><span>The Flash Book</span><span>03</span></div>
+        </div></div>
+        
+        <div data-density="hard" class="page"><div class="pg-in">
+          <img class="pg-img" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20900%201100%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%22g%22%20cx%3D%2250%25%22%20cy%3D%2238%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2326272b%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23131315%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22900%22%20height%3D%221100%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Crect%20x%3D%2236%22%20y%3D%2236%22%20width%3D%22828%22%20height%3D%221028%22%20fill%3D%22none%22%20stroke%3D%22%23c99635%22%20stroke-opacity%3D%22.45%22%20stroke-width%3D%223%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d8ab52%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cg%3E%3Cellipse%20cx%3D%22450%22%20cy%3D%22360%22%20rx%3D%2285%22%20ry%3D%22150%22%2F%3E%3Cellipse%20cx%3D%22450%22%20cy%3D%22360%22%20rx%3D%2285%22%20ry%3D%22150%22%20transform%3D%22rotate%2860%20450%20520%29%22%2F%3E%3Cellipse%20cx%3D%22450%22%20cy%3D%22360%22%20rx%3D%2285%22%20ry%3D%22150%22%20transform%3D%22rotate%28120%20450%20520%29%22%2F%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%22520%22%20r%3D%2262%22%20fill%3D%22%23d8ab52%22%2F%3E%3Cpath%20d%3D%22M450%20700%20C440%20800%20460%20880%20450%20950%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Black and grey floral sideburn tattoo by Studio Artist" draggable="false">
+          <p class="pg-cap">Black &amp; grey floral — sideburn piece. <span>Studio Artist.</span></p>
+          <div class="pg-num"><span>The Flash Book</span><span>04</span></div>
+        </div></div>
+        
+        <div data-density="hard" class="page"><div class="pg-in">
+          <img class="pg-img" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20900%201100%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%22g%22%20cx%3D%2250%25%22%20cy%3D%2238%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2326272b%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23131315%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22900%22%20height%3D%221100%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Crect%20x%3D%2236%22%20y%3D%2236%22%20width%3D%22828%22%20height%3D%221028%22%20fill%3D%22none%22%20stroke%3D%22%23c99635%22%20stroke-opacity%3D%22.45%22%20stroke-width%3D%223%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d8ab52%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M180%20420%20H720%20L770%20300%20H130%20Z%22%2F%3E%3Cpath%20d%3D%22M200%20420%20V900%20H700%20V420%22%2F%3E%3Cpath%20d%3D%22M330%20900%20V620%20H570%20V900%22%2F%3E%3Cpath%20d%3D%22M200%20540%20H700%20M450%20160%20V300%20M380%20210%20H520%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Inside Keystone Tattoo Studio, stations and chairs" draggable="false">
+          <p class="pg-cap">Inside the shop. <span>Main Street.</span></p>
+          <div class="pg-num"><span>The Flash Book</span><span>05</span></div>
+        </div></div>
+        
+        <div data-density="hard" class="page"><div class="pg-in">
+          <img class="pg-img" src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20900%201100%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%22g%22%20cx%3D%2250%25%22%20cy%3D%2238%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2326272b%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23131315%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22900%22%20height%3D%221100%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Crect%20x%3D%2236%22%20y%3D%2236%22%20width%3D%22828%22%20height%3D%221028%22%20fill%3D%22none%22%20stroke%3D%22%23c99635%22%20stroke-opacity%3D%22.45%22%20stroke-width%3D%223%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d8ab52%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M330%20260%20L180%20340%20L250%20500%20L330%20460%20V920%20H570%20V460%20L650%20500%20L720%20340%20L570%20260%20C540%20320%20360%20320%20330%20260%20Z%22%2F%3E%3Cpath%20d%3D%22M390%20560%20L450%20700%20L510%20560%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Keystone logo t-shirt and hoodie hanging in the shop" draggable="false">
+          <p class="pg-cap">Shop gear on the wall. <span>Tees &amp; hoodies in store.</span></p>
+          <div class="pg-num"><span>The Flash Book</span><span>06</span></div>
+        </div></div>
+        
+        <div data-density="hard" class="page txtpage"><div class="pg-in">
+          <h3>Good to know</h3>
+          <ul>
+            <li><span>Consultations</span><span>Free — no appointment needed</span></li>
+            <li><span>Walk-ins</span><span>Welcome if time allows</span></li>
+            <li><span>Appointments</span><span>By phone, in person, or email</span></li>
+            <li><span>Piercing</span><span>Not offered — tattooing only</span></li>
+            <li><span>Where</span><span>Main Street, Harrisburg</span></li>
+          </ul>
+          <div class="pg-num"><span>The Flash Book</span><span>Shop facts</span></div>
+        </div></div>
+        
+        <div data-density="hard" class="page txtpage"><div class="pg-in">
+          <h3>Hours</h3>
+          <ul>
+            <li><span>Tuesday – Friday</span><span>11 AM – 7 PM</span></li>
+            <li><span>Saturday</span><span>12 – 6 PM</span></li>
+            <li><span>Sunday – Monday</span><span>Closed</span></li>
+          </ul>
+          <p style="margin-top:16px;">Main Street<br>Harrisburg, PA</p>
+          <p>Just outside historic downtown Harrisburg.</p>
+          <div class="pg-num"><span>The Flash Book</span><span>Hours</span></div>
+        </div></div>
+        
+        <div data-density="hard" class="page txtpage"><div class="pg-in">
+          <h3>Book a piece</h3>
+          <p>Three ways in:</p>
+          <ul>
+            <li><span>Call</span><span>(717) 555-0117</span></li>
+            <li><span>Stop by</span><span>During business hours</span></li>
+            <li><span>Email</span><span>Via the booking form</span></li>
+          </ul>
+          <p style="margin-top:16px;">Or send the booking inquiry below — your idea, where it goes, and roughly how big.</p>
+          <div class="pg-num"><span>The Flash Book</span><span>Booking</span></div>
+        </div></div>
+        
+        <div data-density="hard" class="page backcover"><div class="pg-in">
+          <p class="cov-kick">Keystone Tattoo Studio</p>
+          <h3 style="font-size:34px;margin:12px 0 6px;">Your idea<br>belongs here</h3>
+          <div class="cov-rule"></div>
+          <p class="cov-sub">(717) 555-0117<br>Main Street, Harrisburg, PA</p>
+          <div class="pg-num"><span>Back cover</span><span>717</span></div>
+        </div></div>
+      </div>
+      <div class="book-ctl">
+        <button id="bkPrev" aria-label="Previous page">‹</button>
+        <span class="pgcount" id="bkCount">Cover</span>
+        <button id="bkNext" aria-label="Next page">›</button>
+      </div>
+      
+      <div class="film rv" id="film">
+        <p class="f-head">The same work, in a row</p>
+        <div class="film-track" id="filmTrack"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="band-b">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kick">Before you come in</p>
+      <h2>Good to know</h2>
+    </div>
+    <div class="cards">
+      <div class="card lead rv">
+        <div class="num">01</div>
+        <h3>Consultations are free</h3>
+        <p>Bring the idea in and talk it through with an artist — consultations are free and do not require an appointment. Placement, size, how it ages: that conversation is the start of every good piece.</p>
+      </div>
+      <div class="card rv">
+        <div class="num">02</div>
+        <h3>Walk-ins welcome</h3>
+        <p>The shop works on both an appointment and walk-in basis. Walk-ins are always welcome if time allows.</p>
+      </div>
+      <div class="card rv">
+        <div class="num">03</div>
+        <h3>Appointments, too</h3>
+        <p>Planning a piece? The shop also books appointments — call the shop, stop by during business hours, or email your idea in.</p>
+      </div>
+      <div class="card rv">
+        <div class="num">04</div>
+        <h3>Tattooing only</h3>
+        <p>No body piercing. Tattoos are the whole craft here, and it shows in the book above.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="band-a">
+  <div class="wrap about-grid">
+    <div class="rv">
+      <p class="kick">The shop</p>
+      <h2 style="font-size:clamp(28px,4.4vw,40px);margin:8px 0 16px;">Just outside historic downtown Harrisburg</h2>
+      <p>Keystone Tattoo Studio sits at <strong>Main Street</strong>, just outside historic downtown Harrisburg, PA. The artists are available to discuss any ideas you have — that’s the shop’s own standing invitation, and the consultation costs nothing.</p>
+      <p>The room works two ways: <strong>appointments for planned pieces</strong>, and <strong>walk-ins when the chairs are open</strong>. Either way, the work in the Flash Book above is the work that walks out of here.</p>
+    </div>
+    <div class="factbox rv">
+      <h3>In the shop</h3>
+      <ul>
+        <li><span>Artists</span><b>Studio Artist · Studio Artist</b></li>
+        <li><span>Also in the book</span><b>Fine line · Traditional · Black &amp; grey</b></li>
+        <li><span>Styles</span><b>Custom · Black &amp; grey · Color</b></li>
+        <li><span>Consultations</span><b>Free</b></li>
+        <li><span>Piercing</span><b>Not offered</b></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<div class="marquee" aria-hidden="true">
+  <div class="mq-track" id="mqTrack">
+    <span>Free consultations <i>✦</i> Walk-ins welcome <i>✦</i> Tattooing only — no piercing <i>✦</i> Main Street, Harrisburg <i>✦</i> (717) 555-0117 <i>✦</i></span>
+    <span>Free consultations <i>✦</i> Walk-ins welcome <i>✦</i> Tattooing only — no piercing <i>✦</i> Main Street, Harrisburg <i>✦</i> (717) 555-0117 <i>✦</i></span>
+  </div>
+</div>
+
+
+<section class="band-b" id="inquiry">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kick">Start a piece</p>
+      <h2>Booking inquiry</h2>
+      <p>Your idea, where it goes, and roughly how big — that’s what the shop needs to point you at the right artist and the right chair time.</p>
+    </div>
+    <form id="inqForm" novalidate class="rv">
+      <div class="form-grid">
+        <div class="field"><label for="fName">Your name</label><input id="fName" name="name" type="text" autocomplete="name" required><span class="err">Add your name so the shop knows who’s asking.</span></div>
+        <div class="field"><label for="fPhone">Phone</label><input id="fPhone" name="phone" type="tel" autocomplete="tel" required><span class="err">Add a phone number the shop can call back.</span></div>
+        <div class="field full"><label for="fIdea">The idea</label><textarea id="fIdea" name="idea" rows="3" required placeholder="What are you picturing? Style, subject, colors — anything you’ve got."></textarea><span class="err">Tell the shop what you’re picturing.</span></div>
+        <div class="field"><label for="fPlace">Placement</label><input id="fPlace" name="placement" type="text" required placeholder="Forearm, shoulder, ankle…"><span class="err">Where does it go?</span></div>
+        <div class="field"><label for="fSize">Rough size</label><input id="fSize" name="size" type="text" required placeholder="About 4 inches, palm-sized, full sleeve…"><span class="err">A rough size is fine — it helps quote chair time.</span></div>
+      </div>
+      <div style="margin-top:20px;"><button class="btn btn-solid" type="submit">Send inquiry</button></div>
+      <p class="form-note">Rather talk it out? Consultations are free — call <a href="tel:+17175550117">(717) 555-0117</a>, stop by during business hours, or send the booking form below.</p>
+    </form>
+    <div class="form-ok" id="formOk" role="status"></div>
+  </div>
+</section>
+
+
+<section class="band-a" id="visit">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kick">Visit</p>
+      <h2>Find the shop</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="rv">
+        <table class="hours">
+          <tr><td>Tuesday – Friday</td><td>11:00 AM – 7:00 PM</td></tr>
+          <tr><td>Saturday</td><td>12:00 – 6:00 PM</td></tr>
+          <tr><td>Sunday – Monday</td><td>Closed</td></tr>
+        </table>
+        <div class="visit-lines">
+          <p>Main Street, Harrisburg, PA</p>
+          <p><a href="tel:+17175550117">(717) 555-0117</a></p>
+        </div>
+        <div class="socials">
+          <a href="https://www.facebook.com/717digitalstudio" target="_blank" rel="noopener">Facebook — @717digitalstudio</a>
+          
+        </div>
+      </div>
+      <div class="mapbox rv">
+        <iframe title="Map — Keystone Tattoo Studio, Main Street, Harrisburg, PA" loading="lazy" src="https://www.google.com/maps?q=Keystone%20Tattoo%20Studio%2C%20Main%20Street%2C%20Harrisburg%2C%20PA&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="f-brand">Keystone Tattoo Studio</div>
+        <p>Custom tattoos at Main Street, Harrisburg, PA — just outside historic downtown. Free consultations, walk-ins welcome.</p>
+      </div>
+      <div class="f-links">
+        <p><a href="tel:+17175550117">(717) 555-0117</a></p>
+        
+        <p><a href="https://www.facebook.com/717digitalstudio" target="_blank" rel="noopener">Facebook</a></p>
+      </div>
+    </div>
+    <div class="fine">
+      <span>Tue–Fri 11–7 · Sat 12–6 · Sun–Mon closed</span>
+      <span>Demo site by 717 Digital Studio · 717digitalstudio.com</span>
+    </div>
+  </div>
+<div class="wrap"><div class="studio-block">Demo website built by <b>717 Digital Studio</b> &middot; <a href="https://717digitalstudio.com" target="_blank" rel="noopener">717digitalstudio.com</a><br>Want a site like this for your business? Message us on Facebook.</div></div>
+</footer>
+
+
+<div class="callbar">
+  <a class="call" href="tel:+17175550117">Call the shop</a>
+  <a class="book" href="#inquiry">Book a consult</a>
+</div>
+
+<script>/**
+ * Skipped minification because the original files appears to be already minified.
+ * Original file: /npm/page-flip@2.0.7/dist/js/page-flip.browser.js
+ *
+ * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
+ */
+!function(t,e){"object"==typeof exports&&"undefined"!=typeof module?e(exports):"function"==typeof define&&define.amd?define(["exports"],e):e((t=t||self).St={})}(this,(function(t){"use strict";class e{constructor(t,e){this.state={angle:0,area:[],position:{x:0,y:0},hardAngle:0,hardDrawingAngle:0},this.createdDensity=e,this.nowDrawingDensity=this.createdDensity,this.render=t}setDensity(t){this.createdDensity=t,this.nowDrawingDensity=t}setDrawingDensity(t){this.nowDrawingDensity=t}setPosition(t){this.state.position=t}setAngle(t){this.state.angle=t}setArea(t){this.state.area=t}setHardDrawingAngle(t){this.state.hardDrawingAngle=t}setHardAngle(t){this.state.hardAngle=t,this.state.hardDrawingAngle=t}setOrientation(t){this.orientation=t}getDrawingDensity(){return this.nowDrawingDensity}getDensity(){return this.createdDensity}getHardAngle(){return this.state.hardAngle}}class i extends e{constructor(t,e,i){super(t,i),this.image=null,this.isLoad=!1,this.loadingAngle=0,this.image=new Image,this.image.src=e}draw(t){const e=this.render.getContext(),i=this.render.convertToGlobal(this.state.position),s=this.render.getRect().pageWidth,n=this.render.getRect().height;e.save(),e.translate(i.x,i.y),e.beginPath();for(let t of this.state.area)null!==t&&(t=this.render.convertToGlobal(t),e.lineTo(t.x-i.x,t.y-i.y));e.rotate(this.state.angle),e.clip(),this.isLoad?e.drawImage(this.image,0,0,s,n):this.drawLoader(e,{x:0,y:0},s,n),e.restore()}simpleDraw(t){const e=this.render.getRect(),i=this.render.getContext(),s=e.pageWidth,n=e.height,h=1===t?e.left+e.pageWidth:e.left,r=e.top;this.isLoad?i.drawImage(this.image,h,r,s,n):this.drawLoader(i,{x:h,y:r},s,n)}drawLoader(t,e,i,s){t.beginPath(),t.strokeStyle="rgb(200, 200, 200)",t.fillStyle="rgb(255, 255, 255)",t.lineWidth=1,t.rect(e.x+1,e.y+1,i-1,s-1),t.stroke(),t.fill();const n={x:e.x+i/2,y:e.y+s/2};t.beginPath(),t.lineWidth=10,t.arc(n.x,n.y,20,this.loadingAngle,3*Math.PI/2+this.loadingAngle),t.stroke(),t.closePath(),this.loadingAngle+=.07,this.loadingAngle>=2*Math.PI&&(this.loadingAngle=0)}load(){this.isLoad||(this.image.onload=()=>{this.isLoad=!0})}newTemporaryCopy(){return this}getTemporaryCopy(){return this}hideTemporaryCopy(){}}class s{constructor(t,e){this.pages=[],this.currentPageIndex=0,this.currentSpreadIndex=0,this.landscapeSpread=[],this.portraitSpread=[],this.render=e,this.app=t,this.currentPageIndex=0,this.isShowCover=this.app.getSettings().showCover}destroy(){this.pages=[]}createSpread(){this.landscapeSpread=[],this.portraitSpread=[];for(let t=0;t<this.pages.length;t++)this.portraitSpread.push([t]);let t=0;this.isShowCover&&(this.pages[0].setDensity("hard"),this.landscapeSpread.push([t]),t++);for(let e=t;e<this.pages.length;e+=2)e<this.pages.length-1?this.landscapeSpread.push([e,e+1]):(this.landscapeSpread.push([e]),this.pages[e].setDensity("hard"))}getSpread(){return"landscape"===this.render.getOrientation()?this.landscapeSpread:this.portraitSpread}getSpreadIndexByPage(t){const e=this.getSpread();for(let i=0;i<e.length;i++)if(t===e[i][0]||t===e[i][1])return i;return null}getPageCount(){return this.pages.length}getPages(){return this.pages}getPage(t){if(t>=0&&t<this.pages.length)return this.pages[t];throw new Error("Invalid page number")}nextBy(t){const e=this.pages.indexOf(t);return e<this.pages.length-1?this.pages[e+1]:null}prevBy(t){const e=this.pages.indexOf(t);return e>0?this.pages[e-1]:null}getFlippingPage(t){const e=this.currentSpreadIndex;if("portrait"===this.render.getOrientation())return 0===t?this.pages[e].newTemporaryCopy():this.pages[e-1];{const i=0===t?this.getSpread()[e+1]:this.getSpread()[e-1];return 1===i.length||0===t?this.pages[i[0]]:this.pages[i[1]]}}getBottomPage(t){const e=this.currentSpreadIndex;if("portrait"===this.render.getOrientation())return 0===t?this.pages[e+1]:this.pages[e-1];{const i=0===t?this.getSpread()[e+1]:this.getSpread()[e-1];return 1===i.length?this.pages[i[0]]:0===t?this.pages[i[1]]:this.pages[i[0]]}}showNext(){this.currentSpreadIndex<this.getSpread().length&&(this.currentSpreadIndex++,this.showSpread())}showPrev(){this.currentSpreadIndex>0&&(this.currentSpreadIndex--,this.showSpread())}getCurrentPageIndex(){return this.currentPageIndex}show(t=null){if(null===t&&(t=this.currentPageIndex),t<0||t>=this.pages.length)return;const e=this.getSpreadIndexByPage(t);null!==e&&(this.currentSpreadIndex=e,this.showSpread())}getCurrentSpreadIndex(){return this.currentSpreadIndex}setCurrentSpreadIndex(t){if(!(t>=0&&t<this.getSpread().length))throw new Error("Invalid page");this.currentSpreadIndex=t}showSpread(){const t=this.getSpread()[this.currentSpreadIndex];2===t.length?(this.render.setLeftPage(this.pages[t[0]]),this.render.setRightPage(this.pages[t[1]])):"landscape"===this.render.getOrientation()&&t[0]===this.pages.length-1?(this.render.setLeftPage(this.pages[t[0]]),this.render.setRightPage(null)):(this.render.setLeftPage(null),this.render.setRightPage(this.pages[t[0]])),this.currentPageIndex=t[0],this.app.updatePageIndex(this.currentPageIndex)}}class n extends s{constructor(t,e,i){super(t,e),this.imagesHref=i}load(){for(const t of this.imagesHref){const e=new i(this.render,t,"soft");e.load(),this.pages.push(e)}this.createSpread()}}class h{static GetDistanceBetweenTwoPoint(t,e){return null===t||null===e?1/0:Math.sqrt(Math.pow(e.x-t.x,2)+Math.pow(e.y-t.y,2))}static GetSegmentLength(t){return h.GetDistanceBetweenTwoPoint(t[0],t[1])}static GetAngleBetweenTwoLine(t,e){const i=t[0].y-t[1].y,s=e[0].y-e[1].y,n=t[1].x-t[0].x,h=e[1].x-e[0].x;return Math.acos((i*s+n*h)/(Math.sqrt(i*i+n*n)*Math.sqrt(s*s+h*h)))}static PointInRect(t,e){return null===e?null:e.x>=t.left&&e.x<=t.width+t.left&&e.y>=t.top&&e.y<=t.top+t.height?e:null}static GetRotatedPoint(t,e,i){return{x:t.x*Math.cos(i)+t.y*Math.sin(i)+e.x,y:t.y*Math.cos(i)-t.x*Math.sin(i)+e.y}}static LimitPointToCircle(t,e,i){if(h.GetDistanceBetweenTwoPoint(t,i)<=e)return i;const s=t.x,n=t.y,r=i.x,o=i.y;let a=Math.sqrt(Math.pow(e,2)*Math.pow(s-r,2)/(Math.pow(s-r,2)+Math.pow(n-o,2)))+s;i.x<0&&(a*=-1);let g=(a-s)*(n-o)/(s-r)+n;return s-r+n===0&&(g=e),{x:a,y:g}}static GetIntersectBetweenTwoSegment(t,e,i){return h.PointInRect(t,h.GetIntersectBeetwenTwoLine(e,i))}static GetIntersectBeetwenTwoLine(t,e){const i=t[0].y-t[1].y,s=e[0].y-e[1].y,n=t[1].x-t[0].x,h=e[1].x-e[0].x,r=t[0].x*t[1].y-t[1].x*t[0].y,o=e[0].x*e[1].y-e[1].x*e[0].y,a=i*o-s*r,g=n*o-h*r,l=-(r*h-o*n)/(i*h-s*n),d=-(i*o-s*r)/(i*h-s*n);if(isFinite(l)&&isFinite(d))return{x:l,y:d};if(Math.abs(a-g)<.1)throw new Error("Segment included");return null}static GetCordsFromTwoPoint(t,e){const i=Math.abs(t.x-e.x),s=Math.abs(t.y-e.y),n=Math.max(i,s),h=[t];function r(t,e,i,s,n){return e>t?t+n*(i/s):e<t?t-n*(i/s):t}for(let o=1;o<=n;o+=1)h.push({x:r(t.x,e.x,i,n,o),y:r(t.y,e.y,s,n,o)});return h}}class r extends e{constructor(t,e,i){super(t,i),this.copiedElement=null,this.temporaryCopy=null,this.isLoad=!1,this.element=e,this.element.classList.add("stf__item"),this.element.classList.add("--"+i)}newTemporaryCopy(){return"hard"===this.nowDrawingDensity?this:(null===this.temporaryCopy&&(this.copiedElement=this.element.cloneNode(!0),this.element.parentElement.appendChild(this.copiedElement),this.temporaryCopy=new r(this.render,this.copiedElement,this.nowDrawingDensity)),this.getTemporaryCopy())}getTemporaryCopy(){return this.temporaryCopy}hideTemporaryCopy(){null!==this.temporaryCopy&&(this.copiedElement.remove(),this.copiedElement=null,this.temporaryCopy=null)}draw(t){const e=t||this.nowDrawingDensity,i=this.render.convertToGlobal(this.state.position),s=this.render.getRect().pageWidth,n=this.render.getRect().height;this.element.classList.remove("--simple");const h=`\n            display: block;\n            z-index: ${this.element.style.zIndex};\n            left: 0;\n            top: 0;\n            width: ${s}px;\n            height: ${n}px;\n        `;"hard"===e?this.drawHard(h):this.drawSoft(i,h)}drawHard(t=""){const e=this.render.getRect().left+this.render.getRect().width/2,i=this.state.hardDrawingAngle,s=t+"\n                backface-visibility: hidden;\n                -webkit-backface-visibility: hidden;\n                clip-path: none;\n                -webkit-clip-path: none;\n            "+(0===this.orientation?`transform-origin: ${this.render.getRect().pageWidth}px 0; \n                   transform: translate3d(0, 0, 0) rotateY(${i}deg);`:`transform-origin: 0 0; \n                   transform: translate3d(${e}px, 0, 0) rotateY(${i}deg);`);this.element.style.cssText=s}drawSoft(t,e=""){let i="polygon( ";for(const t of this.state.area)if(null!==t){let e=1===this.render.getDirection()?{x:-t.x+this.state.position.x,y:t.y-this.state.position.y}:{x:t.x-this.state.position.x,y:t.y-this.state.position.y};e=h.GetRotatedPoint(e,{x:0,y:0},this.state.angle),i+=e.x+"px "+e.y+"px, "}i=i.slice(0,-2),i+=")";const s=e+`transform-origin: 0 0; clip-path: ${i}; -webkit-clip-path: ${i};`+(this.render.isSafari()&&0===this.state.angle?`transform: translate(${t.x}px, ${t.y}px);`:`transform: translate3d(${t.x}px, ${t.y}px, 0) rotate(${this.state.angle}rad);`);this.element.style.cssText=s}simpleDraw(t){const e=this.render.getRect(),i=e.pageWidth,s=e.height,n=1===t?e.left+e.pageWidth:e.left,h=e.top;this.element.classList.add("--simple"),this.element.style.cssText=`\n            position: absolute; \n            display: block; \n            height: ${s}px; \n            left: ${n}px; \n            top: ${h}px; \n            width: ${i}px; \n            z-index: ${this.render.getSettings().startZIndex+1};`}getElement(){return this.element}load(){this.isLoad=!0}setOrientation(t){super.setOrientation(t),this.element.classList.remove("--left","--right"),this.element.classList.add(1===t?"--right":"--left")}setDrawingDensity(t){this.element.classList.remove("--soft","--hard"),this.element.classList.add("--"+t),super.setDrawingDensity(t)}}class o extends s{constructor(t,e,i,s){super(t,e),this.element=i,this.pagesElement=s}load(){for(const t of this.pagesElement){const e=new r(this.render,t,"hard"===t.dataset.density?"hard":"soft");e.load(),this.pages.push(e)}this.createSpread()}}class a{constructor(t,e,i,s){this.direction=t,this.corner=e,this.topIntersectPoint=null,this.sideIntersectPoint=null,this.bottomIntersectPoint=null,this.pageWidth=parseInt(i,10),this.pageHeight=parseInt(s,10)}calc(t){try{return this.position=this.calcAngleAndPosition(t),this.calculateIntersectPoint(this.position),!0}catch(t){return!1}}getFlippingClipArea(){const t=[];let e=!1;return t.push(this.rect.topLeft),t.push(this.topIntersectPoint),null===this.sideIntersectPoint?e=!0:(t.push(this.sideIntersectPoint),null===this.bottomIntersectPoint&&(e=!1)),t.push(this.bottomIntersectPoint),(e||"bottom"===this.corner)&&t.push(this.rect.bottomLeft),t}getBottomClipArea(){const t=[];return t.push(this.topIntersectPoint),"top"===this.corner?t.push({x:this.pageWidth,y:0}):(null!==this.topIntersectPoint&&t.push({x:this.pageWidth,y:0}),t.push({x:this.pageWidth,y:this.pageHeight})),null!==this.sideIntersectPoint?h.GetDistanceBetweenTwoPoint(this.sideIntersectPoint,this.topIntersectPoint)>=10&&t.push(this.sideIntersectPoint):"top"===this.corner&&t.push({x:this.pageWidth,y:this.pageHeight}),t.push(this.bottomIntersectPoint),t.push(this.topIntersectPoint),t}getAngle(){return 0===this.direction?-this.angle:this.angle}getRect(){return this.rect}getPosition(){return this.position}getActiveCorner(){return 0===this.direction?this.rect.topLeft:this.rect.topRight}getDirection(){return this.direction}getFlippingProgress(){return Math.abs((this.position.x-this.pageWidth)/(2*this.pageWidth)*100)}getCorner(){return this.corner}getBottomPagePosition(){return 1===this.direction?{x:this.pageWidth,y:0}:{x:0,y:0}}getShadowStartPoint(){return"top"===this.corner?this.topIntersectPoint:null!==this.sideIntersectPoint?this.sideIntersectPoint:this.topIntersectPoint}getShadowAngle(){const t=h.GetAngleBetweenTwoLine(this.getSegmentToShadowLine(),[{x:0,y:0},{x:this.pageWidth,y:0}]);return 0===this.direction?t:Math.PI-t}calcAngleAndPosition(t){let e=t;if(this.updateAngleAndGeometry(e),e="top"===this.corner?this.checkPositionAtCenterLine(e,{x:0,y:0},{x:0,y:this.pageHeight}):this.checkPositionAtCenterLine(e,{x:0,y:this.pageHeight},{x:0,y:0}),Math.abs(e.x-this.pageWidth)<1&&Math.abs(e.y)<1)throw new Error("Point is too small");return e}updateAngleAndGeometry(t){this.angle=this.calculateAngle(t),this.rect=this.getPageRect(t)}calculateAngle(t){const e=this.pageWidth-t.x+1,i="bottom"===this.corner?this.pageHeight-t.y:t.y;let s=2*Math.acos(e/Math.sqrt(i*i+e*e));i<0&&(s=-s);const n=Math.PI-s;if(!isFinite(s)||n>=0&&n<.003)throw new Error("The G point is too small");return"bottom"===this.corner&&(s=-s),s}getPageRect(t){return"top"===this.corner?this.getRectFromBasePoint([{x:0,y:0},{x:this.pageWidth,y:0},{x:0,y:this.pageHeight},{x:this.pageWidth,y:this.pageHeight}],t):this.getRectFromBasePoint([{x:0,y:-this.pageHeight},{x:this.pageWidth,y:-this.pageHeight},{x:0,y:0},{x:this.pageWidth,y:0}],t)}getRectFromBasePoint(t,e){return{topLeft:this.getRotatedPoint(t[0],e),topRight:this.getRotatedPoint(t[1],e),bottomLeft:this.getRotatedPoint(t[2],e),bottomRight:this.getRotatedPoint(t[3],e)}}getRotatedPoint(t,e){return{x:t.x*Math.cos(this.angle)+t.y*Math.sin(this.angle)+e.x,y:t.y*Math.cos(this.angle)-t.x*Math.sin(this.angle)+e.y}}calculateIntersectPoint(t){const e={left:-1,top:-1,width:this.pageWidth+2,height:this.pageHeight+2};"top"===this.corner?(this.topIntersectPoint=h.GetIntersectBetweenTwoSegment(e,[t,this.rect.topRight],[{x:0,y:0},{x:this.pageWidth,y:0}]),this.sideIntersectPoint=h.GetIntersectBetweenTwoSegment(e,[t,this.rect.bottomLeft],[{x:this.pageWidth,y:0},{x:this.pageWidth,y:this.pageHeight}]),this.bottomIntersectPoint=h.GetIntersectBetweenTwoSegment(e,[this.rect.bottomLeft,this.rect.bottomRight],[{x:0,y:this.pageHeight},{x:this.pageWidth,y:this.pageHeight}])):(this.topIntersectPoint=h.GetIntersectBetweenTwoSegment(e,[this.rect.topLeft,this.rect.topRight],[{x:0,y:0},{x:this.pageWidth,y:0}]),this.sideIntersectPoint=h.GetIntersectBetweenTwoSegment(e,[t,this.rect.topLeft],[{x:this.pageWidth,y:0},{x:this.pageWidth,y:this.pageHeight}]),this.bottomIntersectPoint=h.GetIntersectBetweenTwoSegment(e,[this.rect.bottomLeft,this.rect.bottomRight],[{x:0,y:this.pageHeight},{x:this.pageWidth,y:this.pageHeight}]))}checkPositionAtCenterLine(t,e,i){let s=t;const n=h.LimitPointToCircle(e,this.pageWidth,s);s!==n&&(s=n,this.updateAngleAndGeometry(s));const r=Math.sqrt(Math.pow(this.pageWidth,2)+Math.pow(this.pageHeight,2));let o=this.rect.bottomRight,a=this.rect.topLeft;if("bottom"===this.corner&&(o=this.rect.topRight,a=this.rect.bottomLeft),o.x<=0){const t=h.LimitPointToCircle(i,r,a);t!==s&&(s=t,this.updateAngleAndGeometry(s))}return s}getSegmentToShadowLine(){const t=this.getShadowStartPoint();return[t,t!==this.sideIntersectPoint&&null!==this.sideIntersectPoint?this.sideIntersectPoint:this.bottomIntersectPoint]}}class g{constructor(t,e){this.flippingPage=null,this.bottomPage=null,this.calc=null,this.state="read",this.render=t,this.app=e}fold(t){this.setState("user_fold"),null===this.calc&&this.start(t),this.do(this.render.convertToPage(t))}flip(t){if(this.app.getSettings().disableFlipByClick&&!this.isPointOnCorners(t))return;if(null!==this.calc&&this.render.finishAnimation(),!this.start(t))return;const e=this.getBoundsRect();this.setState("flipping");const i=e.height/10,s="bottom"===this.calc.getCorner()?e.height-i:i,n="bottom"===this.calc.getCorner()?e.height:0;this.calc.calc({x:e.pageWidth-i,y:s}),this.animateFlippingTo({x:e.pageWidth-i,y:s},{x:-e.pageWidth,y:n},!0)}start(t){this.reset();const e=this.render.convertToBook(t),i=this.getBoundsRect(),s=this.getDirectionByPoint(e),n=e.y>=i.height/2?"bottom":"top";if(!this.checkDirection(s))return!1;try{if(this.flippingPage=this.app.getPageCollection().getFlippingPage(s),this.bottomPage=this.app.getPageCollection().getBottomPage(s),"landscape"===this.render.getOrientation())if(1===s){const t=this.app.getPageCollection().nextBy(this.flippingPage);null!==t&&this.flippingPage.getDensity()!==t.getDensity()&&(this.flippingPage.setDrawingDensity("hard"),t.setDrawingDensity("hard"))}else{const t=this.app.getPageCollection().prevBy(this.flippingPage);null!==t&&this.flippingPage.getDensity()!==t.getDensity()&&(this.flippingPage.setDrawingDensity("hard"),t.setDrawingDensity("hard"))}return this.render.setDirection(s),this.calc=new a(s,n,i.pageWidth.toString(10),i.height.toString(10)),!0}catch(t){return!1}}do(t){if(null!==this.calc&&this.calc.calc(t)){const t=this.calc.getFlippingProgress();this.bottomPage.setArea(this.calc.getBottomClipArea()),this.bottomPage.setPosition(this.calc.getBottomPagePosition()),this.bottomPage.setAngle(0),this.bottomPage.setHardAngle(0),this.flippingPage.setArea(this.calc.getFlippingClipArea()),this.flippingPage.setPosition(this.calc.getActiveCorner()),this.flippingPage.setAngle(this.calc.getAngle()),0===this.calc.getDirection()?this.flippingPage.setHardAngle(90*(200-2*t)/100):this.flippingPage.setHardAngle(-90*(200-2*t)/100),this.render.setPageRect(this.calc.getRect()),this.render.setBottomPage(this.bottomPage),this.render.setFlippingPage(this.flippingPage),this.render.setShadowData(this.calc.getShadowStartPoint(),this.calc.getShadowAngle(),t,this.calc.getDirection())}}flipToPage(t,e){const i=this.app.getPageCollection().getCurrentSpreadIndex(),s=this.app.getPageCollection().getSpreadIndexByPage(t);try{s>i&&(this.app.getPageCollection().setCurrentSpreadIndex(s-1),this.flipNext(e)),s<i&&(this.app.getPageCollection().setCurrentSpreadIndex(s+1),this.flipPrev(e))}catch(t){}}flipNext(t){this.flip({x:this.render.getRect().left+2*this.render.getRect().pageWidth-10,y:"top"===t?1:this.render.getRect().height-2})}flipPrev(t){this.flip({x:10,y:"top"===t?1:this.render.getRect().height-2})}stopMove(){if(null===this.calc)return;const t=this.calc.getPosition(),e=this.getBoundsRect(),i="bottom"===this.calc.getCorner()?e.height:0;t.x<=0?this.animateFlippingTo(t,{x:-e.pageWidth,y:i},!0):this.animateFlippingTo(t,{x:e.pageWidth,y:i},!1)}showCorner(t){if(!this.checkState("read","fold_corner"))return;const e=this.getBoundsRect(),i=e.pageWidth;if(this.isPointOnCorners(t))if(null===this.calc){if(!this.start(t))return;this.setState("fold_corner"),this.calc.calc({x:i-1,y:1});const s=50,n="bottom"===this.calc.getCorner()?e.height-1:1,h="bottom"===this.calc.getCorner()?e.height-s:s;this.animateFlippingTo({x:i-1,y:n},{x:i-s,y:h},!1,!1)}else this.do(this.render.convertToPage(t));else this.setState("read"),this.render.finishAnimation(),this.stopMove()}animateFlippingTo(t,e,i,s=!0){const n=h.GetCordsFromTwoPoint(t,e),r=[];for(const t of n)r.push(()=>this.do(t));const o=this.getAnimationDuration(n.length);this.render.startAnimation(r,o,()=>{this.calc&&(i&&(1===this.calc.getDirection()?this.app.turnToPrevPage():this.app.turnToNextPage()),s&&(this.render.setBottomPage(null),this.render.setFlippingPage(null),this.render.clearShadow(),this.setState("read"),this.reset()))})}getCalculation(){return this.calc}getState(){return this.state}setState(t){this.state!==t&&(this.app.updateState(t),this.state=t)}getDirectionByPoint(t){const e=this.getBoundsRect();if("portrait"===this.render.getOrientation()){if(t.x-e.pageWidth<=e.width/5)return 1}else if(t.x<e.width/2)return 1;return 0}getAnimationDuration(t){const e=this.app.getSettings().flippingTime;return t>=1e3?e:t/1e3*e}checkDirection(t){return 0===t?this.app.getCurrentPageIndex()<this.app.getPageCount()-1:this.app.getCurrentPageIndex()>=1}reset(){this.calc=null,this.flippingPage=null,this.bottomPage=null}getBoundsRect(){return this.render.getRect()}checkState(...t){for(const e of t)if(this.state===e)return!0;return!1}isPointOnCorners(t){const e=this.getBoundsRect(),i=e.pageWidth,s=Math.sqrt(Math.pow(i,2)+Math.pow(e.height,2))/5,n=this.render.convertToBook(t);return n.x>0&&n.y>0&&n.x<e.width&&n.y<e.height&&(n.x<s||n.x>e.width-s)&&(n.y<s||n.y>e.height-s)}}class l{constructor(t,e){this.leftPage=null,this.rightPage=null,this.flippingPage=null,this.bottomPage=null,this.direction=null,this.orientation=null,this.shadow=null,this.animation=null,this.pageRect=null,this.boundsRect=null,this.timer=0,this.safari=!1,this.setting=e,this.app=t;const i=new RegExp("Version\\/[\\d\\.]+.*Safari/");this.safari=null!==i.exec(window.navigator.userAgent)}render(t){if(null!==this.animation){const e=Math.round((t-this.animation.startedAt)/this.animation.durationFrame);e<this.animation.frames.length?this.animation.frames[e]():(this.animation.onAnimateEnd(),this.animation=null)}this.timer=t,this.drawFrame()}start(){this.update();const t=e=>{this.render(e),requestAnimationFrame(t)};requestAnimationFrame(t)}startAnimation(t,e,i){this.finishAnimation(),this.animation={frames:t,duration:e,durationFrame:e/t.length,onAnimateEnd:i,startedAt:this.timer}}finishAnimation(){null!==this.animation&&(this.animation.frames[this.animation.frames.length-1](),null!==this.animation.onAnimateEnd&&this.animation.onAnimateEnd()),this.animation=null}update(){this.boundsRect=null;const t=this.calculateBoundsRect();this.orientation!==t&&(this.orientation=t,this.app.updateOrientation(t))}calculateBoundsRect(){let t="landscape";const e=this.getBlockWidth(),i=e/2,s=this.getBlockHeight()/2,n=this.setting.width/this.setting.height;let h=this.setting.width,r=this.setting.height,o=i-h;return"stretch"===this.setting.size?(e<2*this.setting.minWidth&&this.app.getSettings().usePortrait&&(t="portrait"),h="portrait"===t?this.getBlockWidth():this.getBlockWidth()/2,h>this.setting.maxWidth&&(h=this.setting.maxWidth),r=h/n,r>this.getBlockHeight()&&(r=this.getBlockHeight(),h=r*n),o="portrait"===t?i-h/2-h:i-h):e<2*h&&this.app.getSettings().usePortrait&&(t="portrait",o=i-h/2-h),this.boundsRect={left:o,top:s-r/2,width:2*h,height:r,pageWidth:h},t}setShadowData(t,e,i,s){if(!this.app.getSettings().drawShadow)return;const n=100*this.getSettings().maxShadowOpacity;this.shadow={pos:t,angle:e,width:3*this.getRect().pageWidth/4*i/100,opacity:(100-i)*n/100/100,direction:s,progress:2*i}}clearShadow(){this.shadow=null}getBlockWidth(){return this.app.getUI().getDistElement().offsetWidth}getBlockHeight(){return this.app.getUI().getDistElement().offsetHeight}getDirection(){return this.direction}getRect(){return null===this.boundsRect&&this.calculateBoundsRect(),this.boundsRect}getSettings(){return this.app.getSettings()}getOrientation(){return this.orientation}setPageRect(t){this.pageRect=t}setDirection(t){this.direction=t}setRightPage(t){null!==t&&t.setOrientation(1),this.rightPage=t}setLeftPage(t){null!==t&&t.setOrientation(0),this.leftPage=t}setBottomPage(t){null!==t&&t.setOrientation(1===this.direction?0:1),this.bottomPage=t}setFlippingPage(t){null!==t&&t.setOrientation(0===this.direction&&"portrait"!==this.orientation?0:1),this.flippingPage=t}convertToBook(t){const e=this.getRect();return{x:t.x-e.left,y:t.y-e.top}}isSafari(){return this.safari}convertToPage(t,e){e||(e=this.direction);const i=this.getRect();return{x:0===e?t.x-i.left-i.width/2:i.width/2-t.x+i.left,y:t.y-i.top}}convertToGlobal(t,e){if(e||(e=this.direction),null==t)return null;const i=this.getRect();return{x:0===e?t.x+i.left+i.width/2:i.width/2-t.x+i.left,y:t.y+i.top}}convertRectToGlobal(t,e){return e||(e=this.direction),{topLeft:this.convertToGlobal(t.topLeft,e),topRight:this.convertToGlobal(t.topRight,e),bottomLeft:this.convertToGlobal(t.bottomLeft,e),bottomRight:this.convertToGlobal(t.bottomRight,e)}}}class d extends l{constructor(t,e,i){super(t,e),this.canvas=i,this.ctx=i.getContext("2d")}getContext(){return this.ctx}reload(){}drawFrame(){this.clear(),"portrait"!==this.orientation&&null!=this.leftPage&&this.leftPage.simpleDraw(0),null!=this.rightPage&&this.rightPage.simpleDraw(1),null!=this.bottomPage&&this.bottomPage.draw(),this.drawBookShadow(),null!=this.flippingPage&&this.flippingPage.draw(),null!=this.shadow&&(this.drawOuterShadow(),this.drawInnerShadow());const t=this.getRect();"portrait"===this.orientation&&(this.ctx.beginPath(),this.ctx.rect(t.left+t.pageWidth,t.top,t.width,t.height),this.ctx.clip())}drawBookShadow(){const t=this.getRect();this.ctx.save(),this.ctx.beginPath();const e=t.width/20;this.ctx.rect(t.left,t.top,t.width,t.height);const i={x:t.left+t.width/2-e/2,y:0};this.ctx.translate(i.x,i.y);const s=this.ctx.createLinearGradient(0,0,e,0);s.addColorStop(0,"rgba(0, 0, 0, 0)"),s.addColorStop(.4,"rgba(0, 0, 0, 0.2)"),s.addColorStop(.49,"rgba(0, 0, 0, 0.1)"),s.addColorStop(.5,"rgba(0, 0, 0, 0.5)"),s.addColorStop(.51,"rgba(0, 0, 0, 0.4)"),s.addColorStop(1,"rgba(0, 0, 0, 0)"),this.ctx.clip(),this.ctx.fillStyle=s,this.ctx.fillRect(0,0,e,2*t.height),this.ctx.restore()}drawOuterShadow(){const t=this.getRect();this.ctx.save(),this.ctx.beginPath(),this.ctx.rect(t.left,t.top,t.width,t.height);const e=this.convertToGlobal({x:this.shadow.pos.x,y:this.shadow.pos.y});this.ctx.translate(e.x,e.y),this.ctx.rotate(Math.PI+this.shadow.angle+Math.PI/2);const i=this.ctx.createLinearGradient(0,0,this.shadow.width,0);0===this.shadow.direction?(this.ctx.translate(0,-100),i.addColorStop(0,"rgba(0, 0, 0, "+this.shadow.opacity+")"),i.addColorStop(1,"rgba(0, 0, 0, 0)")):(this.ctx.translate(-this.shadow.width,-100),i.addColorStop(0,"rgba(0, 0, 0, 0)"),i.addColorStop(1,"rgba(0, 0, 0, "+this.shadow.opacity+")")),this.ctx.clip(),this.ctx.fillStyle=i,this.ctx.fillRect(0,0,this.shadow.width,2*t.height),this.ctx.restore()}drawInnerShadow(){const t=this.getRect();this.ctx.save(),this.ctx.beginPath();const e=this.convertToGlobal({x:this.shadow.pos.x,y:this.shadow.pos.y}),i=this.convertRectToGlobal(this.pageRect);this.ctx.moveTo(i.topLeft.x,i.topLeft.y),this.ctx.lineTo(i.topRight.x,i.topRight.y),this.ctx.lineTo(i.bottomRight.x,i.bottomRight.y),this.ctx.lineTo(i.bottomLeft.x,i.bottomLeft.y),this.ctx.translate(e.x,e.y),this.ctx.rotate(Math.PI+this.shadow.angle+Math.PI/2);const s=3*this.shadow.width/4,n=this.ctx.createLinearGradient(0,0,s,0);0===this.shadow.direction?(this.ctx.translate(-s,-100),n.addColorStop(1,"rgba(0, 0, 0, "+this.shadow.opacity+")"),n.addColorStop(.9,"rgba(0, 0, 0, 0.05)"),n.addColorStop(.7,"rgba(0, 0, 0, "+this.shadow.opacity+")"),n.addColorStop(0,"rgba(0, 0, 0, 0)")):(this.ctx.translate(0,-100),n.addColorStop(0,"rgba(0, 0, 0, "+this.shadow.opacity+")"),n.addColorStop(.1,"rgba(0, 0, 0, 0.05)"),n.addColorStop(.3,"rgba(0, 0, 0, "+this.shadow.opacity+")"),n.addColorStop(1,"rgba(0, 0, 0, 0)")),this.ctx.clip(),this.ctx.fillStyle=n,this.ctx.fillRect(0,0,s,2*t.height),this.ctx.restore()}clear(){this.ctx.fillStyle="white",this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height)}}class p{constructor(t,e,i){this.touchPoint=null,this.swipeTimeout=250,this.onResize=()=>{this.update()},this.onMouseDown=t=>{if(this.checkTarget(t.target)){const e=this.getMousePos(t.clientX,t.clientY);this.app.startUserTouch(e),t.preventDefault()}},this.onTouchStart=t=>{if(this.checkTarget(t.target)&&t.changedTouches.length>0){const e=t.changedTouches[0],i=this.getMousePos(e.clientX,e.clientY);this.touchPoint={point:i,time:Date.now()},setTimeout(()=>{null!==this.touchPoint&&this.app.startUserTouch(i)},this.swipeTimeout),this.app.getSettings().mobileScrollSupport||t.preventDefault()}},this.onMouseUp=t=>{const e=this.getMousePos(t.clientX,t.clientY);this.app.userStop(e)},this.onMouseMove=t=>{const e=this.getMousePos(t.clientX,t.clientY);this.app.userMove(e,!1)},this.onTouchMove=t=>{if(t.changedTouches.length>0){const e=t.changedTouches[0],i=this.getMousePos(e.clientX,e.clientY);this.app.getSettings().mobileScrollSupport?(null!==this.touchPoint&&(Math.abs(this.touchPoint.point.x-i.x)>10||"read"!==this.app.getState())&&t.cancelable&&this.app.userMove(i,!0),"read"!==this.app.getState()&&t.preventDefault()):this.app.userMove(i,!0)}},this.onTouchEnd=t=>{if(t.changedTouches.length>0){const e=t.changedTouches[0],i=this.getMousePos(e.clientX,e.clientY);let s=!1;if(null!==this.touchPoint){const t=i.x-this.touchPoint.point.x,e=Math.abs(i.y-this.touchPoint.point.y);Math.abs(t)>this.swipeDistance&&e<2*this.swipeDistance&&Date.now()-this.touchPoint.time<this.swipeTimeout&&(t>0?this.app.flipPrev(this.touchPoint.point.y<this.app.getRender().getRect().height/2?"top":"bottom"):this.app.flipNext(this.touchPoint.point.y<this.app.getRender().getRect().height/2?"top":"bottom"),s=!0),this.touchPoint=null}this.app.userStop(i,s)}},this.parentElement=t,t.classList.add("stf__parent"),t.insertAdjacentHTML("afterbegin",'<div class="stf__wrapper"></div>'),this.wrapper=t.querySelector(".stf__wrapper"),this.app=e;const s=this.app.getSettings().usePortrait?1:2;t.style.minWidth=i.minWidth*s+"px",t.style.minHeight=i.minHeight+"px","fixed"===i.size&&(t.style.minWidth=i.width*s+"px",t.style.minHeight=i.height+"px"),i.autoSize&&(t.style.width="100%",t.style.maxWidth=2*i.maxWidth+"px"),t.style.display="block",window.addEventListener("resize",this.onResize,!1),this.swipeDistance=i.swipeDistance}destroy(){this.app.getSettings().useMouseEvents&&this.removeHandlers(),this.distElement.remove(),this.wrapper.remove()}getDistElement(){return this.distElement}getWrapper(){return this.wrapper}setOrientationStyle(t){this.wrapper.classList.remove("--portrait","--landscape"),"portrait"===t?(this.app.getSettings().autoSize&&(this.wrapper.style.paddingBottom=this.app.getSettings().height/this.app.getSettings().width*100+"%"),this.wrapper.classList.add("--portrait")):(this.app.getSettings().autoSize&&(this.wrapper.style.paddingBottom=this.app.getSettings().height/(2*this.app.getSettings().width)*100+"%"),this.wrapper.classList.add("--landscape")),this.update()}removeHandlers(){window.removeEventListener("resize",this.onResize),this.distElement.removeEventListener("mousedown",this.onMouseDown),this.distElement.removeEventListener("touchstart",this.onTouchStart),window.removeEventListener("mousemove",this.onMouseMove),window.removeEventListener("touchmove",this.onTouchMove),window.removeEventListener("mouseup",this.onMouseUp),window.removeEventListener("touchend",this.onTouchEnd)}setHandlers(){window.addEventListener("resize",this.onResize,!1),this.app.getSettings().useMouseEvents&&(this.distElement.addEventListener("mousedown",this.onMouseDown),this.distElement.addEventListener("touchstart",this.onTouchStart),window.addEventListener("mousemove",this.onMouseMove),window.addEventListener("touchmove",this.onTouchMove,{passive:!this.app.getSettings().mobileScrollSupport}),window.addEventListener("mouseup",this.onMouseUp),window.addEventListener("touchend",this.onTouchEnd))}getMousePos(t,e){const i=this.distElement.getBoundingClientRect();return{x:t-i.left,y:e-i.top}}checkTarget(t){return!this.app.getSettings().clickEventForward||!["a","button"].includes(t.tagName.toLowerCase())}}class c extends p{constructor(t,e,i,s){super(t,e,i),this.wrapper.insertAdjacentHTML("afterbegin",'<div class="stf__block"></div>'),this.distElement=t.querySelector(".stf__block"),this.items=s;for(const t of s)this.distElement.appendChild(t);this.setHandlers()}clear(){for(const t of this.items)this.parentElement.appendChild(t)}updateItems(t){this.removeHandlers(),this.distElement.innerHTML="";for(const e of t)this.distElement.appendChild(e);this.items=t,this.setHandlers()}update(){this.app.getRender().update()}}class u extends p{constructor(t,e,i){super(t,e,i),this.wrapper.innerHTML='<canvas class="stf__canvas"></canvas>',this.canvas=t.querySelectorAll("canvas")[0],this.distElement=this.canvas,this.resizeCanvas(),this.setHandlers()}resizeCanvas(){const t=getComputedStyle(this.canvas),e=parseInt(t.getPropertyValue("width"),10),i=parseInt(t.getPropertyValue("height"),10);this.canvas.width=e,this.canvas.height=i}getCanvas(){return this.canvas}update(){this.resizeCanvas(),this.app.getRender().update()}}class w extends l{constructor(t,e,i){super(t,e),this.outerShadow=null,this.innerShadow=null,this.hardShadow=null,this.hardInnerShadow=null,this.element=i,this.createShadows()}createShadows(){this.element.insertAdjacentHTML("beforeend",'<div class="stf__outerShadow"></div>\n             <div class="stf__innerShadow"></div>\n             <div class="stf__hardShadow"></div>\n             <div class="stf__hardInnerShadow"></div>'),this.outerShadow=this.element.querySelector(".stf__outerShadow"),this.innerShadow=this.element.querySelector(".stf__innerShadow"),this.hardShadow=this.element.querySelector(".stf__hardShadow"),this.hardInnerShadow=this.element.querySelector(".stf__hardInnerShadow")}clearShadow(){super.clearShadow(),this.outerShadow.style.cssText="display: none",this.innerShadow.style.cssText="display: none",this.hardShadow.style.cssText="display: none",this.hardInnerShadow.style.cssText="display: none"}reload(){this.element.querySelector(".stf__outerShadow")||this.createShadows()}drawHardInnerShadow(){const t=this.getRect(),e=this.shadow.progress>100?200-this.shadow.progress:this.shadow.progress;let i=(100-e)*(2.5*t.pageWidth)/100+20;i>t.pageWidth&&(i=t.pageWidth);let s=`\n            display: block;\n            z-index: ${(this.getSettings().startZIndex+5).toString(10)};\n            width: ${i}px;\n            height: ${t.height}px;\n            background: linear-gradient(to right,\n                rgba(0, 0, 0, ${this.shadow.opacity*e/100}) 5%,\n                rgba(0, 0, 0, 0) 100%);\n            left: ${t.left+t.width/2}px;\n            transform-origin: 0 0;\n        `;s+=0===this.getDirection()&&this.shadow.progress>100||1===this.getDirection()&&this.shadow.progress<=100?"transform: translate3d(0, 0, 0);":"transform: translate3d(0, 0, 0) rotateY(180deg);",this.hardInnerShadow.style.cssText=s}drawHardOuterShadow(){const t=this.getRect();let e=(100-(this.shadow.progress>100?200-this.shadow.progress:this.shadow.progress))*(2.5*t.pageWidth)/100+20;e>t.pageWidth&&(e=t.pageWidth);let i=`\n            display: block;\n            z-index: ${(this.getSettings().startZIndex+4).toString(10)};\n            width: ${e}px;\n            height: ${t.height}px;\n            background: linear-gradient(to left, rgba(0, 0, 0, ${this.shadow.opacity}) 5%, rgba(0, 0, 0, 0) 100%);\n            left: ${t.left+t.width/2}px;\n            transform-origin: 0 0;\n        `;i+=0===this.getDirection()&&this.shadow.progress>100||1===this.getDirection()&&this.shadow.progress<=100?"transform: translate3d(0, 0, 0) rotateY(180deg);":"transform: translate3d(0, 0, 0);",this.hardShadow.style.cssText=i}drawInnerShadow(){const t=this.getRect(),e=3*this.shadow.width/4,i=0===this.getDirection()?e:0,s=0===this.getDirection()?"to left":"to right",n=this.convertToGlobal(this.shadow.pos),r=this.shadow.angle+3*Math.PI/2,o=[this.pageRect.topLeft,this.pageRect.topRight,this.pageRect.bottomRight,this.pageRect.bottomLeft];let a="polygon( ";for(const t of o){let e=1===this.getDirection()?{x:-t.x+this.shadow.pos.x,y:t.y-this.shadow.pos.y}:{x:t.x-this.shadow.pos.x,y:t.y-this.shadow.pos.y};e=h.GetRotatedPoint(e,{x:i,y:100},r),a+=e.x+"px "+e.y+"px, "}a=a.slice(0,-2),a+=")";const g=`\n            display: block;\n            z-index: ${(this.getSettings().startZIndex+10).toString(10)};\n            width: ${e}px;\n            height: ${2*t.height}px;\n            background: linear-gradient(${s},\n                rgba(0, 0, 0, ${this.shadow.opacity}) 5%,\n                rgba(0, 0, 0, 0.05) 15%,\n                rgba(0, 0, 0, ${this.shadow.opacity}) 35%,\n                rgba(0, 0, 0, 0) 100%);\n            transform-origin: ${i}px 100px;\n            transform: translate3d(${n.x-i}px, ${n.y-100}px, 0) rotate(${r}rad);\n            clip-path: ${a};\n            -webkit-clip-path: ${a};\n        `;this.innerShadow.style.cssText=g}drawOuterShadow(){const t=this.getRect(),e=this.convertToGlobal({x:this.shadow.pos.x,y:this.shadow.pos.y}),i=this.shadow.angle+3*Math.PI/2,s=1===this.getDirection()?this.shadow.width:0,n=0===this.getDirection()?"to right":"to left",r=[{x:0,y:0},{x:t.pageWidth,y:0},{x:t.pageWidth,y:t.height},{x:0,y:t.height}];let o="polygon( ";for(const t of r)if(null!==t){let e=1===this.getDirection()?{x:-t.x+this.shadow.pos.x,y:t.y-this.shadow.pos.y}:{x:t.x-this.shadow.pos.x,y:t.y-this.shadow.pos.y};e=h.GetRotatedPoint(e,{x:s,y:100},i),o+=e.x+"px "+e.y+"px, "}o=o.slice(0,-2),o+=")";const a=`\n            display: block;\n            z-index: ${(this.getSettings().startZIndex+10).toString(10)};\n            width: ${this.shadow.width}px;\n            height: ${2*t.height}px;\n            background: linear-gradient(${n}, rgba(0, 0, 0, ${this.shadow.opacity}), rgba(0, 0, 0, 0));\n            transform-origin: ${s}px 100px;\n            transform: translate3d(${e.x-s}px, ${e.y-100}px, 0) rotate(${i}rad);\n            clip-path: ${o};\n            -webkit-clip-path: ${o};\n        `;this.outerShadow.style.cssText=a}drawLeftPage(){"portrait"!==this.orientation&&null!==this.leftPage&&(1===this.direction&&null!==this.flippingPage&&"hard"===this.flippingPage.getDrawingDensity()?(this.leftPage.getElement().style.zIndex=(this.getSettings().startZIndex+5).toString(10),this.leftPage.setHardDrawingAngle(180+this.flippingPage.getHardAngle()),this.leftPage.draw(this.flippingPage.getDrawingDensity())):this.leftPage.simpleDraw(0))}drawRightPage(){null!==this.rightPage&&(0===this.direction&&null!==this.flippingPage&&"hard"===this.flippingPage.getDrawingDensity()?(this.rightPage.getElement().style.zIndex=(this.getSettings().startZIndex+5).toString(10),this.rightPage.setHardDrawingAngle(180+this.flippingPage.getHardAngle()),this.rightPage.draw(this.flippingPage.getDrawingDensity())):this.rightPage.simpleDraw(1))}drawBottomPage(){if(null===this.bottomPage)return;const t=null!=this.flippingPage?this.flippingPage.getDrawingDensity():null;"portrait"===this.orientation&&1===this.direction||(this.bottomPage.getElement().style.zIndex=(this.getSettings().startZIndex+3).toString(10),this.bottomPage.draw(t))}drawFrame(){this.clear(),this.drawLeftPage(),this.drawRightPage(),this.drawBottomPage(),null!=this.flippingPage&&(this.flippingPage.getElement().style.zIndex=(this.getSettings().startZIndex+5).toString(10),this.flippingPage.draw()),null!=this.shadow&&null!==this.flippingPage&&("soft"===this.flippingPage.getDrawingDensity()?(this.drawOuterShadow(),this.drawInnerShadow()):(this.drawHardOuterShadow(),this.drawHardInnerShadow()))}clear(){for(const t of this.app.getPageCollection().getPages())t!==this.leftPage&&t!==this.rightPage&&t!==this.flippingPage&&t!==this.bottomPage&&(t.getElement().style.cssText="display: none"),t.getTemporaryCopy()!==this.flippingPage&&t.hideTemporaryCopy()}update(){super.update(),null!==this.rightPage&&this.rightPage.setOrientation(1),null!==this.leftPage&&this.leftPage.setOrientation(0)}}class x{constructor(){this._default={startPage:0,size:"fixed",width:0,height:0,minWidth:0,maxWidth:0,minHeight:0,maxHeight:0,drawShadow:!0,flippingTime:1e3,usePortrait:!0,startZIndex:0,autoSize:!0,maxShadowOpacity:1,showCover:!1,mobileScrollSupport:!0,swipeDistance:30,clickEventForward:!0,useMouseEvents:!0,showPageCorners:!0,disableFlipByClick:!1}}getSettings(t){const e=this._default;if(Object.assign(e,t),"stretch"!==e.size&&"fixed"!==e.size)throw new Error('Invalid size type. Available only "fixed" and "stretch" value');if(e.width<=0||e.height<=0)throw new Error("Invalid width or height");if(e.flippingTime<=0)throw new Error("Invalid flipping time");return"stretch"===e.size?(e.minWidth<=0&&(e.minWidth=100),e.maxWidth<e.minWidth&&(e.maxWidth=2e3),e.minHeight<=0&&(e.minHeight=100),e.maxHeight<e.minHeight&&(e.maxHeight=2e3)):(e.minWidth=e.width,e.maxWidth=e.width,e.minHeight=e.height,e.maxHeight=e.height),e}}!function(t,e){void 0===e&&(e={});var i=e.insertAt;if(t&&"undefined"!=typeof document){var s=document.head||document.getElementsByTagName("head")[0],n=document.createElement("style");n.type="text/css","top"===i&&s.firstChild?s.insertBefore(n,s.firstChild):s.appendChild(n),n.styleSheet?n.styleSheet.cssText=t:n.appendChild(document.createTextNode(t))}}(".stf__parent {\n  position: relative;\n  display: block;\n  box-sizing: border-box;\n  transform: translateZ(0);\n\n  -ms-touch-action: pan-y;\n  touch-action: pan-y;\n}\n\n.sft__wrapper {\n  position: relative;\n  width: 100%;\n  box-sizing: border-box;\n}\n\n.stf__parent canvas {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 0;\n  top: 0;\n}\n\n.stf__block {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  box-sizing: border-box;\n  perspective: 2000px;\n}\n\n.stf__item {\n  display: none;\n  position: absolute;\n  transform-style: preserve-3d;\n}\n\n.stf__outerShadow {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n\n.stf__innerShadow {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n\n.stf__hardShadow {\n  position: absolute;\n  left: 0;\n  top: 0;\n}\n\n.stf__hardInnerShadow {\n  position: absolute;\n  left: 0;\n  top: 0;\n}");t.PageFlip=class extends class{constructor(){this.events=new Map}on(t,e){return this.events.has(t)?this.events.get(t).push(e):this.events.set(t,[e]),this}off(t){this.events.delete(t)}trigger(t,e,i=null){if(this.events.has(t))for(const s of this.events.get(t))s({data:i,object:e})}}{constructor(t,e){super(),this.isUserTouch=!1,this.isUserMove=!1,this.setting=null,this.pages=null,this.setting=(new x).getSettings(e),this.block=t}destroy(){this.ui.destroy(),this.block.remove()}update(){this.render.update(),this.pages.show()}loadFromImages(t){this.ui=new u(this.block,this,this.setting);const e=this.ui.getCanvas();this.render=new d(this,this.setting,e),this.flipController=new g(this.render,this),this.pages=new n(this,this.render,t),this.pages.load(),this.render.start(),this.pages.show(this.setting.startPage),setTimeout(()=>{this.ui.update(),this.trigger("init",this,{page:this.setting.startPage,mode:this.render.getOrientation()})},1)}loadFromHTML(t){this.ui=new c(this.block,this,this.setting,t),this.render=new w(this,this.setting,this.ui.getDistElement()),this.flipController=new g(this.render,this),this.pages=new o(this,this.render,this.ui.getDistElement(),t),this.pages.load(),this.render.start(),this.pages.show(this.setting.startPage),setTimeout(()=>{this.ui.update(),this.trigger("init",this,{page:this.setting.startPage,mode:this.render.getOrientation()})},1)}updateFromImages(t){const e=this.pages.getCurrentPageIndex();this.pages.destroy(),this.pages=new n(this,this.render,t),this.pages.load(),this.pages.show(e),this.trigger("update",this,{page:e,mode:this.render.getOrientation()})}updateFromHtml(t){const e=this.pages.getCurrentPageIndex();this.pages.destroy(),this.pages=new o(this,this.render,this.ui.getDistElement(),t),this.pages.load(),this.ui.updateItems(t),this.render.reload(),this.pages.show(e),this.trigger("update",this,{page:e,mode:this.render.getOrientation()})}clear(){this.pages.destroy(),this.ui.clear()}turnToPrevPage(){this.pages.showPrev()}turnToNextPage(){this.pages.showNext()}turnToPage(t){this.pages.show(t)}flipNext(t="top"){this.flipController.flipNext(t)}flipPrev(t="top"){this.flipController.flipPrev(t)}flip(t,e="top"){this.flipController.flipToPage(t,e)}updateState(t){this.trigger("changeState",this,t)}updatePageIndex(t){this.trigger("flip",this,t)}updateOrientation(t){this.ui.setOrientationStyle(t),this.update(),this.trigger("changeOrientation",this,t)}getPageCount(){return this.pages.getPageCount()}getCurrentPageIndex(){return this.pages.getCurrentPageIndex()}getPage(t){return this.pages.getPage(t)}getRender(){return this.render}getFlipController(){return this.flipController}getOrientation(){return this.render.getOrientation()}getBoundsRect(){return this.render.getRect()}getSettings(){return this.setting}getUI(){return this.ui}getState(){return this.flipController.getState()}getPageCollection(){return this.pages}startUserTouch(t){this.mousePosition=t,this.isUserTouch=!0,this.isUserMove=!1}userMove(t,e){this.isUserTouch||e||!this.setting.showPageCorners?this.isUserTouch&&h.GetDistanceBetweenTwoPoint(this.mousePosition,t)>5&&(this.isUserMove=!0,this.flipController.fold(t)):this.flipController.showCorner(t)}userStop(t,e=!1){this.isUserTouch&&(this.isUserTouch=!1,e||(this.isUserMove?this.flipController.stopMove():this.flipController.flip(t)))}},Object.defineProperty(t,"__esModule",{value:!0})}));
+</script>
+<script>
+(function(){
+  'use strict';
+  // ---- adaptive performance: lean on slow / data-saver connections ----
+  var lean = false;
+  try {
+    var c = navigator.connection;
+    if (c && (c.saveData || /(^|-)2g$/.test(c.effectiveType || ''))) lean = true;
+  } catch(e){}
+  if (lean) document.body.classList.add('lean');
+
+  // ---- hero parallax (skip when lean or reduced motion) ----
+  var heroFig = document.getElementById('heroPhoto');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (heroFig && !lean && !reduce) {
+    var ticking = false;
+    window.addEventListener('scroll', function(){
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function(){
+        var r = heroFig.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) {
+          var p = Math.max(-14, Math.min(14, (r.top - 120) * -0.03));
+          heroFig.style.transform = 'translateY(' + p.toFixed(1) + 'px)';
+        }
+        ticking = false;
+      });
+    }, {passive:true});
+  }
+
+  // ---- bidirectional scroll reveals ----
+  var rvEls = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !lean) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ en.target.classList.toggle('in', en.isIntersecting); });
+    }, {threshold: 0.12});
+    rvEls.forEach(function(el){ io.observe(el); });
+  } else {
+    rvEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // ---- filmstrip: same photos, captioned, built from the book pages ----
+  var caps = [
+    ['data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20900%201100%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%22g%22%20cx%3D%2250%25%22%20cy%3D%2238%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2326272b%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23131315%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22900%22%20height%3D%221100%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Crect%20x%3D%2236%22%20y%3D%2236%22%20width%3D%22828%22%20height%3D%221028%22%20fill%3D%22none%22%20stroke%3D%22%23c99635%22%20stroke-opacity%3D%22.45%22%20stroke-width%3D%223%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d8ab52%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M450%20150%20L520%20330%20L700%20300%20L560%20440%20L660%20620%20L470%20540%20L360%20720%20L330%20520%20L170%20470%20L330%20390%20Z%22%2F%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%22760%22%20r%3D%2270%22%2F%3E%3Cpath%20d%3D%22M250%20880%20H650%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E','Color dragon sleeve — a rework','Studio Artist'],
+    ['data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20900%201100%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%22g%22%20cx%3D%2250%25%22%20cy%3D%2238%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2326272b%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23131315%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22900%22%20height%3D%221100%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Crect%20x%3D%2236%22%20y%3D%2236%22%20width%3D%22828%22%20height%3D%221028%22%20fill%3D%22none%22%20stroke%3D%22%23c99635%22%20stroke-opacity%3D%22.45%22%20stroke-width%3D%223%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d8ab52%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cellipse%20cx%3D%22450%22%20cy%3D%22520%22%20rx%3D%22300%22%20ry%3D%22185%22%2F%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%22520%22%20r%3D%22115%22%2F%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%22520%22%20r%3D%2248%22%20fill%3D%22%23d8ab52%22%2F%3E%3Cpath%20d%3D%22M450%20240%20V150%20M450%20890%20V800%20M170%20300%20L110%20230%20M730%20300%20L790%20230%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E','Biomech eyeball, four views','Studio Artist'],
+    ['data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20900%201100%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%22g%22%20cx%3D%2250%25%22%20cy%3D%2238%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2326272b%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23131315%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22900%22%20height%3D%221100%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Crect%20x%3D%2236%22%20y%3D%2236%22%20width%3D%22828%22%20height%3D%221028%22%20fill%3D%22none%22%20stroke%3D%22%23c99635%22%20stroke-opacity%3D%22.45%22%20stroke-width%3D%223%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d8ab52%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M300%20900%20C200%20650%20320%20560%20430%20620%20C540%20680%20640%20560%20600%20430%20C565%20320%20420%20300%20360%20390%20C310%20465%20390%20540%20450%20500%22%2F%3E%3Ccircle%20cx%3D%22640%22%20cy%3D%22760%22%20r%3D%2290%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E','Biomech sleeve, in progress','Studio Artists'],
+    ['data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20900%201100%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%22g%22%20cx%3D%2250%25%22%20cy%3D%2238%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2326272b%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23131315%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22900%22%20height%3D%221100%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Crect%20x%3D%2236%22%20y%3D%2236%22%20width%3D%22828%22%20height%3D%221028%22%20fill%3D%22none%22%20stroke%3D%22%23c99635%22%20stroke-opacity%3D%22.45%22%20stroke-width%3D%223%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d8ab52%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cg%3E%3Cellipse%20cx%3D%22450%22%20cy%3D%22360%22%20rx%3D%2285%22%20ry%3D%22150%22%2F%3E%3Cellipse%20cx%3D%22450%22%20cy%3D%22360%22%20rx%3D%2285%22%20ry%3D%22150%22%20transform%3D%22rotate%2860%20450%20520%29%22%2F%3E%3Cellipse%20cx%3D%22450%22%20cy%3D%22360%22%20rx%3D%2285%22%20ry%3D%22150%22%20transform%3D%22rotate%28120%20450%20520%29%22%2F%3E%3Ccircle%20cx%3D%22450%22%20cy%3D%22520%22%20r%3D%2262%22%20fill%3D%22%23d8ab52%22%2F%3E%3Cpath%20d%3D%22M450%20700%20C440%20800%20460%20880%20450%20950%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E','Black & grey floral — sideburn piece','Studio Artist'],
+    ['data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20900%201100%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%22g%22%20cx%3D%2250%25%22%20cy%3D%2238%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2326272b%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23131315%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22900%22%20height%3D%221100%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Crect%20x%3D%2236%22%20y%3D%2236%22%20width%3D%22828%22%20height%3D%221028%22%20fill%3D%22none%22%20stroke%3D%22%23c99635%22%20stroke-opacity%3D%22.45%22%20stroke-width%3D%223%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d8ab52%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M180%20420%20H720%20L770%20300%20H130%20Z%22%2F%3E%3Cpath%20d%3D%22M200%20420%20V900%20H700%20V420%22%2F%3E%3Cpath%20d%3D%22M330%20900%20V620%20H570%20V900%22%2F%3E%3Cpath%20d%3D%22M200%20540%20H700%20M450%20160%20V300%20M380%20210%20H520%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E','Inside the shop','Main Street'],
+    ['data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20900%201100%22%3E%3Cdefs%3E%3CradialGradient%20id%3D%22g%22%20cx%3D%2250%25%22%20cy%3D%2238%25%22%20r%3D%2280%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2326272b%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23131315%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22900%22%20height%3D%221100%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Crect%20x%3D%2236%22%20y%3D%2236%22%20width%3D%22828%22%20height%3D%221028%22%20fill%3D%22none%22%20stroke%3D%22%23c99635%22%20stroke-opacity%3D%22.45%22%20stroke-width%3D%223%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d8ab52%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M330%20260%20L180%20340%20L250%20500%20L330%20460%20V920%20H570%20V460%20L650%20500%20L720%20340%20L570%20260%20C540%20320%20360%20320%20330%20260%20Z%22%2F%3E%3Cpath%20d%3D%22M390%20560%20L450%20700%20L510%20560%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E','Shop gear on the wall','Tees & hoodies in store']
+  ];
+  var track = document.getElementById('filmTrack');
+  caps.forEach(function(c){
+    var fig = document.createElement('figure'); fig.className = 'film-item';
+    var d = document.createElement('div'); d.className = 'fimg';
+    var im = document.createElement('img'); im.src = c[0]; im.alt = c[1] + ' — ' + c[2]; im.loading = 'lazy'; im.draggable = false;
+    d.appendChild(im);
+    var fc = document.createElement('figcaption'); fc.textContent = c[1];
+    var sp = document.createElement('span'); sp.textContent = c[2]; fc.appendChild(sp);
+    fig.appendChild(d); fig.appendChild(fc); track.appendChild(fig);
+  });
+
+  // ---- the Flash Book ----
+  var small = window.innerWidth < 940;
+  var book = new St.PageFlip(document.getElementById('book'), {
+    width: small ? 340 : 460,
+    height: small ? 500 : 620,
+    size: 'fixed',
+    minWidth: 300, maxWidth: 900, minHeight: 420, maxHeight: 1100,
+    showCover: true,
+    mobileScrollSupport: true,
+    drawShadow: true,
+    flippingTime: 900,
+    usePortrait: small,
+    autoSize: true,
+    maxShadowOpacity: 0.55,
+    showPageCorners: true,
+    disableFlipByClick: false
+  });
+  book.loadFromHTML(document.querySelectorAll('#book .page'));
+  var count = document.getElementById('bkCount');
+  var total = book.getPageCount();
+  function upd(){
+    var i = book.getCurrentPageIndex();
+    count.textContent = i <= 0 ? 'Cover' : (i >= total - 1 ? 'Back cover' : 'Page ' + i + ' of ' + (total - 2));
+  }
+  book.on('flip', upd);
+  book.on('init', upd);
+  document.getElementById('bkPrev').addEventListener('click', function(){ book.turnToPrevPage(); });
+  document.getElementById('bkNext').addEventListener('click', function(){ book.turnToNextPage(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight') book.turnToNextPage();
+    if (e.key === 'ArrowLeft') book.turnToPrevPage();
+  });
+
+  // ---- booking inquiry form: validates in-page, transmits nothing ----
+  var form = document.getElementById('inqForm');
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var ok = true;
+    ['fName','fPhone','fIdea','fPlace','fSize'].forEach(function(id){
+      var inp = document.getElementById(id);
+      var field = inp.closest('.field');
+      var bad = !inp.value.trim();
+      if (id === 'fPhone' && inp.value.replace(/\D/g,'').length < 7) bad = true;
+      field.classList.toggle('bad', bad);
+      if (bad) ok = false;
+    });
+    if (!ok) return;
+    var name = document.getElementById('fName').value.trim().split(' ')[0];
+    var box = document.getElementById('formOk');
+    box.innerHTML = '<b>Thanks, ' + name.replace(/</g,'&lt;') + '.</b> Your inquiry is written up — idea, placement, and size are exactly what the shop needs. To land it today, call <b>(717) 555-0117</b>; consultations are free.';
+    box.classList.add('show');
+    box.scrollIntoView({behavior: lean || reduce ? 'auto' : 'smooth', block: 'center'});
+  });
+  form.addEventListener('input', function(ev){
+    var f = ev.target.closest('.field'); if (f) f.classList.remove('bad');
+  });
+})();
+</script>
+
+</body>
+</html>
